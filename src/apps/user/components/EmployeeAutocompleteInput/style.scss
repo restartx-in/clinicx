@@ -1,0 +1,23 @@
+.employee_select_autocomplete_input{
+   &-option_content {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+    align-items: center;
+    padding-right: 10px;
+    &-edit_button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-muted);
+      border-radius: 4px;
+      :hover {
+        color: var(--color-black);
+      }
+    }
+  }
+}

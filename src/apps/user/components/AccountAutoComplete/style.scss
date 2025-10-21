@@ -1,0 +1,30 @@
+.autocomplete {
+  position: relative;
+  width: 100%; 
+
+  &__input {
+    max-width:90%;
+    padding: 8px;
+    border: 1px solid var(--color-neutral-300);
+    border-radius: 6px;
+    font-size: 1rem;
+    height: 15px;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    background-color: var(--app-bg);
+
+    &:focus {
+      outline: none;
+      border-color: var(--color-primary-500); 
+      box-shadow: 0 0 0 3px rgba(var(--color-primary-500-rgb), 0.2);  
+    }
+
+    &::placeholder {
+      color: var(--color-neutral-400); 
+    }
+
+    &:disabled {
+      background-color: var(--color-neutral-100);
+      cursor: not-allowed;
+    }
+  }
+}

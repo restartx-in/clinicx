@@ -1,0 +1,163 @@
+// --- THEME & COLOR PALETTE ---
+:root {
+  --background-color: #f8f9fa;
+  --card-background-color: #ffffff;
+  --text-primary-color: #212529;
+  --text-secondary-color: #868e96;
+  --border-color: #e9ecef;
+  
+  --color-members: #228be6;
+  --color-revenue: #2f9e44;
+  --color-expenses: #e03131;
+  --color-profit: #f08c00;
+  --color-checkins: #7048e8;
+
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+}
+
+// --- MAIN CONTENT AREA ---
+.dashboard-content-area {
+  padding-top: 1.5rem;
+}
+
+// --- SUMMARY CARDS ---
+.dashboard__stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.summary-card {
+  background-color: var(--card-background-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  &--non-clickable {
+    cursor: default;
+    &:hover {
+      transform: none;
+      box-shadow: none;
+    }
+  }
+
+  &__icon-wrapper {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+
+    &--members { background-color: var(--color-members); }
+    &--revenue { background-color: var(--color-revenue); }
+    &--expenses { background-color: var(--color-expenses); }
+    &--profit { background-color: var(--color-profit); }
+    &--checkins { background-color: var(--color-checkins); }
+  }
+
+  &__icon {
+    font-size: 1.75rem;
+  }
+  
+  &__info {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  &__label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-secondary-color);
+    margin-bottom: 0.25rem;
+  }
+
+  &__value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text-primary-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__sub-value {
+    font-size: 0.85rem;
+    color: var(--text-secondary-color);
+    margin-top: 0.25rem;
+  }
+}
+
+// --- CHARTS ---
+.dashboard__charts-grid {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.5rem;
+
+  @media (max-width: 1200px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.chart-card {
+  background-color: var(--card-background-color);
+  padding: 1.5rem;
+  border-radius: var(--border-radius-lg);
+  border: 1px solid var(--border-color);
+
+  &__title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary-color);
+    margin: 0 0 1.5rem 0;
+  }
+}
+
+.chart-no-data {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    color: var(--text-secondary-color);
+    font-style: italic;
+}
+
+// Recharts Custom Tooltip
+.custom-tooltip {
+    background-color: rgba(33, 37, 41, 0.9);
+    border: 1px solid transparent;
+    border-radius: var(--border-radius-md);
+    padding: 0.75rem;
+    color: #fff;
+    box-shadow: var(--shadow-md);
+
+    &__label {
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: #f8f9fa;
+    }
+
+    p {
+        margin: 0;
+        padding: 0.1rem 0;
+        font-size: 0.9rem;
+    }
+}

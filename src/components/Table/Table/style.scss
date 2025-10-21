@@ -1,0 +1,14 @@
+.common_table_wrapper {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-6);
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: var(--contend);
+    // font-size: var(--fs500);
+  }
+}

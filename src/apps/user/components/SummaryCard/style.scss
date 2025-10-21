@@ -1,0 +1,155 @@
+// Note: Assumes root variables like --border-radius-lg and --shadow-base are available globally.
+
+.summary-card {
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-base);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition:
+    transform 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out,
+    filter 0.2s ease;
+  color: #ffffff;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    filter: brightness(1.05);
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 12px;
+  }
+
+  &__icon-wrapper {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+
+  &__icon {
+    font-size: 22px;
+    color: #ffffff;
+  }
+
+  &__label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    text-transform: uppercase;
+  }
+
+  &__value {
+    margin-left: auto;
+    font-size: 1.65rem;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+
+  &__sub-stats {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 16px;
+  }
+
+  &__stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+
+    &--clickable {
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+    }
+
+    &--align-end {
+      align-items: flex-end;
+    }
+    &--align-center {
+      align-items: center;
+    }
+  }
+
+  &__stat-item-label {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  &__stat-item-value {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  // Color Variants
+  &--vehicles {
+    background-color: #3498db;
+    // Special override for the vehicle card with 3 items
+    .summary-card__sub-stats {
+      justify-content: space-between;
+    }
+  }
+  &--expenses {
+    background-color: #e74c3c;
+  }
+  &--sales {
+    background-color: #2ecc71;
+  }
+  &--purchases {
+    background-color: #f39c12;
+  }
+  &--finance {
+    background-color: #9b59b6;
+  }
+  &--partnership {
+    background-color: #8fb30ebd;
+  }
+}
+
+
+// Media queries for responsiveness
+@media (max-width: 768px) {
+  .summary-card {
+    padding: 10px;
+
+    &__header {
+      gap: 8px;
+    }
+
+    &__value {
+      font-size: 1.3rem;
+    }
+
+    &__label {
+      font-size: 0.7rem;
+    }
+
+    &__sub-stats {
+      margin-top: 8px;
+    }
+
+    &__stat-item-value {
+      font-size: 0.85rem;
+    }
+    &__stat-item-label {
+      font-size: 0.7rem;
+    }
+  }
+}

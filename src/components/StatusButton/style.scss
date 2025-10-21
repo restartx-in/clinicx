@@ -1,0 +1,71 @@
+
+.status_button {
+  // --- Base styles for the block ---
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin: 0;
+  padding: 0 12px;
+  min-width: 48px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+
+  // --- Size Modifiers ---
+  &--small {
+    height: 30px;
+  }
+  &--medium {
+    height: 33px;
+  }
+  &--large {
+    height: 48px;
+    padding: 0 20px;
+  }
+
+  // --- Variant Styles ---
+  &--all {
+    background-color: var(--colour-all-bg);
+    color: var(--colour-all-text);
+  }
+  &--available {
+    background-color: var(--colour-available-bg);
+    color: var(--colour-available-text);
+  }
+  &--maintenance {
+    background-color: var(--colour-maintenance-bg);
+    color: var(--colour-maintenance-text);
+  }
+  &--sold {
+    background-color: var(--colour-sold-bg);
+    color: var(--colour-sold-text);
+  }
+
+  // --- Selected State Override ---
+  // This rule appears *after* the variant styles, so it will override them when active.
+  &--selected:not(:disabled) {
+    background-color: var(--colour-selected-bg);
+    color: var(--colour-selected-text);
+  }
+
+  // --- Disabled State Override ---
+  // This is the final override and has the highest priority.
+  &:disabled {
+    cursor: not-allowed;
+    background-color: var(--colour-disabled-bg);
+    color: var(--colour-disabled-text);
+    box-shadow: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .status_button {
+    padding: 0 6px;
+  }
+}

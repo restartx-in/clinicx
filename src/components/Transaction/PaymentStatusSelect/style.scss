@@ -1,0 +1,109 @@
+.PaymentStatusSelect_form_group {
+  position: relative;
+  width: 100%;
+
+  &.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.PaymentStatusSelect_label {
+  display: block;
+  color: var(--app-bg);
+  margin-bottom: 12px;
+  padding-left: 4px;
+}
+
+.PaymentStatusSelect_container {
+  position: relative;
+  border-radius: 8px;
+  background-color: var(--app-bg);
+  cursor: pointer;
+}
+
+.PaymentStatusSelect_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  border: 1px solid var(--color-border-base);
+  border-radius: 8px;
+  background-color: var(--app-bg);
+  color: #5b5959;
+  cursor: pointer;
+  user-select: none;
+
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+
+  &:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    border-color: var(--color-brand-base);
+  }
+
+  &:disabled {
+    background-color: var(--skeleton-light);
+    color: var(--color-disabled-text);
+  }
+}
+.PaymentStatusSelect_list_item.active {
+  background-color:var(--app-bg);
+  color:var(--color-text-primary); // Or your preferred highlight color
+}
+
+.PaymentStatusSelect_chevron {
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(-45deg);
+  transition: transform 0.3s ease;
+
+  .open & {
+    transform: rotate(135deg);
+  }
+}
+
+.PaymentStatusSelect_list {
+  position: absolute;
+  width: 100%;
+  margin-top: 4px;
+  list-style: none;
+  padding: 8px;
+  max-height: 250px;
+  overflow-y: auto;
+  border: 1px solid var(--color-border-base);
+  border-radius: 8px;
+  background-color: var(--contend);
+  z-index: 1000;
+}
+
+.PaymentStatusSelect_list_item {
+  padding: 14px 12px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border-radius: 10px;
+
+  &:hover {
+    background-color:var(--app-bg);
+  }
+}
+
+@media (max-width: 768px) {
+  .PaymentStatusSelect_label {
+    margin-bottom: 8px;
+  }
+
+  .PaymentStatusSelect_header {
+    padding: 8px;
+  }
+
+  .PaymentStatusSelect_list_item {
+    padding: 10px 8px;
+    
+  }
+}

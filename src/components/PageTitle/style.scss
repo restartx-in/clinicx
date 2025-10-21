@@ -1,0 +1,13 @@
+.page_title {
+  // margin-bottom: 10px;
+
+  &-text {
+    margin: 0;
+  }
+
+  &-subtitle {
+    margin: 2px 0 0;
+    color: var(--text-light, #6b7280);
+  }
+}
+  

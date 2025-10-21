@@ -1,0 +1,126 @@
+.custom_select_wrapperr {
+  position: relative; // make this the reference
+  width: 100%;
+  &.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+.custom_select_list_item.active {
+  background-color: var(--app-bg); 
+  color: #333;
+}
+.custom_select_label {
+  display: block;
+  font-size: 10px; // Already mobile-friendly
+  color: var(--app-bg);
+  margin-bottom: 12px;
+  padding-left: 4px;
+}
+
+.custom_select_headerr {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid var(--color-border-base);
+  border-radius: 8px;
+  background-color: var(--app-bg);
+  color: #5b5959;
+  cursor: pointer;
+  user-select: none;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out; // Added transition for focus
+
+  .open & {
+    border-bottom: 1px solid;
+  }
+
+  &:focus {
+    outline: none; // Remove the default browser outline
+    box-shadow: 0 0 0 1px var(--color-primary-300); // Optional: Add a soft glow for better visibility
+  }
+}
+
+.custom_select_header_title {
+  font-size: 14px;
+}
+
+.custom_select_chevronn {
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  border: solid #5b5959;
+  border-width: 0 2px 2px 0;
+  padding: 3px;
+  transform: rotate(45deg);
+  transition: transform 0.3s ease;
+
+  .open & {
+    transform: rotate(-130deg);
+  }
+}
+
+.custom_select_listt {
+  position: relative;
+  // width: 100%;
+  margin-top: 4px;
+  list-style: none;
+  padding: 8px;
+  max-height: 250px;
+  overflow-y: auto;
+  border: 1px solid var(--color-border-base);
+  border-radius: 8px;
+  background-color: var(--contend);
+  z-index: 1000;
+  margin-bottom: 0px;
+}
+
+.custom_select_list_itemm {
+  padding: 14px 12px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border-radius: 8px;
+
+  &:hover {
+    background-color: #f4f5f6;
+  }
+
+  &.selected {
+    background-color: var(--app-bg);
+    font-weight: 500;
+    box-shadow: #2a2828;
+  }
+}
+
+@media (max-width: 768px) {
+  .custom_select_wrapperr {
+    width: 100%; 
+  }
+
+  .custom_select_label {
+    font-size: 12px; 
+    margin-bottom: 8px;
+  }
+
+  .custom_select_headerrr {
+    padding: 8px;
+  }
+
+  .custom_select_headerr_title {
+    font-size: 12px;
+  }
+
+  .custom_select_list_itemm {
+    padding: 10px 8px;
+    font-size: 14px;
+
+    &:hover {
+      background-color: var(--app-bg);
+    }
+
+    &.selected {
+      background-color: var(--app-bg);
+      font-weight: 500;
+    }
+  }
+}
