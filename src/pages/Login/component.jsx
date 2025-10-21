@@ -29,12 +29,12 @@ const Login = () => {
         <div className="login-form-container">
           <div className="form-header">
             <FaClinicMedical  size={24} color="var(--color-accent)" />
-            <h1 className="fs32 fw800">Clinic - X</h1>
+            <h1 className="fs32 fw800">Clinic-X</h1>
           </div>
 
-          <h2 className="fs26 fw600">For your Health</h2>
+          <h2 className="fs26 fw600">Your Health, Our Priority.</h2>
           <p className="fs14 color-text-subtle mb24">
-            Sign in to track your Health Report.
+            Securely access your medical records and appointments.
           </p>
 
           <form onSubmit={handleSubmit} className="login-form">
@@ -65,14 +65,14 @@ const Login = () => {
               disabled={isLoading}
               className="login-button fs16 fw600"
             >
-              {isLoading ? "Signing In..." : "Sign In"}
+              {isLoading ? "Signing In..." : "Secure Sign In"}
             </button>
           </form>
         </div>
 
         <div className="login-image-panel"></div>
       </div>
-    </div>
+    </div>  
   );
 };
 
