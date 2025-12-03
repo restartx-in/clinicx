@@ -22,11 +22,11 @@ export const Portfolio = () => {
   const categories = ['all', 'fashion', 'commercial', 'runway', 'fitness'];
 
   return (
-    <div className="pt-32 pb-24 min-h-screen bg-white">
+    <div className="pt-32 pb-24 min-h-screen bg-neutral-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-serif mb-6">Our Portfolio</h1>
-          <p className="text-gray-500 max-w-2xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-serif mb-6 text-white">Our Portfolio</h1>
+          <p className="text-gray-400 max-w-2xl mx-auto">
             Discover the faces that define the next generation of style.
           </p>
         </div>
@@ -39,8 +39,8 @@ export const Portfolio = () => {
               onClick={() => setFilter(cat)}
               className={`text-sm uppercase tracking-widest px-2 py-1 transition-all duration-300 ${
                 filter === cat 
-                  ? 'text-black font-bold border-b-2 border-black' 
-                  : 'text-gray-400 hover:text-gray-800'
+                  ? 'text-gold font-bold border-b-2 border-gold' 
+                  : 'text-gray-500 hover:text-white'
               }`}
             >
               {cat}
@@ -52,17 +52,17 @@ export const Portfolio = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {filteredModels.map((model) => (
             <div key={model.id} className="group relative">
-              <div className="aspect-[3/4] overflow-hidden bg-gray-100">
+              <div className="aspect-[3/4] overflow-hidden bg-neutral-900 border border-white/5">
                 <img 
                   src={model.image} 
                   alt={model.name}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 filter grayscale group-hover:grayscale-0"
                   loading="lazy"
                 />
               </div>
               <div className="mt-4 flex justify-between items-baseline">
                 <div>
-                  <h3 className="text-lg font-serif font-medium">{model.name}</h3>
+                  <h3 className="text-lg font-serif font-medium text-white group-hover:text-gold transition-colors">{model.name}</h3>
                   <p className="text-xs text-gray-500 uppercase tracking-wide">{model.category}</p>
                 </div>
                 <div className="text-right opacity-0 group-hover:opacity-100 transition-opacity duration-300">
