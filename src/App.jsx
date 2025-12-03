@@ -1,22 +1,43 @@
-import { BrowserRouter as Router } from 'react-router-dom';
-import { ToastProvider } from './context/ToastContext';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import AppLayout from './layouts/AppLayout'; 
+import React from 'react';
+import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { Navbar } from '@/components/Navbar';
+import { Footer } from '@/components/Footer';
+import { AIChat } from '@/components/AIChat';
+import { Home } from '@/pages/Home';
+import { Portfolio } from '@/pages/Portfolio';
+import { About } from '@/pages/About';
+import { Contact } from '@/pages/Contact';
+import { PageRoute } from '@/constants/types';
 
-import './App.css';
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  
+  return null;
+};
 
-const queryClient = new QueryClient();
-
-function App() {
+const App = () => {
   return (
-    <QueryClientProvider client={queryClient}>
-      <Router>
-        <ToastProvider>
-          <AppLayout />
-        </ToastProvider>
-      </Router>
-    </QueryClientProvider>
+    <Router>
+      <ScrollToTop />
+      <div className="flex flex-col min-h-screen">
+        <Navbar />
+        <main className="flex-grow">
+          <Routes>
+            <Route path={PageRoute.HOME} element={<Home />} />
+            <Route path={PageRoute.PORTFOLIO} element={<Portfolio />} />
+            <Route path={PageRoute.ABOUT} element={<About />} />
+            <Route path={PageRoute.CONTACT} element={<Contact />} />
+          </Routes>
+        </main>
+        <Footer />
+        <AIChat />
+      </div>
+    </Router>
   );
-}
+};
 
-export default App;
+export default App; 

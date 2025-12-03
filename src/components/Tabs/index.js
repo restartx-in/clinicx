@@ -1,5 +1,0 @@
-export { Tabs } from './component'
-export { Tab } from './component'
-export { TabList } from './component'
-export { TabPanel } from './component'
-export { TabPanels } from './component'

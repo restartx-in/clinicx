@@ -1,2 +1,0 @@
-import AccountAutoCompleteWithAddOptionWithBalance from './component'
-export default AccountAutoCompleteWithAddOptionWithBalance
