@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { MessageSquare, X, Send, Sparkles } from 'lucide-react';
-import { sendMessageToGemini } from '../services/geminiService';
+import { sendMessageToGemini } from '@/services/geminiService';
 
 export const AIChat = () => {
   const [isOpen, setIsOpen] = useState(false);

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import { PageRoute } from '../types';
+import { PageRoute } from '@/constants/types';
 
 // Mock data for featured models
 const featuredModels = [
@@ -18,7 +18,7 @@ export const Home = () => {
         {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat grayscale"
-          style={{ backgroundImage: 'url("https://picsum.photos/id/331/1920/1080")' }}
+          style={{ backgroundImage: 'url("https://assets.teenvogue.com/photos/68bffe53e5205d12cddc2b04/16:9/w_2560%2Cc_limit/GettyImages-1208666560.jpg")' }}
         >
           <div className="absolute inset-0 bg-black/60"></div>
         </div>

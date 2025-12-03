@@ -8,6 +8,8 @@ import { Portfolio } from '@/pages/Portfolio';
 import { About } from '@/pages/About';
 import { Contact } from '@/pages/Contact';
 import { PageRoute } from '@/constants/types';
+import { Programs } from '@/pages/Programs';
+import { Workshop } from '@/pages/Workshop';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -31,6 +33,8 @@ const App = () => {
             <Route path={PageRoute.PORTFOLIO} element={<Portfolio />} />
             <Route path={PageRoute.ABOUT} element={<About />} />
             <Route path={PageRoute.CONTACT} element={<Contact />} />
+            <Route path={PageRoute.PROGRAMS} element={<Programs />} />
+            <Route path={PageRoute.WORKSHOP} element={<Workshop />} />
           </Routes>
         </main>
         <Footer />

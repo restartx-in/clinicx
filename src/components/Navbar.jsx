@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Diamond } from 'lucide-react';
-import { PageRoute } from '../types';
+import { PageRoute } from '@/constants/types';
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,10 +13,14 @@ export const Navbar = () => {
     { name: 'Home', path: PageRoute.HOME },
     { name: 'Portfolio', path: PageRoute.PORTFOLIO },
     { name: 'About', path: PageRoute.ABOUT },
+    { name: 'Academy', path: PageRoute.PROGRAMS },
     { name: 'Contact', path: PageRoute.CONTACT },
   ];
 
-  const isActive = (path) => location.pathname === path;
+  const isActive = (path) => {
+    if (path === PageRoute.HOME) return location.pathname === path;
+    return location.pathname.startsWith(path);
+  };
 
   return (
     <nav className="fixed w-full bg-black/80 backdrop-blur-md z-50 border-b border-white/10 transition-all duration-300">
