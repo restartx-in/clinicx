@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-// Extended mock data
+// Extended mock data (Re-purposed as "Program Modules" or "Success Stories" contextually)
 const portfolioData = [
   { id: '1', name: 'Elena V', category: 'fashion', image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bW9kZWwlMjBwb3J0cmFpdHxlbnwwfHwwfHx8MA==', height: '5\'10"', shoe: '8' },
   { id: '2', name: 'Marcus T', category: 'runway', image: 'https://picsum.photos/id/177/600/800', height: '6\'2"', shoe: '11' },
@@ -22,25 +22,33 @@ export const Portfolio = () => {
   const categories = ['all', 'fashion', 'commercial', 'runway', 'fitness'];
 
   return (
-    <div className="pt-32 pb-24 min-h-screen bg-neutral-950">
+    <div className="pt-32 pb-24 min-h-screen bg-[#1a1a1a]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-serif mb-6 text-white">Our Portfolio</h1>
-          <p className="text-gray-400 max-w-2xl mx-auto">
-            Discover the faces that define the next generation of style.
+        
+        {/* Header Section */}
+        <div className="text-center mb-20 animate-in fade-in slide-in-from-bottom-5 duration-1000">
+          <span className="text-[#c4a484] text-xs font-bold uppercase tracking-[0.3em] mb-4 block">
+            Our Curriculum
+          </span>
+          <h1 className="text-5xl md:text-7xl font-thin mb-8 text-white uppercase tracking-wider">
+            Program Overview
+          </h1>
+          <p className="text-gray-400 max-w-2xl mx-auto text-sm leading-relaxed tracking-wide">
+            Explore the diverse disciplines covered in our intensive training modules. 
+            From high-fashion editorial to commercial lifestyle, we shape versatile talent.
           </p>
         </div>
 
         {/* Filter */}
-        <div className="flex flex-wrap justify-center gap-4 md:gap-8 mb-12">
+        <div className="flex flex-wrap justify-center gap-6 mb-16 animate-in fade-in slide-in-from-bottom-5 duration-1000 delay-100">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setFilter(cat)}
-              className={`text-sm uppercase tracking-widest px-2 py-1 transition-all duration-300 ${
+              className={`text-xs uppercase tracking-[0.2em] px-4 py-2 transition-all duration-300 border border-transparent ${
                 filter === cat 
-                  ? 'text-gold font-bold border-b-2 border-gold' 
-                  : 'text-gray-500 hover:text-white'
+                  ? 'text-[#c4a484] border-[#c4a484]' 
+                  : 'text-gray-500 hover:text-white hover:border-gray-700'
               }`}
             >
               {cat}
@@ -49,26 +57,27 @@ export const Portfolio = () => {
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-200">
           {filteredModels.map((model) => (
-            <div key={model.id} className="group relative">
-              <div className="aspect-[3/4] overflow-hidden bg-neutral-900 border border-white/5">
+            <div key={model.id} className="group relative bg-[#121212]">
+              <div className="aspect-[3/4] overflow-hidden">
                 <img 
                   src={model.image} 
                   alt={model.name}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105  group-hover:grayscale-0"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100  group-hover:grayscale-0"
                   loading="lazy"
                 />
               </div>
-              <div className="mt-4 flex justify-between items-baseline">
-                <div>
-                  <h3 className="text-lg font-serif font-medium text-white group-hover:text-gold transition-colors">{model.name}</h3>
-                  <p className="text-xs text-gray-500 uppercase tracking-wide">{model.category}</p>
-                </div>
-                <div className="text-right opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <p className="text-xs text-gray-400">Height: {model.height}</p>
-                  <p className="text-xs text-gray-400">Shoe: {model.shoe}</p>
-                </div>
+              
+              {/* Overlay Content */}
+              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                 <h3 className="text-xl font-serif text-[#c4a484] italic mb-1 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">
+                   {model.name}
+                 </h3>
+                 <div className="w-8 h-px bg-white/50 mb-2 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                 <p className="text-[10px] text-white uppercase tracking-widest transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-100">
+                   {model.category} Specialization
+                 </p>
               </div>
             </div>
           ))}

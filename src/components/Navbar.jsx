@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Diamond } from 'lucide-react';
@@ -9,12 +10,12 @@ export const Navbar = () => {
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
+  // Updated navigation links based on your request
   const navLinks = [
-    { name: 'Home', path: PageRoute.HOME },
-    { name: 'Portfolio', path: PageRoute.PORTFOLIO },
-    { name: 'About', path: PageRoute.ABOUT },
-    { name: 'Academy', path: PageRoute.PROGRAMS },
-    { name: 'Contact', path: PageRoute.CONTACT },
+    { name: 'Program Overview', path: PageRoute.PORTFOLIO },
+    { name: 'Day Online Workshop', path: PageRoute.WORKSHOP },
+    { name: 'Apply / Register', path: PageRoute.CONTACT },
+    { name: 'Contact', path: PageRoute.ABOUT }, // Mapped Contact to About/Info or we can keep it pointing to Footer contact info
   ];
 
   const isActive = (path) => {
@@ -23,24 +24,26 @@ export const Navbar = () => {
   };
 
   return (
-    <nav className="fixed w-full bg-black/80 backdrop-blur-md z-50 border-b border-white/10 transition-all duration-300">
+    <nav className="fixed w-full bg-[#1a1a1a]/95 backdrop-blur-md z-50 border-b border-white/5 transition-all duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
-          <Link to={PageRoute.HOME} className="flex items-center space-x-2 group">
-            <Diamond className="h-6 w-6 text-gold group-hover:text-white transition-colors duration-300" />
-            <span className="text-2xl font-serif font-bold tracking-widest text-white group-hover:text-gold transition-colors duration-300">LUMINA</span>
+        <div className="flex justify-between items-center h-24">
+          <Link to={PageRoute.HOME} className="flex items-center space-x-3 group">
+            <Diamond className="h-6 w-6 text-[#c4a484] group-hover:text-white transition-colors duration-300" />
+            <span className="text-xl md:text-2xl font-thin tracking-[0.2em] text-white group-hover:text-[#c4a484] transition-colors duration-300">
+              LUMINA
+            </span>
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex space-x-8 lg:space-x-12">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.path}
-                className={`text-sm uppercase tracking-widest transition-colors duration-200 ${
+                className={`text-[10px] lg:text-xs font-bold uppercase tracking-[0.2em] transition-all duration-300 ${
                   isActive(link.path)
-                    ? 'text-gold font-semibold border-b-2 border-gold pb-1'
-                    : 'text-gray-400 hover:text-white'
+                    ? 'text-[#c4a484] border-b border-[#c4a484] pb-2'
+                    : 'text-gray-400 hover:text-white hover:tracking-[0.25em]'
                 }`}
               >
                 {link.name}
@@ -52,7 +55,7 @@ export const Navbar = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={toggleMenu}
-              className="text-white hover:text-gold focus:outline-none"
+              className="text-white hover:text-[#c4a484] focus:outline-none transition-transform active:scale-95"
               aria-label="Toggle menu"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -63,15 +66,15 @@ export const Navbar = () => {
 
       {/* Mobile Menu Dropdown */}
       {isOpen && (
-        <div className="md:hidden bg-neutral-900 border-b border-white/10 absolute w-full">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col items-center">
+        <div className="md:hidden bg-[#1a1a1a] border-b border-white/10 absolute w-full animate-in slide-in-from-top-5">
+          <div className="px-4 pt-4 pb-8 space-y-2 flex flex-col items-center">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.path}
                 onClick={() => setIsOpen(false)}
-                className={`block px-3 py-4 text-base font-medium uppercase tracking-wider w-full text-center ${
-                  isActive(link.path) ? 'text-gold bg-white/5' : 'text-gray-400 hover:text-white hover:bg-white/5'
+                className={`block px-3 py-4 text-xs font-bold uppercase tracking-[0.2em] w-full text-center border-b border-white/5 ${
+                  isActive(link.path) ? 'text-[#c4a484]' : 'text-gray-400 hover:text-white'
                 }`}
               >
                 {link.name}

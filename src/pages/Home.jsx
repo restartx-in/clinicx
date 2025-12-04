@@ -1,9 +1,10 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
 import { PageRoute } from '@/constants/types';
+import { ArrowRight } from 'lucide-react';
 
-// Mock data for featured models
+// Mock data for featured models (kept for the bottom section continuity)
 const featuredModels = [
   { id: '1', name: 'Elena V', category: 'fashion', image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bW9kZWwlMjBwb3J0cmFpdHxlbnwwfHwwfHx8MA==', height: '5\'10"', shoe: '8' },
   { id: '2', name: 'Marcus T', category: 'runway', image: 'https://picsum.photos/id/177/600/800', height: '6\'2"', shoe: '11' },
@@ -12,83 +13,76 @@ const featuredModels = [
 
 export const Home = () => {
   return (
-    <div className="w-full">
+    <div className="w-full bg-[#1a1a1a] min-h-screen">
+      
       {/* Hero Section */}
-      <section className="relative h-screen w-full overflow-hidden">
-        {/* Background Image */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat grayscale"
-          style={{ backgroundImage: 'url("https://assets.teenvogue.com/photos/68bffe53e5205d12cddc2b04/16:9/w_2560%2Cc_limit/GettyImages-1208666560.jpg")' }}
+      <section className="relative w-full pt-32 pb-20 px-4 flex flex-col items-center justify-center text-center z-10">
+       <h1 className="font-poppins font-[100] text-5xl md:text-7xl lg:text-8xl text-white tracking-[0.08em] leading-tight uppercase mb-4">
+          Model Portfolio
+        </h1>
+        <p className="font-poppins font-[600] text-base md:text-lg lg:text-xl text-white/80 tracking-[0.25em] uppercase mb-12">
+          Showcasing{' '}
+          <span className="font-poppins font-[300] text-sm md:text-base text-white/80 tracking-[0.25em] uppercase mb-12">
+           Talent and Training
+        </span><br />
+        for Aspiring Models
+        </p>
+        
+        
+        {/* Center Hero Image */}
+        <div className="relative w-full max-w-2xl aspect-video md:aspect-[16/9] mb-12 shadow-2xl animate-in zoom-in duration-1000 delay-200">
+          <img 
+            src="https://royalrunway.my.canva.site/_assets/media/972518e913ca8bc28f2a573344a4a5b6.jpg" 
+            alt="Runway Model Red Dress" 
+            className="w-full h-full object-cover object-top"
+          />
+          {/* Overlay gradient to blend bottom slightly if needed, purely aesthetic */}
+          <div className="absolute inset-0 ring-1 ring-white/10"></div>
+        </div>
+
+        <Link 
+          to={PageRoute.PORTFOLIO}
+          className="group relative inline-flex items-center gap-2 px-8 py-3 bg-transparent border border-gray-600 hover:border-white text-white text-xs font-bold uppercase tracking-widest transition-all duration-300 animate-in fade-in slide-in-from-bottom-5 duration-1000 delay-300"
         >
-          <div className="absolute inset-0 bg-black/60"></div>
-        </div>
-
-        {/* Hero Content */}
-        <div className="relative h-full flex flex-col justify-center items-center text-center text-white px-4">
-          <h1 className="text-5xl md:text-7xl lg:text-9xl font-serif font-bold tracking-tighter mb-6 animate-in fade-in slide-in-from-bottom-10 duration-1000 text-gold">
-            LUMINA
-          </h1>
-          <p className="text-lg md:text-xl font-light tracking-widest uppercase mb-12 max-w-2xl mx-auto animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-150 text-gray-300">
-            Redefining Beauty & Style for the Modern Era
-          </p>
-          <Link 
-            to={PageRoute.CONTACT}
-            className="group relative px-10 py-4 bg-transparent border border-gold overflow-hidden animate-in fade-in zoom-in duration-1000 delay-300"
-          >
-            <span className="absolute inset-0 w-full h-full bg-gold transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out"></span>
-            <span className="relative flex items-center space-x-2 text-gold group-hover:text-black transition-colors duration-300">
-              <span className="uppercase tracking-widest text-sm font-bold">Book a Model</span>
-              <ArrowRight className="h-4 w-4" />
-            </span>
-          </Link>
-        </div>
+          <span>Get Started</span>
+          <ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
+        </Link>
       </section>
 
-      {/* Intro Section */}
-      <section className="py-24 bg-neutral-950">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-serif mb-8 text-white">Who We Are</h2>
-          <p className="text-gray-400 text-lg leading-relaxed mb-12">
-            Lumina is more than an agency; we are curators of talent. 
-            We scout, develop, and manage a diverse spectrum of models who grace the covers of magazines, 
-            walk the most prestigious runways, and bring commercial campaigns to life.
-          </p>
-          <div className="h-px w-24 bg-gold mx-auto"></div>
-        </div>
-      </section>
-
-      {/* Sample Portfolio */}
-      <section className="py-24 bg-neutral-900 border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-end mb-12">
-            <h2 className="text-3xl font-serif text-white">Featured Talent</h2>
-            <Link to={PageRoute.PORTFOLIO} className="text-sm uppercase tracking-widest font-bold text-gold border-b border-gold pb-1 hover:text-white hover:border-white transition-colors">
-              View All
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {featuredModels.map((model) => (
-              <Link 
-                key={model.id}
-                to={PageRoute.PORTFOLIO}
-                className="group relative overflow-hidden aspect-[3/4]"
-              >
-                <img 
-                  src={model.image} 
-                  alt={model.name}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter  group-hover:grayscale-0 group-hover:sepia-0"
-                />
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300"></div>
-                <div className="absolute bottom-0 left-0 w-full p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                  <h3 className="text-2xl font-serif text-gold">{model.name}</h3>
-                  <p className="text-xs uppercase tracking-wider text-gray-300">{model.category}</p>
-                </div>
-              </Link>
-            ))}
+      {/* About Section */}
+      <section className="w-full bg-[#c4a484] flex flex-col md:flex-row min-h-[80vh]">
+        {/* Left Content */}
+        <div className="flex-1 p-12 md:p-20 flex flex-col justify-center items-start text-left order-2 md:order-1">
+          <span className="text-sm font-bold text-white/90 uppercase tracking-[0.15em] mb-2 animate-in fade-in slide-in-from-left-10 duration-700 view-transition">
+            My Fashion Journey
+          </span>
+          <h2 className="text-6xl md:text-8xl lg:text-9xl font-thin text-white mb-12 leading-tight animate-in fade-in slide-in-from-left-10 duration-700 delay-100 view-transition">
+            About Me
+          </h2>
+          
+          <div className="max-w-md text-white/90 text-lg leading-relaxed font-light animate-in fade-in slide-in-from-bottom-10 duration-700 delay-200 view-transition">
+            <p className="mb-6">
+              With a passion for <strong className="font-semibold text-white">elegance and creativity</strong>, 
+              I have dedicated my career to shaping the future of fashion.
+            </p>
+            <p>
+              My commitment to <strong className="font-semibold text-white">excellence and skill development</strong> ensures that 
+              aspiring models receive the highest level of training and support, preparing them for success on the runway and beyond.
+            </p>
           </div>
         </div>
+
+        {/* Right Image */}
+        <div className="flex-1 relative min-h-[50vh] md:min-h-auto order-1 md:order-2 overflow-hidden">
+          <img 
+            src="https://royalrunway.my.canva.site/_assets/media/586f619d6c1be9574e0ca3e8117d0d75.jpg" 
+            alt="Fashion Portrait" 
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 hover:scale-105"
+          />
+        </div>
       </section>
+
+    
     </div>
   );
 };
