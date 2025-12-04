@@ -1,0 +1,408 @@
+/* Contact.scss */
+
+// Variables
+$lumina-gold: #c4a484;
+$lumina-bg-dark: #1a1a1a;
+$lumina-bg-card: #121212;
+$lumina-white: #ffffff;
+$lumina-gray-text: #9ca3af; // gray-400
+$lumina-gray-muted: #6b7280; // gray-500
+$lumina-border: rgba(255, 255, 255, 0.05);
+$lumina-border-light: rgba(255, 255, 255, 0.2);
+$font-serif: serif; // Replace with your font family
+$transition-speed: 0.3s;
+
+// Mixins
+@mixin label-text {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: $lumina-gray-muted;
+  margin-bottom: 0.5rem;
+}
+
+@mixin input-reset {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid $lumina-border-light;
+  color: $lumina-white;
+  transition: border-color $transition-speed;
+  outline: none;
+  border-radius: 0; // Fix for iOS
+
+  &:focus {
+    border-color: $lumina-gold;
+  }
+  
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+// Keyframes
+@keyframes fadeInZoom {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.contact-page {
+  min-height: 100vh;
+  background-color: $lumina-bg-dark;
+  padding-top: 8rem; // pt-32
+  padding-bottom: 6rem; // pb-24
+}
+
+.contact-container {
+  max-width: 56rem; // max-w-4xl
+  margin: 0 auto;
+  padding: 0 1rem;
+
+  @media (min-width: 640px) { padding: 0 1.5rem; }
+  @media (min-width: 1024px) { padding: 0 2rem; }
+}
+
+// --- Header ---
+.page-header {
+  text-align: center;
+  margin-bottom: 4rem; // mb-16
+
+  h1 {
+    font-size: 3rem; // text-5xl
+    font-weight: 100; // font-thin
+    color: $lumina-white;
+    text-transform: uppercase;
+    letter-spacing: 0.025em; // tracking-wide
+    margin-bottom: 1.5rem;
+
+    @media (min-width: 768px) {
+      font-size: 3.75rem; // md:text-6xl
+    }
+  }
+
+  p {
+    color: $lumina-gray-text;
+    font-weight: 300; // font-light
+    font-size: 1.125rem; // text-lg
+    max-width: 36rem;
+    margin: 0 auto;
+  }
+}
+
+// --- Form Box ---
+.application-form-box {
+  background-color: $lumina-bg-card;
+  padding: 2rem;
+  border: 1px solid $lumina-border;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); // shadow-2xl
+  position: relative;
+  overflow: hidden;
+
+  @media (min-width: 768px) {
+    padding: 3rem;
+  }
+
+  // Decorative Top Line
+  .accent-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, $lumina-gold, transparent);
+    opacity: 0.5;
+  }
+}
+
+// --- Success State ---
+.success-message {
+  padding: 6rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  animation: fadeInZoom 0.5s ease-out forwards;
+
+  .icon-wrapper {
+    width: 5rem;
+    height: 5rem;
+    background-color: rgba(20, 83, 45, 0.2); // green-900/20
+    border: 1px solid rgba(34, 197, 94, 0.3); // green-500/30
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+
+    svg {
+      color: #4ade80; // green-400
+      height: 2.5rem;
+      width: 2.5rem;
+    }
+  }
+
+  h3 {
+    font-size: 1.875rem; // text-3xl
+    font-family: $font-serif;
+    color: $lumina-white;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    color: $lumina-gray-text;
+    max-width: 24rem;
+    margin: 0 auto 2rem auto;
+  }
+
+  button {
+    padding: 0.75rem 2rem;
+    background: transparent;
+    border: 1px solid $lumina-gold;
+    color: $lumina-gold;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: background-color $transition-speed, color $transition-speed;
+
+    &:hover {
+      background-color: $lumina-gold;
+      color: #000;
+    }
+  }
+}
+
+// --- Form Elements ---
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem; // space-y-10
+
+  // Grid Helper
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  // Radio Selection
+  .selection-group {
+    .group-label {
+      @include label-text;
+      color: $lumina-gold;
+    }
+
+    .radio-options {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .radio-label {
+      cursor: pointer;
+
+      input[type="radio"] {
+        display: none; // Hide default radio
+      }
+
+      .option-box {
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 1rem;
+        text-align: center;
+        color: $lumina-gray-text;
+        transition: all $transition-speed;
+
+        span {
+          font-size: 0.75rem; // text-xs
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        }
+      }
+
+      // Checked State Logic
+      input[type="radio"]:checked + .option-box {
+        border-color: $lumina-gold;
+        color: $lumina-white;
+        background-color: rgba(196, 164, 132, 0.05); // gold/5
+      }
+    }
+  }
+
+  // Personal Details
+  .section-title {
+    color: $lumina-white;
+    font-family: $font-serif;
+    font-style: italic;
+    font-size: 1.25rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    
+    // For optional text layout
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    .optional-text {
+      font-size: 10px;
+      color: $lumina-gray-muted;
+      text-transform: uppercase;
+      font-style: normal; // Reset italic
+      font-family: sans-serif; // Reset serif
+    }
+  }
+
+  .input-group {
+    label {
+      @include label-text;
+    }
+    input {
+      @include input-reset;
+      padding: 0.75rem 0;
+    }
+  }
+
+  // Stats Grid
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    input {
+      @include input-reset;
+      padding: 0.5rem 0;
+      text-align: center;
+      font-size: 0.875rem;
+
+      &::placeholder {
+        color: #4b5563; // gray-600
+      }
+    }
+  }
+
+  // Textarea
+  .textarea-group {
+    label {
+      @include label-text;
+    }
+    textarea {
+      width: 100%;
+      background-color: $lumina-bg-dark;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 1rem;
+      color: $lumina-white;
+      font-size: 0.875rem;
+      font-weight: 300;
+      transition: border-color $transition-speed;
+      outline: none;
+
+      &:focus {
+        border-color: $lumina-gold;
+      }
+    }
+  }
+
+  // Submit Button
+  .submit-btn {
+    width: 100%;
+    padding: 1rem 3rem;
+    background-color: $lumina-gold;
+    color: #000;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.75rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color $transition-speed, opacity $transition-speed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+
+    @media (min-width: 768px) {
+      width: auto;
+    }
+
+    &:hover:not(:disabled) {
+      background-color: $lumina-white;
+      
+      .arrow-icon {
+        transform: translateX(4px);
+      }
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .arrow-icon {
+      height: 1rem;
+      width: 1rem;
+      transition: transform $transition-speed;
+    }
+  }
+}
+
+// --- Footer ---
+.contact-footer {
+  margin-top: 4rem; // mt-16
+  padding-top: 3rem; // pt-12
+  border-top: 1px solid $lumina-border;
+  text-align: center;
+
+  h4 {
+    color: $lumina-gold;
+    font-size: 0.75rem; // text-xs
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+  }
+
+  .footer-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    color: $lumina-gray-muted;
+    font-size: 0.875rem; // text-sm
+    font-weight: 300;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+    }
+
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+
+      svg {
+        height: 1rem;
+        width: 1rem;
+      }
+    }
+  }
+}

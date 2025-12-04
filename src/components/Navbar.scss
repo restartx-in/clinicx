@@ -1,0 +1,213 @@
+
+// Variables
+$lumina-bg: rgba(26, 26, 26, 0.95);
+$lumina-bg-solid: #1a1a1a;
+$lumina-gold: #c4a484;
+$lumina-white: #ffffff;
+$lumina-gray: #9ca3af; // gray-400
+$lumina-border: rgba(255, 255, 255, 0.05);
+$lumina-border-mobile: rgba(255, 255, 255, 0.1);
+$transition-speed: 0.3s;
+
+// Animation Keyframes
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-1.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: $lumina-bg;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 50;
+  border-bottom: 1px solid $lumina-border;
+  transition: all $transition-speed ease;
+
+  // Inner Container
+  .nav-container {
+    max-width: 80rem; // max-w-7xl
+    margin: 0 auto;
+    padding: 0 1rem;
+
+    @media (min-width: 640px) {
+      padding: 0 1.5rem;
+    }
+
+    @media (min-width: 1024px) {
+      padding: 0 2rem;
+    }
+  }
+
+  // Wrapper for Flex alignment
+  .nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 5rem; // h-20
+  }
+
+  // --- Logo Section ---
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    cursor: pointer;
+
+    .logo-icon {
+      height: 1.5rem;
+      width: 1.5rem;
+      color: $lumina-gold;
+      transition: color $transition-speed ease;
+    }
+
+    .logo-text {
+      font-size: 1.25rem;
+      font-weight: 100; // font-thin
+      letter-spacing: 0.2em;
+      color: $lumina-white;
+      transition: color $transition-speed ease;
+
+      @media (min-width: 768px) {
+        font-size: 1.5rem;
+      }
+    }
+
+    // Hover effects using Parent Selector (&)
+    &:hover {
+      .logo-icon {
+        color: $lumina-white;
+      }
+      .logo-text {
+        color: $lumina-gold;
+      }
+    }
+  }
+
+  // --- Desktop Menu ---
+  .desktop-menu {
+    display: none; // Hidden on mobile
+
+    @media (min-width: 768px) {
+      display: flex;
+      gap: 2rem;
+    }
+
+    @media (min-width: 1024px) {
+      gap: 3rem;
+    }
+
+    .nav-link {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      text-decoration: none;
+      transition: all $transition-speed ease;
+
+      @media (min-width: 1024px) {
+        font-size: 0.75rem;
+      }
+
+      // States
+      &.inactive {
+        color: $lumina-gray;
+
+        &:hover {
+          color: $lumina-white;
+          letter-spacing: 0.25em;
+        }
+      }
+
+      &.active {
+        color: $lumina-gold;
+        border-bottom: 1px solid $lumina-gold;
+        padding-bottom: 0.5rem;
+      }
+    }
+  }
+
+  // --- Mobile Toggle Button ---
+  .mobile-toggle-btn-wrapper {
+    display: flex;
+    align-items: center;
+
+    @media (min-width: 768px) {
+      display: none;
+    }
+
+    button {
+      background: none;
+      border: none;
+      color: $lumina-white;
+      cursor: pointer;
+      transition: transform 0.1s;
+      padding: 0.5rem; // Hitbox area
+
+      &:hover {
+        color: $lumina-gold;
+      }
+
+      &:active {
+        transform: scale(0.95);
+      }
+    }
+  }
+
+  // --- Mobile Menu Dropdown ---
+  .mobile-menu-dropdown {
+    background-color: $lumina-bg-solid;
+    border-bottom: 1px solid $lumina-border-mobile;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    animation: slideDown $transition-speed ease-out forwards;
+
+    @media (min-width: 768px) {
+      display: none;
+    }
+
+    .mobile-menu-items {
+      padding: 1rem 1rem 2rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+
+      .mobile-nav-link {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 1rem 0.75rem;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        text-decoration: none;
+        border-bottom: 1px solid $lumina-border;
+
+        &.active {
+          color: $lumina-gold;
+        }
+
+        &.inactive {
+          color: $lumina-gray;
+          
+          &:hover {
+            color: $lumina-white;
+          }
+        }
+      }
+    }
+  }
+}
