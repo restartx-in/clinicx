@@ -13,8 +13,8 @@ export const Navbar = () => {
   const navLinks = [
     { name: 'Program Overview', path: PageRoute.PORTFOLIO },
     { name: 'Day Online Workshop', path: PageRoute.WORKSHOP },
-    { name: 'Apply / Register', path: PageRoute.CONTACT },
-    { name: 'Contact', path: PageRoute.ABOUT },
+    { name: 'Contact / Register', path: PageRoute.CONTACT },
+    { name: 'About', path: PageRoute.ABOUT },
   ];
 
   const isActive = (path) => {

@@ -19,7 +19,7 @@ export const Contact = () => {
         
         {/* Header */}
         <div className="page-header">
-          <h1>Apply / Register</h1>
+          <h1>Contact / Register</h1>
           <p>
             Start your journey with Lumina. Fill out the form below to register for workshops or apply for representation.
           </p>
