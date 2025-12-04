@@ -9,6 +9,7 @@ import { Contact } from '@/pages/Contact';
 import { PageRoute } from '@/constants/types';
 import { Programs } from '@/pages/Programs';
 import { Workshop } from '@/pages/Workshop';
+import './index.scss';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
