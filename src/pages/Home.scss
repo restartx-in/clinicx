@@ -1,0 +1,236 @@
+/* Home.scss */
+
+// Variables
+$lumina-bg-dark: #1a1a1a;
+$lumina-gold: #c4a484;
+$lumina-white: #ffffff;
+$lumina-white-dim: rgba(255, 255, 255, 0.8);
+$font-poppins: 'Poppins', sans-serif; // Ensure this font is imported in your index.css or index.html
+$transition-slow: 0.7s;
+$transition-super-slow: 1s;
+
+// Keyframes for entry animations
+@keyframes fadeSlideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-2.5rem); // -10 tailwind spacing
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeSlideInBottom {
+  from {
+    opacity: 0;
+    transform: translateY(2.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.home-page {
+  width: 100%;
+  background-color: $lumina-bg-dark;
+  min-height: 100vh;
+}
+
+// --- Hero Section ---
+.hero-section {
+  position: relative;
+  width: 100%;
+  padding-top: 8rem; // pt-32
+  padding-bottom: 5rem; // pb-20
+  padding-left: 1rem;
+  padding-right: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 10;
+
+  .hero-title {
+    font-family: $font-poppins;
+    font-weight: 200; // font-[200]
+    color: $lumina-white;
+    letter-spacing: 0.08em;
+    line-height: 1.25;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    
+    // Responsive Text sizing
+    font-size: 3rem; // text-5xl
+    @media (min-width: 768px) { font-size: 4.5rem; } // md:text-7xl
+    @media (min-width: 1024px) { font-size: 6rem; }  // lg:text-8xl
+  }
+
+  .hero-subtitle {
+    font-family: $font-poppins;
+    font-weight: 300;
+    color: $lumina-white-dim;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin-bottom: 3rem; // mb-12
+
+    font-size: 1rem; // text-base
+    @media (min-width: 768px) { font-size: 1.125rem; } // md:text-lg
+    @media (min-width: 1024px) { font-size: 1.25rem; } // lg:text-xl
+
+    .highlight {
+      font-weight: 600;
+      color: $lumina-white-dim;
+    }
+  }
+
+  // Hero Image Container
+  .hero-image-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 36rem; // max-w-xl
+    margin-bottom: 3rem; // mb-12
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); // shadow-2xl
+    overflow: hidden;
+    
+    // Aspect Ratio logic
+    aspect-ratio: 16 / 9; // Fallback / standard
+    @media (max-width: 768px) {
+      aspect-ratio: 16 / 9; // video
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      transition: transform $transition-slow ease-out;
+    }
+
+    // Overlay Ring
+    .image-overlay {
+      position: absolute;
+      inset: 0;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1); // ring-1 ring-white/10
+      pointer-events: none;
+    }
+
+    // Hover Effect
+    &:hover img {
+      transform: scale(1.1);
+    }
+  }
+}
+
+// --- home-about Section ---
+.home-about-section {
+  width: 100%;
+  background-color: $lumina-gold;
+  display: flex;
+  flex-direction: column; // Mobile default
+  min-height: 90vh;
+
+  @media (min-width: 768px) {
+    flex-direction: row; // Desktop row
+  }
+
+  // Left Content
+  .home-about-content {
+    flex: 1;
+    padding: 3rem; // p-12
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    
+    // Ordering: Text below image on mobile, left of image on desktop
+    order: 2; 
+    @media (min-width: 768px) {
+      padding: 5rem; // p-20
+      order: 1;
+    }
+
+    .small-heading {
+      font-size: 0.875rem; // text-sm
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.9);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 0.5rem;
+      
+      // Animation
+      animation: fadeSlideInLeft $transition-slow ease-out forwards;
+    }
+
+    .main-heading {
+      font-weight: 100; // font-thin
+      color: $lumina-white;
+      margin-bottom: 3rem; // mb-12
+      line-height: 1.1; // leading-tight
+      
+      font-size: 3.75rem; // text-6xl
+      @media (min-width: 768px) { font-size: 6rem; } // text-8xl
+      @media (min-width: 1024px) { font-size: 8rem; } // text-9xl
+
+      // Animation
+      opacity: 0; // Start hidden
+      animation: fadeSlideInLeft $transition-slow ease-out 0.1s forwards; // delay-100
+    }
+
+    .text-body {
+      max-width: 28rem; // max-w-md
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 1.125rem; // text-lg
+      line-height: 1.625; // leading-relaxed
+      font-weight: 300; // font-light
+
+      // Animation
+      opacity: 0;
+      animation: fadeSlideInBottom $transition-slow ease-out 0.2s forwards; // delay-200
+
+      p {
+        margin-bottom: 1.5rem;
+        
+        strong {
+          font-weight: 600;
+          color: $lumina-white;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  // Right Image
+  .home-about-image-wrapper {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    min-height: 50vh; // Mobile height
+    
+    // Ordering
+    order: 1;
+    @media (min-width: 768px) {
+      min-height: auto;
+      order: 2;
+    }
+
+    img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform $transition-super-slow;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+}

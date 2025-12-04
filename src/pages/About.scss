@@ -1,0 +1,221 @@
+/* About.scss */
+
+// Variables
+$about-gold: #c4a484;
+$about-bg-dark: #0a0a0a; // neutral-950
+$about-bg-card: #171717; // neutral-900
+$about-white: #ffffff;
+$about-gray-text: #9ca3af; // gray-400
+$about-gray-muted: #6b7280; // gray-500
+$about-border: rgba(255, 255, 255, 0.05);
+$about-border-gold-faint: rgba(196, 164, 132, 0.3);
+$font-serif: serif; 
+$transition-speed: 0.3s;
+
+// Mixin for standard max-width container
+@mixin about-container-width {
+  max-width: 80rem; // max-w-7xl
+  margin: 0 auto;
+  padding: 0 1rem;
+
+  @media (min-width: 640px) { padding: 0 1.5rem; }
+  @media (min-width: 1024px) { padding: 0 2rem; }
+}
+
+.lumina-about {
+  width: 100%;
+  background-color: $about-bg-dark;
+  padding-top: 5rem; // pt-20
+
+  // --- Hero Section ---
+  &__hero {
+    position: relative;
+    height: 60vh;
+    width: 100%;
+    overflow: hidden;
+
+    &-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    &-overlay {
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    &-content {
+      position: relative;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      h1 {
+        font-size: 3rem; // text-5xl
+        font-family: $font-serif;
+        color: $about-white;
+        text-align: center;
+
+        @media (min-width: 768px) {
+          font-size: 4.5rem; // md:text-7xl
+        }
+
+        span {
+          color: $about-gold;
+        }
+      }
+    }
+  }
+
+  // --- Content Wrapper ---
+  &__layout {
+    @include about-container-width;
+    padding-top: 6rem; // py-24
+    padding-bottom: 6rem;
+  }
+
+  // --- Legacy / Bio Section ---
+  &__bio {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem; // gap-16
+    align-items: center;
+    margin-bottom: 6rem; // mb-24
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    // Text Side
+    &-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem; // space-y-6
+
+      h2 {
+        font-size: 1.875rem; // text-3xl
+        font-family: $font-serif;
+        margin-bottom: 1rem;
+        color: $about-white;
+      }
+
+      p {
+        color: $about-gray-text;
+        line-height: 1.625;
+      }
+    }
+
+    // Statistics
+    &-stats {
+      padding-top: 1rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+
+      .stat-box {
+        h4 {
+          font-weight: 700;
+          font-size: 1.5rem;
+          margin-bottom: 0.25rem;
+          color: $about-gold;
+        }
+        p {
+          font-size: 0.875rem;
+          color: $about-gray-muted;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        }
+      }
+    }
+
+    // Image Side
+    &-visual {
+      position: relative;
+      height: 24rem; // h-96
+
+      .bio-img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 0.125rem;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        filter: grayscale(100%);
+        z-index: 10;
+      }
+
+      // Decorative Squares
+      .visual-deco {
+        position: absolute;
+        width: 12rem;
+        height: 12rem;
+        z-index: 0;
+
+        &--dark {
+          bottom: -1.5rem;
+          left: -1.5rem;
+          background-color: #171717; // neutral-900
+          border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        &--gold {
+          top: -1.5rem;
+          right: -1.5rem;
+          border: 1px solid $about-border-gold-faint;
+        }
+      }
+    }
+  }
+
+  // --- Features Grid ---
+  &__values {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding-top: 4rem; // py-16
+    border-top: 1px solid $about-border;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .value-card {
+      text-align: center;
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      border: 1px solid transparent;
+      transition: background-color $transition-speed, border-color $transition-speed;
+
+      &:hover {
+        background-color: $about-bg-card;
+        border-color: $about-border;
+      }
+
+      .card-icon {
+        height: 2.5rem;
+        width: 2.5rem;
+        margin: 0 auto 1rem auto;
+        color: $about-gold;
+      }
+
+      h3 {
+        font-size: 1.125rem;
+        font-family: $font-serif;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        color: $about-white;
+      }
+
+      p {
+        font-size: 0.875rem;
+        color: $about-gray-muted;
+      }
+    }
+  }
+}
