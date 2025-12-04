@@ -3,7 +3,7 @@ import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-d
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { Home } from '@/pages/Home';
-import { Portfolio } from '@/pages/Portfolio';
+// import { Portfolio } from '@/pages/Portfolio';
 import { About } from '@/pages/About';
 import { Contact } from '@/pages/Contact';
 import { PageRoute } from '@/constants/types';
@@ -29,10 +29,10 @@ const App = () => {
         <main className="flex-grow">
           <Routes>
             <Route path={PageRoute.HOME} element={<Home />} />
-            <Route path={PageRoute.PORTFOLIO} element={<Portfolio />} />
+            <Route path={PageRoute.PORTFOLIO} element={<Programs />} />
             <Route path={PageRoute.ABOUT} element={<About />} />
             <Route path={PageRoute.CONTACT} element={<Contact />} />
-            <Route path={PageRoute.PROGRAMS} element={<Programs />} />
+            {/* <Route path={PageRoute.PROGRAMS} element={<Programs />} /> */}
             <Route path={PageRoute.WORKSHOP} element={<Workshop />} />
           </Routes>
         </main>

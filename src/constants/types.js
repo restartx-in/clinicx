@@ -1,6 +1,6 @@
 export const PageRoute = {
   HOME: '/',
-  PORTFOLIO: '/portfolio',
+  PORTFOLIO: '/Programs',
   ABOUT: '/about',
   CONTACT: '/contact',
   PROGRAMS: '/programs',

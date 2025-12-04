@@ -1,100 +1,86 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { PageRoute } from '@/constants/types';
-import { Star, ArrowRight, Calendar, Users, Camera, Diamond } from 'lucide-react';
+import React, { useState } from 'react';
+
+// Extended mock data (Re-purposed as "Program Modules" or "Success Stories" contextually)
+const portfolioData = [
+ { id: '1', name: 'Elena V', category: 'fashion', image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bW9kZWwlMjBwb3J0cmFpdHxlbnwwfHwwfHx8MA==', height: '5\'10"', shoe: '8' },
+  { id: '2', name: 'Marcus T', category: 'runway', image: 'https://indianpolos.com/wp-content/uploads/2024/01/man-walking-beside-the-road-scaled.jpg.webp', height: '6\'2"', shoe: '11' },
+  { id: '3', name: 'Sarah J', category: 'commercial', image: 'https://indianpolos.com/wp-content/uploads/2024/01/woman-in-yellow-tracksuit-standing-on-basketball-court-side-1-scaled.jpg.webp', height: '5\'9"', shoe: '7.5' },
+  { id: '4', name: 'Liam K', category: 'fitness', image: 'https://img.freepik.com/free-photo/side-view-fit-man-posing-while-wearing-tank-top-with-crossed-arms_23-2148700611.jpg?semt=ais_hybrid&w=740&q=80', height: '6\'0"', shoe: '10' },
+  { id: '5', name: 'Olivia R', category: 'fashion', image: 'https://assets.vogue.in/photos/5e5f7ab335619f0008e2decf/2:3/w_2560%2Cc_limit/Priyal_%2520Y%2520_Project%2520Fall%25202020.jpg', height: '5\'11"', shoe: '8.5' },
+  { id: '6', name: 'Noah P', category: 'commercial', image: 'https://indianpolos.com/wp-content/uploads/2024/01/man-in-black-polo-shirt-scaled.jpg.webp', height: '6\'1"', shoe: '10.5' },
+  { id: '7', name: 'Ava L', category: 'runway', image: 'https://indianpolos.com/wp-content/uploads/2024/01/woman-in-green-dress-sitting-on-concrete-bench-2-scaled.jpg.webp', height: '5\'9.5"', shoe: '8' },
+  { id: '8', name: 'Ethan W', category: 'fitness', image: 'https://caroseditorial.com/wp-content/uploads/2021/05/Black-male-model-fashion-photoshoot-8-683x1024.jpg', height: '6\'3"', shoe: '12' },
+];
 
 export const Programs = () => {
-  const programs = [
-    {
-      id: 1,
-      title: "6-Day Intensive Model Bootcamp",
-      description: "Our flagship comprehensive training program designed to transform beginners into industry-ready professionals. Covers walk, pose, branding, and casting.",
-      icon: <Star className="h-8 w-8 text-gold" />,
-      link: PageRoute.WORKSHOP,
-      highlight: true
-    },
-    {
-      id: 2,
-      title: "Runway Mastery",
-      description: "Advanced walking techniques, turns, and posture correction for high-fashion runway work. Strictly for models 5'9\"+ (female) and 6'0\"+ (male).",
-      icon: <Users className="h-8 w-8 text-white" />,
-      link: PageRoute.CONTACT,
-      highlight: false
-    },
-    {
-      id: 3,
-      title: "Editorial Posing & Angles",
-      description: "Learn how to work the camera. A full day dedicated to facial expressions, body angles, and dynamic movement for print photography.",
-      icon: <Camera className="h-8 w-8 text-white" />,
-      link: PageRoute.CONTACT,
-      highlight: false
-    },
-  ];
+  const [filter, setFilter] = useState('all');
+
+  const filteredModels = filter === 'all' 
+    ? portfolioData 
+    : portfolioData.filter(m => m.category === filter);
+
+  const categories = ['all', 'fashion', 'commercial', 'runway', 'fitness'];
 
   return (
-    <div className="w-full bg-neutral-950 pt-20">
-      {/* Hero */}
-      <div className="relative h-[50vh] flex items-center justify-center overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat grayscale"
-          style={{ backgroundImage: 'url("https://www.ppa.com/assets/images/ppmag_articles/header-72020jaimayhew9.jpg")' }}
-        >
-          <div className="absolute "></div>
-        </div>
-        <div className="relative text-center px-4 max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-6xl font-serif text-white mb-6">Lumina <span className="text-gold">Academy</span></h1>
-          <p className="text-lg text-gray-300 font-light tracking-wide">
-            Elite training programs curated by industry veterans to launch your modeling career.
+    <div className="pt-32 pb-24 min-h-screen bg-[#1a1a1a]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Header Section */}
+        <div className="text-center mb-20 animate-in fade-in slide-in-from-bottom-5 duration-1000">
+          <span className="text-[#c4a484] text-xs font-bold uppercase tracking-[0.3em] mb-4 block">
+            Our Curriculum
+          </span>
+          <h1 className="text-5xl md:text-7xl font-thin mb-8 text-white uppercase tracking-wider">
+            Program Overview
+          </h1>
+          <p className="text-gray-400 max-w-2xl mx-auto text-sm leading-relaxed tracking-wide">
+            Explore the diverse disciplines covered in our intensive training modules. 
+            From high-fashion editorial to commercial lifestyle, we shape versatile talent.
           </p>
         </div>
-      </div>
 
-      {/* Programs Grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {programs.map((program) => (
-            <div 
-              key={program.id} 
-              className={`relative flex flex-col p-8 rounded-sm border transition-all duration-300 ${
-                program.highlight 
-                  ? 'bg-neutral-900 border-gold shadow-[0_0_15px_rgba(212,175,55,0.1)]' 
-                  : 'bg-black border-white/10 hover:border-white/30'
+        {/* Filter */}
+        <div className="flex flex-wrap justify-center gap-6 mb-16 animate-in fade-in slide-in-from-bottom-5 duration-1000 delay-100">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setFilter(cat)}
+              className={`text-xs uppercase tracking-[0.2em] px-4 py-2 transition-all duration-300 border border-transparent ${
+                filter === cat 
+                  ? 'text-[#c4a484] border-[#c4a484]' 
+                  : 'text-gray-500 hover:text-white hover:border-gray-700'
               }`}
             >
-              <div className="mb-6">{program.icon}</div>
-              <h3 className="text-2xl font-serif text-white mb-4">{program.title}</h3>
-              <p className="text-gray-400 mb-8 flex-grow leading-relaxed text-sm">
-                {program.description}
-              </p>
-              
-              <Link 
-                to={program.link}
-                className={`group flex items-center space-x-2 text-sm uppercase tracking-widest font-bold mt-auto ${
-                  program.highlight ? 'text-gold' : 'text-white'
-                }`}
-              >
-                <span>{program.link === PageRoute.WORKSHOP ? 'View Curriculum' : 'Apply for Waitlist'}</span>
-                <ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
+              {cat}
+            </button>
           ))}
         </div>
 
-        {/* CTA Section */}
-        <div className="mt-24 p-12 bg-neutral-900 border border-white/5 text-center relative overflow-hidden">
-          <div className="absolute top-0 right-0 p-12 opacity-5 pointer-events-none">
-            <Diamond className="h-64 w-64 text-gold" />
-          </div>
-          <h2 className="text-3xl font-serif text-white mb-6 relative z-10">Not sure where to start?</h2>
-          <p className="text-gray-400 mb-8 max-w-2xl mx-auto relative z-10">
-            Book a 15-minute consultation with our development team to assess your potential and find the right path for you.
-          </p>
-          <Link 
-            to={PageRoute.CONTACT}
-            className="relative z-10 inline-block px-10 py-4 bg-transparent border border-white text-white hover:bg-white hover:text-black transition-all duration-300 uppercase tracking-widest text-sm font-bold"
-          >
-            Contact Admissions
-          </Link>
+        {/* Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-200">
+          {filteredModels.map((model) => (
+            <div key={model.id} className="group relative bg-[#121212]">
+              <div className="aspect-[3/4] overflow-hidden">
+                <img 
+                  src={model.image} 
+                  alt={model.name}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100  group-hover:grayscale-0"
+                  loading="lazy"
+                />
+              </div>
+              
+              {/* Overlay Content */}
+              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                 <h3 className="text-xl font-serif text-[#c4a484] italic mb-1 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">
+                   {model.name}
+                 </h3>
+                 <div className="w-8 h-px bg-white/50 mb-2 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                 <p className="text-[10px] text-white uppercase tracking-widest transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-100">
+                   {model.category} Specialization
+                 </p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
