@@ -1,80 +1,83 @@
 import React from 'react';
 import { Camera, Users, Award, Briefcase } from 'lucide-react';
+import './About.scss';
 
 export const About = () => {
   return (
-    <div className="w-full bg-neutral-950 pt-20">
+    <div className="lumina-about">
       {/* Hero */}
-      <div className="relative h-[60vh] w-full overflow-hidden">
+      <div className="lumina-about__hero">
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-fixed"
+          className="lumina-about__hero-bg"
           style={{ backgroundImage: 'url("https://www.ppa.com/assets/images/ppmag_articles/header-72020jaimayhew9.jpg")' }}
         >
-          <div className="absolute inset-0 bg-black/70"></div>
+          <div className="lumina-about__hero-overlay"></div>
         </div>
-        <div className="relative h-full flex items-center justify-center">
-          <h1 className="text-5xl md:text-7xl font-serif text-white text-center">
-            About <span className="text-gold">Lumina</span>
+        <div className="lumina-about__hero-content">
+          <h1>
+            About <span>Lumina</span>
           </h1>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-        {/* Main Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-24">
-          <div className="space-y-6">
-            <h2 className="text-3xl font-serif mb-4 text-white">A Legacy of Excellence</h2>
-            <p className="text-gray-400 leading-relaxed">
+      <div className="lumina-about__layout">
+        {/* Main Content (Bio) */}
+        <div className="lumina-about__bio">
+          <div className="lumina-about__bio-info">
+            <h2>A Legacy of Excellence</h2>
+            <p>
               Founded in 2024, Lumina Management has quickly risen to become a premier boutique agency. 
               We believe in quality over quantity, managing a select board of talent that we truly believe in.
             </p>
-            <p className="text-gray-400 leading-relaxed">
+            <p>
               Our approach is personal. We develop our models holistically, focusing not just on their look, 
               but on their career longevity, personal brand, and physical well-being.
             </p>
-            <div className="pt-4 grid grid-cols-2 gap-6">
-              <div>
-                <h4 className="font-bold text-2xl mb-1 text-gold">50+</h4>
-                <p className="text-sm text-gray-500 uppercase tracking-wider">Top Models</p>
+            <div className="lumina-about__bio-stats">
+              <div className="stat-box">
+                <h4>50+</h4>
+                <p>Top Models</p>
               </div>
-              <div>
-                <h4 className="font-bold text-2xl mb-1 text-gold">200+</h4>
-                <p className="text-sm text-gray-500 uppercase tracking-wider">Campaigns</p>
+              <div className="stat-box">
+                <h4>200+</h4>
+                <p>Campaigns</p>
               </div>
             </div>
           </div>
-          <div className="relative h-96">
+          
+          <div className="lumina-about__bio-visual">
             <img 
               src="https://picsum.photos/id/325/600/800" 
               alt="Backstage" 
-              className="absolute inset-0 w-full h-full object-cover rounded-sm shadow-xl grayscale"
+              className="bio-img"
             />
-            <div className="absolute -bottom-6 -left-6 w-48 h-48 bg-neutral-900 border border-white/10 -z-10"></div>
-            <div className="absolute -top-6 -right-6 w-48 h-48 border border-gold/30 -z-10"></div>
+            {/* Decoration elements */}
+            <div className="visual-deco visual-deco--dark"></div>
+            <div className="visual-deco visual-deco--gold"></div>
           </div>
         </div>
 
-        {/* Features */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 py-16 border-t border-white/5">
-          <div className="text-center p-6 hover:bg-neutral-900 transition-colors duration-300 border border-transparent hover:border-white/5 rounded-lg">
-            <Camera className="h-10 w-10 mx-auto mb-4 text-gold" />
-            <h3 className="text-lg font-serif font-bold mb-2 text-white">Editorial</h3>
-            <p className="text-sm text-gray-500">Securing covers on Vogue, Elle, and Harper's Bazaar.</p>
+        {/* Features / Values */}
+        <div className="lumina-about__values">
+          <div className="value-card">
+            <Camera className="card-icon" />
+            <h3>Editorial</h3>
+            <p>Securing covers on Vogue, Elle, and Harper's Bazaar.</p>
           </div>
-          <div className="text-center p-6 hover:bg-neutral-900 transition-colors duration-300 border border-transparent hover:border-white/5 rounded-lg">
-            <Users className="h-10 w-10 mx-auto mb-4 text-gold" />
-            <h3 className="text-lg font-serif font-bold mb-2 text-white">Development</h3>
-            <p className="text-sm text-gray-500">Comprehensive training for new faces.</p>
+          <div className="value-card">
+            <Users className="card-icon" />
+            <h3>Development</h3>
+            <p>Comprehensive training for new faces.</p>
           </div>
-          <div className="text-center p-6 hover:bg-neutral-900 transition-colors duration-300 border border-transparent hover:border-white/5 rounded-lg">
-            <Briefcase className="h-10 w-10 mx-auto mb-4 text-gold" />
-            <h3 className="text-lg font-serif font-bold mb-2 text-white">Management</h3>
-            <p className="text-sm text-gray-500">Strategic career planning and contract negotiation.</p>
+          <div className="value-card">
+            <Briefcase className="card-icon" />
+            <h3>Management</h3>
+            <p>Strategic career planning and contract negotiation.</p>
           </div>
-          <div className="text-center p-6 hover:bg-neutral-900 transition-colors duration-300 border border-transparent hover:border-white/5 rounded-lg">
-            <Award className="h-10 w-10 mx-auto mb-4 text-gold" />
-            <h3 className="text-lg font-serif font-bold mb-2 text-white">Reputation</h3>
-            <p className="text-sm text-gray-500">Recognized globally for integrity and style.</p>
+          <div className="value-card">
+            <Award className="card-icon" />
+            <h3>Reputation</h3>
+            <p>Recognized globally for integrity and style.</p>
           </div>
         </div>
       </div>
