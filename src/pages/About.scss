@@ -86,13 +86,18 @@ $transition-speed: 0.3s;
     gap: 4rem; // gap-16
     align-items: center;
     margin-bottom: 6rem; // mb-24
-
+    background-color: $about-gold;
+    
     @media (min-width: 768px) {
       grid-template-columns: repeat(2, 1fr);
     }
 
     // Text Side
     &-info {
+        padding-left: 50px;
+    padding-top: 50px;  
+    padding-bottom: 50px;
+
       display: flex;
       flex-direction: column;
       gap: 1.5rem; // space-y-6
@@ -101,11 +106,11 @@ $transition-speed: 0.3s;
         font-size: 1.875rem; // text-3xl
         font-family: $font-serif;
         margin-bottom: 1rem;
-        color: $about-white;
+        color: $about-bg-dark;
       }
 
       p {
-        color: $about-gray-text;
+        color: $about-bg-card;
         line-height: 1.625;
       }
     }
@@ -122,11 +127,11 @@ $transition-speed: 0.3s;
           font-weight: 700;
           font-size: 1.5rem;
           margin-bottom: 0.25rem;
-          color: $about-gold;
+          color: $about-bg-dark;
         }
         p {
           font-size: 0.875rem;
-          color: $about-gray-muted;
+          color: $about-bg-card;
           text-transform: uppercase;
           letter-spacing: 0.05em;
         }
@@ -136,7 +141,8 @@ $transition-speed: 0.3s;
     // Image Side
     &-visual {
       position: relative;
-      height: 24rem; // h-96
+      height: 100%; 
+      background-color: $about-bg-card;
 
       .bio-img {
         position: absolute;
@@ -151,25 +157,7 @@ $transition-speed: 0.3s;
       }
 
       // Decorative Squares
-      .visual-deco {
-        position: absolute;
-        width: 12rem;
-        height: 12rem;
-        z-index: 0;
 
-        &--dark {
-          bottom: -1.5rem;
-          left: -1.5rem;
-          background-color: #171717; // neutral-900
-          border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        &--gold {
-          top: -1.5rem;
-          right: -1.5rem;
-          border: 1px solid $about-border-gold-faint;
-        }
-      }
     }
   }
 

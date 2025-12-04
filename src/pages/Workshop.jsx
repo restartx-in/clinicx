@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { PageRoute } from '@/constants/types';
 import { Check, Clock, Globe, Calendar, ArrowLeft, Wifi, MonitorPlay } from 'lucide-react';
+import './Workshop.scss';
 
 export const Workshop = () => {
   // Updated schedule for Online context
@@ -14,54 +15,54 @@ export const Workshop = () => {
   ];
 
   return (
-    <div className="w-full bg-[#1a1a1a] min-h-screen pt-24 pb-12">
+    <div className="workshop-page">
       
       {/* Header */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <Link to={PageRoute.PORTFOLIO} className="inline-flex items-center text-gray-500 hover:text-[#c4a484] transition-colors mb-6 text-[10px] uppercase tracking-[0.2em] font-bold">
-          <ArrowLeft className="h-3 w-3 mr-2" /> Back to Programs
+      <div className="workshop-header">
+        <Link to={PageRoute.PORTFOLIO} className="back-link">
+          <ArrowLeft className="icon" /> Back to Programs
         </Link>
       </div>
 
       {/* Hero */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div>
-            <div className="flex items-center space-x-2 mb-6">
-               <span className="flex h-2 w-2 rounded-full bg-red-500 animate-pulse"></span>
-               <span className="text-[#c4a484] font-bold uppercase tracking-[0.3em] text-xs">Live Stream Event</span>
+      <div className="workshop-hero">
+        <div className="hero-grid">
+          <div className="hero-content">
+            <div className="live-badge">
+               <span className="pulse-dot"></span>
+               <span>Live Stream Event</span>
             </div>
             
-            <h1 className="text-5xl md:text-7xl font-thin text-white mb-8 leading-none">
-              Day Online <br/><span className="italic text-[#c4a484] font-serif">Workshop</span>
+            <h1>
+              Day Online <br/><span className="highlight">Workshop</span>
             </h1>
-            <p className="text-gray-400 text-lg font-light leading-relaxed mb-10 max-w-lg">
+            <p>
               Join our intensive one-day virtual masterclass. Learn industry secrets, perfect your digital casting, and connect with agents from the comfort of your home.
             </p>
-            <div className="flex flex-col sm:flex-row gap-6">
+            <div className="cta-group">
               <Link 
                 to={PageRoute.CONTACT}
-                className="px-10 py-4 bg-[#c4a484] text-black font-bold uppercase tracking-[0.2em] text-xs hover:bg-white transition-colors text-center"
+                className="btn-primary"
               >
                 Register Now
               </Link>
-              <div className="px-10 py-4 border border-white/10 text-white font-bold uppercase tracking-[0.2em] text-xs text-center flex items-center justify-center space-x-2">
-                <Wifi className="h-4 w-4 mr-2" />
+              <div className="btn-secondary">
+                <Wifi className="icon" />
                 <span>Global Access</span>
               </div>
             </div>
           </div>
-          <div className="relative aspect-square md:aspect-[4/5] border border-white/5 p-4 bg-[#121212]">
-            <div className="w-full h-full relative overflow-hidden bg-neutral-900">
+          
+          <div className="hero-image-wrapper">
+            <div className="inner-wrapper">
                <img 
                  src="https://www.fima.co/wp-content/uploads/2018/06/559506775-825x510.jpg" 
                  alt="Online Workshop" 
-                 className="w-full h-full object-cover  opacity-80 hover:opacity-80 transition-opacity duration-700"
                />
-               <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a] via-transparent to-transparent"></div>
-               <div className="absolute bottom-8 left-8 right-8 border-l-2 border-[#c4a484] pl-4">
-                 <p className="text-white font-thin text-2xl mb-1">Interactive Training</p>
-                 <p className="text-gray-500 text-xs uppercase tracking-widest">Zoom & Google Meet Integration</p>
+               <div className="gradient-overlay"></div>
+               <div className="image-caption">
+                 <p>Interactive Training</p>
+                 <p>Zoom & Google Meet Integration</p>
                </div>
             </div>
           </div>
@@ -69,43 +70,43 @@ export const Workshop = () => {
       </div>
 
       {/* Details Bar */}
-      <div className="bg-[#151515] border-y border-white/5 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-          <div className="flex flex-col items-center group">
-            <MonitorPlay className="h-8 w-8 text-[#c4a484] mb-6 group-hover:scale-110 transition-transform" />
-            <h3 className="text-white font-bold uppercase tracking-[0.2em] text-sm mb-2">Platform</h3>
-            <p className="text-gray-400 font-light">Zoom Live Stream</p>
-            <p className="text-gray-600 text-[10px] uppercase mt-1 tracking-wider">Link sent upon registration</p>
+      <div className="details-bar">
+        <div className="details-grid">
+          <div className="detail-item group">
+            <MonitorPlay className="icon" />
+            <h3>Platform</h3>
+            <p className="main-text">Zoom Live Stream</p>
+            <p className="sub-text">Link sent upon registration</p>
           </div>
-          <div className="flex flex-col items-center group">
-            <Calendar className="h-8 w-8 text-[#c4a484] mb-6 group-hover:scale-110 transition-transform" />
-            <h3 className="text-white font-bold uppercase tracking-[0.2em] text-sm mb-2">Next Date</h3>
-            <p className="text-gray-400 font-light">Saturday, Nov 18</p>
-            <p className="text-gray-600 text-[10px] uppercase mt-1 tracking-wider">10:00 AM EST</p>
+          <div className="detail-item group">
+            <Calendar className="icon" />
+            <h3>Next Date</h3>
+            <p className="main-text">Saturday, Nov 18</p>
+            <p className="sub-text">10:00 AM EST</p>
           </div>
-          <div className="flex flex-col items-center group">
-            <Globe className="h-8 w-8 text-[#c4a484] mb-6 group-hover:scale-110 transition-transform" />
-            <h3 className="text-white font-bold uppercase tracking-[0.2em] text-sm mb-2">Investment</h3>
-            <p className="text-gray-400 font-light">$150.00 USD</p>
-            <p className="text-gray-600 text-[10px] uppercase mt-1 tracking-wider">Includes recording access</p>
+          <div className="detail-item group">
+            <Globe className="icon" />
+            <h3>Investment</h3>
+            <p className="main-text">$150.00 USD</p>
+            <p className="sub-text">Includes recording access</p>
           </div>
         </div>
       </div>
 
       {/* Schedule */}
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-        <h2 className="text-3xl font-thin text-white text-center mb-16 uppercase tracking-widest">Session Schedule</h2>
-        <div className="space-y-0 border-l border-white/10 ml-4 md:ml-0">
+      <div className="schedule-section">
+        <h2>Session Schedule</h2>
+        <div className="timeline">
           {schedule.map((item, index) => (
-            <div key={index} className="relative pl-8 md:pl-0 pb-12 last:pb-0">
+            <div key={index} className="timeline-item">
               {/* Timeline Dot */}
-              <div className="absolute left-[-5px] top-1 md:left-auto md:right-[calc(100%+2rem)] w-2.5 h-2.5 rounded-full bg-[#c4a484] ring-4 ring-[#1a1a1a]"></div>
+              <div className="dot"></div>
               
-              <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-8">
-                <span className="text-[#c4a484] font-bold text-xs uppercase tracking-widest md:w-24 md:text-right shrink-0">{item.time}</span>
-                <div>
-                  <h3 className="text-xl font-serif italic text-white mb-2">{item.title}</h3>
-                  <p className="text-gray-500 text-sm font-light leading-relaxed">{item.desc}</p>
+              <div className="content-row">
+                <span className="time-label">{item.time}</span>
+                <div className="description">
+                  <h3>{item.title}</h3>
+                  <p>{item.desc}</p>
                 </div>
               </div>
             </div>

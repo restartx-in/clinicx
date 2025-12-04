@@ -1,0 +1,239 @@
+/* Programs.scss */
+
+// Variables
+$lumina-gold: #c4a484;
+$lumina-bg-dark: #1a1a1a;
+$lumina-bg-card: #121212;
+$lumina-white: #ffffff;
+$lumina-gray-text: #9ca3af; // gray-400
+$lumina-gray-muted: #6b7280; // gray-500
+$font-serif: serif; // Replace with your actual serif font
+$transition-speed: 0.3s;
+$transition-slow: 0.7s;
+
+// Keyframes
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem); // 20px
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Mixin for standard container
+@mixin container-width {
+  max-width: 80rem; // max-w-7xl
+  margin: 0 auto;
+  padding: 0 1rem;
+
+  @media (min-width: 640px) { padding: 0 1.5rem; }
+  @media (min-width: 1024px) { padding: 0 2rem; }
+}
+
+.programs-page {
+  min-height: 100vh;
+  background-color: $lumina-bg-dark;
+  padding-top: 8rem; // pt-32
+  padding-bottom: 6rem; // pb-24
+
+  .programs-container {
+    @include container-width;
+  }
+}
+
+// --- Header Section ---
+.programs-header {
+  text-align: center;
+  margin-bottom: 5rem; // mb-20
+  
+  // Animation
+  animation: fadeSlideUp 1s ease-out forwards;
+
+  .subtitle {
+    color: $lumina-gold;
+    font-size: 0.75rem; // text-xs
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  h1 {
+    font-size: 3rem; // text-5xl
+    font-weight: 100; // font-thin
+    color: $lumina-white;
+    text-transform: uppercase;
+    letter-spacing: 0.05em; // tracking-wider
+    margin-bottom: 2rem;
+
+    @media (min-width: 768px) {
+      font-size: 4.5rem; // md:text-7xl
+    }
+  }
+
+  p {
+    color: $lumina-gray-text;
+    max-width: 42rem; // max-w-2xl
+    margin: 0 auto;
+    font-size: 0.875rem; // text-sm
+    line-height: 1.625; // leading-relaxed
+    letter-spacing: 0.025em; // tracking-wide
+  }
+}
+
+// --- Filter Buttons ---
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem; // gap-6
+  margin-bottom: 4rem; // mb-16
+  
+  // Animation delay
+  opacity: 0;
+  animation: fadeSlideUp 1s ease-out 0.1s forwards;
+
+  .filter-btn {
+    background: transparent;
+    font-size: 0.75rem; // text-xs
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    padding: 0.5rem 1rem; // px-4 py-2
+    border: 1px solid transparent;
+    transition: all $transition-speed;
+    cursor: pointer;
+
+    // Default State
+    color: $lumina-gray-muted;
+    
+    &:hover {
+      color: $lumina-white;
+      border-color: #374151; // gray-700
+    }
+
+    // Active State
+    &.active {
+      color: $lumina-gold;
+      border-color: $lumina-gold;
+    }
+  }
+}
+
+// --- Grid Section ---
+.programs-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem; // gap-6
+  
+  // Animation delay
+  opacity: 0;
+  animation: fadeSlideUp 1s ease-out 0.2s forwards;
+
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+// --- Program Card ---
+.program-card {
+  position: relative;
+  background-color: $lumina-bg-card;
+  overflow: hidden; // Ensure hover zoom stays inside
+
+  // Aspect Ratio Wrapper
+  .image-wrapper {
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    width: 100%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.8;
+      transition: transform $transition-slow, opacity $transition-speed, filter $transition-speed;
+    }
+  }
+
+  // Overlay Content
+  .card-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.4); // bg-black/40
+    opacity: 0;
+    transition: opacity $transition-speed;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.5rem; // p-6
+
+    h3 {
+      font-size: 1.25rem; // text-xl
+      font-family: $font-serif;
+      color: $lumina-gold;
+      font-style: italic;
+      margin-bottom: 0.25rem;
+      
+      // Transform setup
+      transform: translateY(1rem);
+      transition: transform $transition-speed 0.075s; // delay-75
+    }
+
+    .divider {
+      width: 2rem; // w-8
+      height: 1px;
+      background-color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 0.5rem;
+      
+      // Transform setup
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s ease;
+    }
+
+    p {
+      font-size: 10px;
+      color: $lumina-white;
+      text-transform: uppercase;
+      letter-spacing: 0.1em; // tracking-widest
+      
+      // Transform setup
+      transform: translateY(1rem);
+      transition: transform $transition-speed 0.1s; // delay-100
+    }
+  }
+
+  // --- Hover Effects (Parent Selector) ---
+  &:hover {
+    .image-wrapper img {
+      transform: scale(1.1);
+      opacity: 1;
+      // Note: original CSS had grayscale-0. If image starts grayscale, add filter: grayscale(1) to .image-wrapper img above.
+      // filter: grayscale(0); 
+    }
+
+    .card-overlay {
+      opacity: 1;
+
+      h3 {
+        transform: translateY(0);
+      }
+      
+      .divider {
+        transform: scaleX(1);
+      }
+
+      p {
+        transform: translateY(0);
+      }
+    }
+  }
+}

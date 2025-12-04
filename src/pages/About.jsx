@@ -47,7 +47,7 @@ export const About = () => {
           
           <div className="lumina-about__bio-visual">
             <img 
-              src="https://picsum.photos/id/325/600/800" 
+              src="https://img2.wallspic.com/previews/0/4/0/5/6/165040/165040-gigi_hadid-model-celebrity-hair-glasses-550x310.jpg" 
               alt="Backstage" 
               className="bio-img"
             />
