@@ -41,6 +41,8 @@ $transition-super-slow: 1s;
 // --- Hero Section ---
 .hero-section {
   position: relative;
+ font-weight: 100 !important;
+
   width: 100%;
   padding-top: 8rem; // pt-32
   padding-bottom: 5rem; // pb-20
@@ -54,18 +56,17 @@ $transition-super-slow: 1s;
   z-index: 10;
 
   .hero-title {
-    font-family: $font-poppins;
-    font-weight: 200; // font-[200]
+    
+    font-family:"sans-serif";
     color: $lumina-white;
     letter-spacing: 0.08em;
     line-height: 1.25;
     text-transform: uppercase;
     margin-bottom: 1rem;
     
-    // Responsive Text sizing
-    font-size: 3rem; // text-5xl
+    font-size: 3.5rem; // text-5xl
     @media (min-width: 768px) { font-size: 4.5rem; } // md:text-7xl
-    @media (min-width: 1024px) { font-size: 6rem; }  // lg:text-8xl
+    @media (min-width: 1024px) { font-size: 5rem; }  // lg:text-8xl
   }
 
   .hero-subtitle {
