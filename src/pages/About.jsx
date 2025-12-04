@@ -7,8 +7,8 @@ export const About = () => {
       {/* Hero */}
       <div className="relative h-[60vh] w-full overflow-hidden">
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-fixed grayscale"
-          style={{ backgroundImage: 'url("https://picsum.photos/id/250/1920/1080")' }}
+          className="absolute inset-0 bg-cover bg-center bg-fixed"
+          style={{ backgroundImage: 'url("https://www.ppa.com/assets/images/ppmag_articles/header-72020jaimayhew9.jpg")' }}
         >
           <div className="absolute inset-0 bg-black/70"></div>
         </div>

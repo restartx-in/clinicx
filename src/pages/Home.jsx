@@ -17,12 +17,12 @@ export const Home = () => {
       
       {/* Hero Section */}
       <section className="relative w-full pt-32 pb-20 px-4 flex flex-col items-center justify-center text-center z-10">
-       <h1 className="font-poppins font-[100] text-5xl md:text-7xl lg:text-8xl text-white tracking-[0.08em] leading-tight uppercase mb-4">
+       <h1 className="font-poppins font-[200] text-5xl md:text-7xl lg:text-8xl text-white tracking-[0.08em] leading-tight uppercase mb-4">
           Model Portfolio
         </h1>
-        <p className="font-poppins font-[600] text-base md:text-lg lg:text-xl text-white/80 tracking-[0.25em] uppercase mb-12">
+        <p className="font-poppins font-[300] text-base md:text-lg lg:text-xl text-white/80 tracking-[0.25em] uppercase mb-12">
           Showcasing{' '}
-          <span className="font-poppins font-[300] text-sm md:text-base text-white/80 tracking-[0.25em] uppercase mb-12">
+          <span className="font-poppins font-[600] text-base md:text-lg lg:text-xl text-white/80 tracking-[0.25em] uppercase mb-12">
            Talent and Training
         </span><br />
         for Aspiring Models
@@ -30,7 +30,7 @@ export const Home = () => {
         
         
         {/* Center Hero Image */}
-        <div className="relative w-full max-w-2xl aspect-video md:aspect-[16/9] mb-12 shadow-2xl animate-in zoom-in duration-1000 delay-200">
+        <div className="relative w-full max-w-xl aspect-video md:aspect-[16/9] mb-12 shadow-2xl animate-in zoom-in duration-1000 delay-200">
           <img 
             src="https://royalrunway.my.canva.site/_assets/media/972518e913ca8bc28f2a573344a4a5b6.jpg" 
             alt="Runway Model Red Dress" 
@@ -40,13 +40,7 @@ export const Home = () => {
           <div className="absolute inset-0 ring-1 ring-white/10"></div>
         </div>
 
-        <Link 
-          to={PageRoute.PORTFOLIO}
-          className="group relative inline-flex items-center gap-2 px-8 py-3 bg-transparent border border-gray-600 hover:border-white text-white text-xs font-bold uppercase tracking-widest transition-all duration-300 animate-in fade-in slide-in-from-bottom-5 duration-1000 delay-300"
-        >
-          <span>Get Started</span>
-          <ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
-        </Link>
+      
       </section>
 
       {/* About Section */}

@@ -26,7 +26,7 @@ export const Navbar = () => {
   return (
     <nav className="fixed w-full bg-[#1a1a1a]/95 backdrop-blur-md z-50 border-b border-white/5 transition-all duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-24">
+        <div className="flex justify-between items-center h-20">
           <Link to={PageRoute.HOME} className="flex items-center space-x-3 group">
             <Diamond className="h-6 w-6 text-[#c4a484] group-hover:text-white transition-colors duration-300" />
             <span className="text-xl md:text-2xl font-thin tracking-[0.2em] text-white group-hover:text-[#c4a484] transition-colors duration-300">
