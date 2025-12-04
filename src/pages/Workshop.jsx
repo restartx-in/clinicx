@@ -54,9 +54,9 @@ export const Workshop = () => {
           <div className="relative aspect-square md:aspect-[4/5] border border-white/5 p-4 bg-[#121212]">
             <div className="w-full h-full relative overflow-hidden bg-neutral-900">
                <img 
-                 src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1000" 
+                 src="https://www.fima.co/wp-content/uploads/2018/06/559506775-825x510.jpg" 
                  alt="Online Workshop" 
-                 className="w-full h-full object-cover grayscale opacity-60 hover:opacity-80 transition-opacity duration-700"
+                 className="w-full h-full object-cover  opacity-80 hover:opacity-80 transition-opacity duration-700"
                />
                <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a] via-transparent to-transparent"></div>
                <div className="absolute bottom-8 left-8 right-8 border-l-2 border-[#c4a484] pl-4">

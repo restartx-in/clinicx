@@ -5,7 +5,7 @@ export const Footer = () => {
   return (
     <footer className="bg-neutral-950 text-white pt-20 pb-10 border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16 ">
           <div className="space-y-6">
             <h3 className="text-3xl font-serif font-bold tracking-wider text-gold">LUMINA</h3>
             <p className="text-gray-500 text-sm leading-relaxed">
@@ -31,15 +31,7 @@ export const Footer = () => {
             </ul>
           </div>
 
-          <div>
-            <h4 className="text-xs font-bold uppercase tracking-widest mb-8 text-gold">Sitemap</h4>
-            <ul className="space-y-3 text-sm text-gray-400">
-              <li><a href="#/" className="hover:text-gold transition-colors">Home</a></li>
-              <li><a href="#/portfolio" className="hover:text-gold transition-colors">Portfolio</a></li>
-              <li><a href="#/about" className="hover:text-gold transition-colors">About Us</a></li>
-              <li><a href="#/contact" className="hover:text-gold transition-colors">Become a Model</a></li>
-            </ul>
-          </div>
+   
 
           <div>
             <h4 className="text-xs font-bold uppercase tracking-widest mb-8 text-gold">Follow Us</h4>
