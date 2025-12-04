@@ -44,7 +44,7 @@ export const Home = () => {
       </section>
 
       {/* About Section */}
-      <section className="w-full bg-[#c4a484] flex flex-col md:flex-row min-h-[80vh]">
+      <section className="w-full bg-[#c4a484] flex flex-col md:flex-row min-h-[90vh]">
         {/* Left Content */}
         <div className="flex-1 p-12 md:p-20 flex flex-col justify-center items-start text-left order-2 md:order-1">
           <span className="text-sm font-bold text-white/90 uppercase tracking-[0.15em] mb-2 animate-in fade-in slide-in-from-left-10 duration-700 view-transition">
