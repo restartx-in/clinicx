@@ -2,7 +2,6 @@ import React from 'react';
 import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
-import { AIChat } from '@/components/AIChat';
 import { Home } from '@/pages/Home';
 import { Portfolio } from '@/pages/Portfolio';
 import { About } from '@/pages/About';
@@ -38,7 +37,6 @@ const App = () => {
           </Routes>
         </main>
         <Footer />
-        <AIChat />
       </div>
     </Router>
   );
