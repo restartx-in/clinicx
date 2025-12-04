@@ -5,9 +5,9 @@ import { PageRoute } from '@/constants/types';
 
 // Mock data for featured models
 const featuredModels = [
-  { id: '1', name: 'Elena V', category: 'fashion', image: 'https://picsum.photos/id/338/600/800', height: '5\'10"', shoe: '8' },
+  { id: '1', name: 'Elena V', category: 'fashion', image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bW9kZWwlMjBwb3J0cmFpdHxlbnwwfHwwfHx8MA==', height: '5\'10"', shoe: '8' },
   { id: '2', name: 'Marcus T', category: 'runway', image: 'https://picsum.photos/id/177/600/800', height: '6\'2"', shoe: '11' },
-  { id: '3', name: 'Sarah J', category: 'commercial', image: 'https://picsum.photos/id/64/600/800', height: '5\'9"', shoe: '7.5' },
+  { id: '3', name: 'Sarah J', category: 'commercial', image: 'https://indianpolos.com/wp-content/uploads/2024/01/woman-in-yellow-tracksuit-standing-on-basketball-court-side-1-scaled.jpg.webp', height: '5\'9"', shoe: '7.5' },
 ];
 
 export const Home = () => {
@@ -77,7 +77,7 @@ export const Home = () => {
                 <img 
                   src={model.image} 
                   alt={model.name}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter grayscale sepia-[.2] group-hover:grayscale-0 group-hover:sepia-0"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter  group-hover:grayscale-0 group-hover:sepia-0"
                 />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300"></div>
                 <div className="absolute bottom-0 left-0 w-full p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">

@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 
 // Extended mock data
 const portfolioData = [
-  { id: '1', name: 'Elena V', category: 'fashion', image: 'https://picsum.photos/id/338/600/800', height: '5\'10"', shoe: '8' },
+  { id: '1', name: 'Elena V', category: 'fashion', image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bW9kZWwlMjBwb3J0cmFpdHxlbnwwfHwwfHx8MA==', height: '5\'10"', shoe: '8' },
   { id: '2', name: 'Marcus T', category: 'runway', image: 'https://picsum.photos/id/177/600/800', height: '6\'2"', shoe: '11' },
-  { id: '3', name: 'Sarah J', category: 'commercial', image: 'https://picsum.photos/id/64/600/800', height: '5\'9"', shoe: '7.5' },
+  { id: '3', name: 'Sarah J', category: 'commercial', image: 'https://indianpolos.com/wp-content/uploads/2024/01/woman-in-yellow-tracksuit-standing-on-basketball-court-side-1-scaled.jpg.webp', height: '5\'9"', shoe: '7.5' },
   { id: '4', name: 'Liam K', category: 'fitness', image: 'https://picsum.photos/id/91/600/800', height: '6\'0"', shoe: '10' },
-  { id: '5', name: 'Olivia R', category: 'fashion', image: 'https://picsum.photos/id/250/600/800', height: '5\'11"', shoe: '8.5' },
+  { id: '5', name: 'Olivia R', category: 'fashion', image: 'https://m.media-amazon.com/images/I/41KeM0O33NL.jpg', height: '5\'11"', shoe: '8.5' },
   { id: '6', name: 'Noah P', category: 'commercial', image: 'https://picsum.photos/id/1005/600/800', height: '6\'1"', shoe: '10.5' },
   { id: '7', name: 'Ava L', category: 'runway', image: 'https://picsum.photos/id/129/600/800', height: '5\'9.5"', shoe: '8' },
   { id: '8', name: 'Ethan W', category: 'fitness', image: 'https://picsum.photos/id/342/600/800', height: '6\'3"', shoe: '12' },
@@ -56,7 +56,7 @@ export const Portfolio = () => {
                 <img 
                   src={model.image} 
                   alt={model.name}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 filter grayscale group-hover:grayscale-0"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105  group-hover:grayscale-0"
                   loading="lazy"
                 />
               </div>
