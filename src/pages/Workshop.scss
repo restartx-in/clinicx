@@ -147,6 +147,7 @@ $transition-slow: 0.7s;
         color: #ffffff;
         font-weight: 700;
         text-transform: uppercase;
+        text-decoration: none;
         letter-spacing: 0.2em;
         font-size: 0.75rem; // text-xs
         text-align: center;
@@ -324,7 +325,7 @@ $transition-slow: 0.7s;
   }
 
   .timeline {
-    border-left: 1px solid $lumina-border;
+    border-left: 1px solid $lumina-gold;
     margin-left: 1rem;
 
     @media (min-width: 768px) {
