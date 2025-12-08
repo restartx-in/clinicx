@@ -72,6 +72,28 @@
   --z-index-40: 40; /* Modal Dialog */
   --z-index-50: 50; /* Notifications */
 }
+:root {
+  --lumina-gold: #c4a484;
+  --lumina-bg-darker: #0a0a0a;
+  --lumina-bg-dark: #1a1a1a; 
+  --lumina-white: #ffffff;
+  --off-white: #f5f5f5;
+  --lumina-gray-text: #6b7280; 
+  --lumina-gray-light: #9ca3af; 
+  --lumina-gray-dark: #4b5563; 
+  --lumina-border: rgba(255, 255, 255, 0.1);
+  --lumina-border-faint: rgba(255, 255, 255, 0.05);
+  --navbar-bg: rgba(10, 10, 10, 0.95);
+  --navbar-border: rgba(255, 255, 255, 0.1);
+  --lumina-border-light: rgba(255, 255, 255, 0.2);
+  --gold-primary: #c5a059;
+  --gold-bg: #d0b08a;  
+  --about-bg-card: #171717;
+  --lumina-bg-card: #121212;
+  --dark-bg: #111111;
+  --lumina-bg-section: #151515;
+  --about-border-gold-faint: rgba(196, 164, 132, 0.3);
+}
 
 :root {
   /* Colors */
@@ -162,16 +184,14 @@
 html,
 body,
 * {
-  scrollbar-width: none; 
-  -ms-overflow-style: none; 
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 html::-webkit-scrollbar,
 body::-webkit-scrollbar,
 *::-webkit-scrollbar {
-  display: none; 
+  display: none;
 }
-
-
 
 ////////////////////////////////////////////////////////
 
@@ -1264,7 +1284,6 @@ body::-webkit-scrollbar,
     --width-48: 35px;
   }
 }
-body{
+body {
   margin: 0;
-  
 }

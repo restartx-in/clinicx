@@ -1,11 +1,6 @@
 /* Programs.scss */
 
 // Variables
-$lumina-gold: #c4a484;
-$lumina-bg-dark: #1a1a1a;
-$lumina-bg-card: #121212;
-$lumina-white: #ffffff;
-$lumina-gray-text: #9ca3af; // gray-400
 $lumina-gray-muted: #6b7280; // gray-500
 $font-serif: serif; // Replace with your actual serif font
 $transition-speed: 0.3s;
@@ -35,7 +30,7 @@ $transition-slow: 0.7s;
 
 .programs-page {
   min-height: 100vh;
-  background-color: $lumina-bg-dark;
+  background-color: var(--lumina-bg-dark);
   padding-top: 8rem; // pt-32
   padding-bottom: 6rem; // pb-24
 
@@ -53,7 +48,7 @@ $transition-slow: 0.7s;
   animation: fadeSlideUp 1s ease-out forwards;
 
   .subtitle {
-    color: $lumina-gold;
+    color: var(--lumina-gold);
     font-size: 0.75rem; // text-xs
     font-weight: 700;
     text-transform: uppercase;
@@ -65,7 +60,7 @@ $transition-slow: 0.7s;
   h1 {
     font-size: 3rem; // text-5xl
     font-weight: 100; // font-thin
-    color: $lumina-white;
+    color: var(--lumina-white);
     text-transform: uppercase;
     letter-spacing: 0.05em; // tracking-wider
     margin-bottom: 2rem;
@@ -76,7 +71,7 @@ $transition-slow: 0.7s;
   }
 
   p {
-    color: $lumina-gray-text;
+    color: var(--color-neutral-400);
     max-width: 42rem; // max-w-2xl
     margin: 0 auto;
     font-size: 0.875rem; // text-sm
@@ -108,17 +103,17 @@ $transition-slow: 0.7s;
     cursor: pointer;
 
     // Default State
-    color: $lumina-gray-muted;
+    color: var(--color-neutral-500);
     
     &:hover {
-      color: $lumina-white;
+      color: var(--lumina-white);
       border-color: #374151; // gray-700
     }
 
     // Active State
     &.active {
-      color: $lumina-gold;
-      border-color: $lumina-gold;
+      color: var(--lumina-gold);
+      border-color: var(--lumina-gold);
     }
   }
 }
@@ -145,7 +140,7 @@ $transition-slow: 0.7s;
 // --- Program Card ---
 .program-card {
   position: relative;
-  background-color: $lumina-bg-card;
+  background-color: var(--lumina-bg-card);
   overflow: hidden; // Ensure hover zoom stays inside
 
   // Aspect Ratio Wrapper
@@ -178,7 +173,7 @@ $transition-slow: 0.7s;
     h3 {
       font-size: 1.25rem; // text-xl
       font-family: $font-serif;
-      color: $lumina-gold;
+      color: var(--lumina-gold);
       font-style: italic;
       margin-bottom: 0.25rem;
       
@@ -201,7 +196,7 @@ $transition-slow: 0.7s;
 
     p {
       font-size: 10px;
-      color: $lumina-white;
+      color: var(--lumina-white);
       text-transform: uppercase;
       letter-spacing: 0.1em; // tracking-widest
       

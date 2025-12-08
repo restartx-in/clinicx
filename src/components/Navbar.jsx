@@ -1,8 +1,9 @@
+
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Diamond } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { PageRoute } from '@/constants/types';
-import './Navbar.scss'; // Changed to SCSS
+import './Navbar.scss';
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,10 +12,11 @@ export const Navbar = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   const navLinks = [
-    { name: 'Program Overview', path: PageRoute.PORTFOLIO },
-    { name: 'Day Online Workshop', path: PageRoute.WORKSHOP },
+    { name: 'Events & Production', path: PageRoute.ABOUT },
+    { name: 'Fashion Show Details', path: PageRoute.FASHION_SHOW },
+    { name: '6-Day Workshop', path: PageRoute.WORKSHOP },
+    { name: 'Portfolio', path: PageRoute.PORTFOLIO },
     { name: 'Contact / Register', path: PageRoute.CONTACT },
-    { name: 'About', path: PageRoute.ABOUT },
   ];
 
   const isActive = (path) => {
@@ -26,10 +28,17 @@ export const Navbar = () => {
     <nav className="navbar">
       <div className="nav-container">
         <div className="nav-wrapper">
-          {/* Logo */}
+          {/* Logo Section */}
           <Link to={PageRoute.HOME} className="nav-logo">
-            <Diamond className="logo-icon" />
-            <span className="logo-text">LUMINA</span>
+            {/* Replace 'royal-logo.png' with the actual path to your saved image */}
+            <img 
+              src="src\assets\new.png" 
+              alt="Royal Runway Logo" 
+              className="logo-image"
+            />
+            <div className="logo-text-col">
+              <span className="logo-text">ROYAL RUNWAY</span>
+            </div>
           </Link>
 
           {/* Desktop Menu */}

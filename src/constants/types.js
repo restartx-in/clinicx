@@ -1,8 +1,8 @@
 export const PageRoute = {
   HOME: '/',
-  PORTFOLIO: '/Programs',
-  ABOUT: '/about',
+  PORTFOLIO: '/portfolio',
+  ABOUT: '/production', // Changed to reflect "Events/Production"
   CONTACT: '/contact',
-  PROGRAMS: '/programs',
-  WORKSHOP: '/programs/6-day-intensive'
+  WORKSHOP: '/workshops/6-day-intensive',
+  FASHION_SHOW: '/events/fashion-show'
 };

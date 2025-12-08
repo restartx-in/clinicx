@@ -1,5 +1,6 @@
+
 import React from 'react';
-import { Instagram, Twitter, Facebook, Mail, Phone, MapPin } from 'lucide-react';
+import { Instagram, Twitter, Facebook, Mail, Phone, MapPin, Crown } from 'lucide-react';
 import './Footer.scss';
 
 export const Footer = () => {
@@ -10,9 +11,11 @@ export const Footer = () => {
           
           {/* Brand Column */}
           <div className="brand-column">
-            <h3 className="brand-logo">LUMINA</h3>
+            <h3 className="brand-logo" style={{display: 'flex', alignItems: 'center', gap: '8px'}}>
+                <Crown size={20} /> ROYAL RUNWAY
+            </h3>
             <p className="brand-desc">
-              Representing the world's most distinct faces. We bridge the gap between commercial viability and high-fashion editorial.
+              Empowering aspiring queens to build confidence, presence, and a legacy of their own.
             </p>
           </div>
           
@@ -22,15 +25,11 @@ export const Footer = () => {
             <ul className="contact-list">
               <li>
                 <MapPin className="icon" />
-                <span>152 Mercer St, New York, NY</span>
-              </li>
-              <li>
-                <Phone className="icon" />
-                <span>+1 (212) 555-0199</span>
+                <span>New York / Global</span>
               </li>
               <li>
                 <Mail className="icon" />
-                <span>bookings@lumina.agency</span>
+                <span>bookings@royalrunway.com</span>
               </li>
             </ul>
           </div>
@@ -42,15 +41,12 @@ export const Footer = () => {
               <a href="#" aria-label="Instagram">
                 <Instagram className="icon" />
               </a>
-              <a href="#" aria-label="Twitter">
-                <Twitter className="icon" />
-              </a>
               <a href="#" aria-label="Facebook">
                 <Facebook className="icon" />
               </a>
             </div>
             <div className="copyright">
-              <p>© 2024 Lumina Mgmt.</p>
+              <p>© 2024 Royal Runway.</p>
             </div>
           </div>
 

@@ -1,5 +1,5 @@
+
 import React from 'react';
-import { Camera, Users, Award, Briefcase } from 'lucide-react';
 import './About.scss';
 
 export const About = () => {
@@ -15,71 +15,96 @@ export const About = () => {
         </div>
         <div className="lumina-about__hero-content">
           <h1>
-            About <span>Lumina</span>
+            Events & <span>Production</span>
           </h1>
         </div>
       </div>
 
       <div className="lumina-about__layout">
-        {/* Main Content (Bio) */}
+        
+        {/* Bio / Legacy Section (Gold Background) */}
         <div className="lumina-about__bio">
           <div className="lumina-about__bio-info">
-            <h2>A Legacy of Excellence</h2>
+            <h2>The Royal Runway Experience</h2>
             <p>
-              Founded in 2024, Lumina Management has quickly risen to become a premier boutique agency. 
-              We believe in quality over quantity, managing a select board of talent that we truly believe in.
+              We specialize in organizing high-impact events and full-scale fashion show production. 
+              Our mission is to provide a platform where aspiring models can shine on an international scale.
             </p>
             <p>
-              Our approach is personal. We develop our models holistically, focusing not just on their look, 
-              but on their career longevity, personal brand, and physical well-being.
+              From local luxury runways to international stages, we curate experiences that blend high fashion with professional development.
             </p>
+            
             <div className="lumina-about__bio-stats">
               <div className="stat-box">
-                <h4>50+</h4>
-                <p>Top Models</p>
+                <h4>May 2nd</h4>
+                <p>Season 2 Show</p>
               </div>
               <div className="stat-box">
-                <h4>200+</h4>
-                <p>Campaigns</p>
+                <h4>Aug 2026</h4>
+                <p>Intl. Pageant</p>
               </div>
             </div>
           </div>
           
+          {/* Right side image for Bio */}
           <div className="lumina-about__bio-visual">
             <img 
               src="https://img2.wallspic.com/previews/0/4/0/5/6/165040/165040-gigi_hadid-model-celebrity-hair-glasses-550x310.jpg" 
               alt="Backstage" 
               className="bio-img"
             />
-            {/* Decoration elements */}
-            <div className="visual-deco visual-deco--dark"></div>
-            <div className="visual-deco visual-deco--gold"></div>
           </div>
         </div>
 
-        {/* Features / Values */}
-        <div className="lumina-about__values">
-          <div className="value-card">
-            <Camera className="card-icon" />
-            <h3>Editorial</h3>
-            <p>Securing covers on Vogue, Elle, and Harper's Bazaar.</p>
-          </div>
-          <div className="value-card">
-            <Users className="card-icon" />
-            <h3>Development</h3>
-            <p>Comprehensive training for new faces.</p>
-          </div>
-          <div className="value-card">
-            <Briefcase className="card-icon" />
-            <h3>Management</h3>
-            <p>Strategic career planning and contract negotiation.</p>
-          </div>
-          <div className="value-card">
-            <Award className="card-icon" />
-            <h3>Reputation</h3>
-            <p>Recognized globally for integrity and style.</p>
+        {/* WORKSHOPS OFFERED SECTION (Dark Background - From Screenshot) */}
+        <div className="lumina-about__workshops">
+          <h3 className="section-label">WORKSHOPS OFFERED</h3>
+          
+          <div className="workshops-grid">
+            {/* Card 1 */}
+            <div className="workshop-card">
+              <h4>PERSONALIZED COACHING FOR EACH MODEL</h4>
+              <div className="img-wrapper">
+                <img 
+                  src="https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?q=80&w=800&auto=format&fit=crop" 
+                  alt="Personalized Coaching" 
+                />
+              </div>
+              <p>
+                Our workshops offer hands-on training for models at all levels.
+              </p>
+            </div>
+
+            {/* Card 2 */}
+            <div className="workshop-card">
+              <h4>ESSENTIAL SKILLS FOR THE RUNWAY</h4>
+              <div className="img-wrapper">
+                <img 
+                  src="https://images.unsplash.com/photo-1581044777550-4cfa60707c03?q=80&w=800&auto=format&fit=crop" 
+                  alt="Group Runway Skills" 
+                />
+              </div>
+              <p>
+                Tailored sessions focus on individual strengths and growth areas.
+              </p>
+            </div>
+
+            {/* Card 3 */}
+            <div className="workshop-card">
+              <h4>INDUSTRY INSIGHTS AND NETWORKING OPPORTUNITIES</h4>
+              <div className="img-wrapper">
+                <img 
+                  src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=800&auto=format&fit=crop" 
+                  alt="Industry Insights" 
+                />
+              </div>
+              <p>
+                Participants learn vital techniques for walking and posing effectively.
+              </p>
+            </div>
           </div>
         </div>
+
       </div>
     </div>
   );
