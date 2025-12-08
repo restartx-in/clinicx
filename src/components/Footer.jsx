@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Instagram, Twitter, Facebook, Mail, Phone, MapPin, Crown } from 'lucide-react';
+import { Instagram, Twitter, Facebook, Mail, Phone, MapPin } from 'lucide-react'; // Removed Crown
 import './Footer.scss';
 
 export const Footer = () => {
@@ -11,9 +11,16 @@ export const Footer = () => {
           
           {/* Brand Column */}
           <div className="brand-column">
-            <h3 className="brand-logo" style={{display: 'flex', alignItems: 'center', gap: '8px'}}>
-                <Crown size={20} /> ROYAL RUNWAY
-            </h3>
+            {/* Updated Logo Section */}
+            <div className="brand-logo">
+                <img 
+                  src="src/assets/new.png" 
+                  alt="Royal Runway Logo" 
+                  className="footer-logo-img"
+                />
+                <span className="brand-text">ROYAL RUNWAY</span>
+            </div>
+            
             <p className="brand-desc">
               Empowering aspiring queens to build confidence, presence, and a legacy of their own.
             </p>
@@ -27,6 +34,10 @@ export const Footer = () => {
                 <MapPin className="icon" />
                 <span>New York / Global</span>
               </li>
+              {/* <li>
+                <Phone className="icon" />
+                <span>+1 (212) 555-0199</span>
+              </li> */}
               <li>
                 <Mail className="icon" />
                 <span>bookings@royalrunway.com</span>
@@ -40,6 +51,9 @@ export const Footer = () => {
             <div className="social-links">
               <a href="#" aria-label="Instagram">
                 <Instagram className="icon" />
+              </a>
+              <a href="#" aria-label="Twitter">
+                <Twitter className="icon" />
               </a>
               <a href="#" aria-label="Facebook">
                 <Facebook className="icon" />
