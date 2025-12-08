@@ -1,9 +1,10 @@
+
 import React from 'react';
-import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+// Change HashRouter to BrowserRouter
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { Home } from '@/pages/Home';
-// import { Portfolio } from '@/pages/Portfolio';
 import { About } from '@/pages/About';
 import { Contact } from '@/pages/Contact';
 import { PageRoute } from '@/constants/types';
@@ -34,7 +35,6 @@ const App = () => {
             <Route path={PageRoute.PORTFOLIO} element={<Programs />} />
             <Route path={PageRoute.ABOUT} element={<About />} />
             <Route path={PageRoute.CONTACT} element={<Contact />} />
-            {/* <Route path={PageRoute.PROGRAMS} element={<Programs />} /> */}
             <Route path={PageRoute.WORKSHOP} element={<Workshop />} />
             <Route path={PageRoute.FASHION_SHOW} element={<FashionShow />} />
           </Routes>
@@ -45,4 +45,4 @@ const App = () => {
   );
 };
 
-export default App; 
+export default App;
