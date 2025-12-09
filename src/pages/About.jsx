@@ -1,8 +1,23 @@
-
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useLocation, Link } from 'react-router-dom';
+import { PageRoute } from '@/constants/types';
 import './About.scss';
 
 export const About = () => {
+  const location = useLocation();
+
+  // Handle auto-scrolling when URL has a hash (e.g., #workshops)
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.getElementById(location.hash.substring(1));
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    }
+  }, [location]);
+
   return (
     <div className="lumina-about">
       {/* Hero */}
@@ -56,13 +71,16 @@ export const About = () => {
           </div>
         </div>
 
-        {/* WORKSHOPS OFFERED SECTION (Dark Background - From Screenshot) */}
-        <div className="lumina-about__workshops">
+        <div id="workshops" className="lumina-about__workshops">
           <h3 className="section-label">WORKSHOPS OFFERED</h3>
           
           <div className="workshops-grid">
             {/* Card 1 */}
-            <div className="workshop-card">
+            <Link 
+              to={PageRoute.FASHION_SHOW} 
+              className="workshop-card"
+              style={{ textDecoration: 'none', color: 'inherit', cursor: 'pointer' }}
+            >
               <h4>PERSONALIZED COACHING FOR EACH MODEL</h4>
               <div className="img-wrapper">
                 <img 
@@ -73,10 +91,14 @@ export const About = () => {
               <p>
                 Our workshops offer hands-on training for models at all levels.
               </p>
-            </div>
+            </Link>
 
             {/* Card 2 */}
-            <div className="workshop-card">
+            <Link 
+              to={PageRoute.FASHION_SHOW} 
+              className="workshop-card"
+              style={{ textDecoration: 'none', color: 'inherit', cursor: 'pointer' }}
+            >
               <h4>ESSENTIAL SKILLS FOR THE RUNWAY</h4>
               <div className="img-wrapper">
                 <img 
@@ -87,10 +109,14 @@ export const About = () => {
               <p>
                 Tailored sessions focus on individual strengths and growth areas.
               </p>
-            </div>
+            </Link>
 
             {/* Card 3 */}
-            <div className="workshop-card">
+            <Link 
+              to={PageRoute.FASHION_SHOW} 
+              className="workshop-card"
+              style={{ textDecoration: 'none', color: 'inherit', cursor: 'pointer' }}
+            >
               <h4>INDUSTRY INSIGHTS AND NETWORKING OPPORTUNITIES</h4>
               <div className="img-wrapper">
                 <img 
@@ -101,7 +127,7 @@ export const About = () => {
               <p>
                 Participants learn vital techniques for walking and posing effectively.
               </p>
-            </div>
+            </Link>
           </div>
         </div>
 

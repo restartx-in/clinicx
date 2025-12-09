@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { PageRoute } from '@/constants/types';
@@ -71,8 +70,12 @@ export const Home = () => {
         <div className="services-container">
           
           <div className="services-list">
-            {/* Service 1 */}
-            <div className="service-item">
+            {/* Service 1 - Links to Production Page AND scrolls to Workshops */}
+            <Link 
+              to={`${PageRoute.ABOUT}#workshops`} 
+              className="service-item" 
+              style={{ textDecoration: 'none', color: 'inherit', display: 'block', cursor: 'pointer' }}
+            >
               <span className="service-category">WORKSHOPS</span>
               <h2>Mastering the Runway</h2>
               <span className="service-sub">KEY COMPONENTS OF OUR TRAINING</span>
@@ -81,10 +84,14 @@ export const Home = () => {
                 Participants engage in practical exercises and receive personalized feedback, ensuring they develop confidence and
                 grace on the runway, preparing them for the competitive fashion industry.
               </p>
-            </div>
+            </Link>
 
             {/* Service 2 */}
-            <div className="service-item">
+            <Link 
+              to={`${PageRoute.ABOUT}#workshops`} 
+              className="service-item" 
+              style={{ textDecoration: 'none', color: 'inherit', display: 'block', cursor: 'pointer' }}
+            >
               <span className="service-category">TRAINING</span>
               <h2>Workshops</h2>
               <span className="service-sub">COMPREHENSIVE LEARNING EXPERIENCES</span>
@@ -93,10 +100,14 @@ export const Home = () => {
                 expert guidance, models learn to exude elegance and poise, making a lasting impression during fashion shows and
                 events, essential for their professional development.
               </p>
-            </div>
+            </Link>
 
             {/* Service 3 */}
-            <div className="service-item">
+            <Link 
+              to={`${PageRoute.ABOUT}#workshops`} 
+              className="service-item" 
+              style={{ textDecoration: 'none', color: 'inherit', display: 'block', cursor: 'pointer' }}
+            >
               <span className="service-category">RAMP WALKS</span>
               <h2>Special Events</h2>
               <span className="service-sub">UNIQUE OPPORTUNITIES FOR NETWORKING AND SKILL ENHANCEMENT</span>
@@ -105,7 +116,7 @@ export const Home = () => {
                 application, participants gain valuable insights from industry professionals, enhancing their skills and boosting their
                 confidence.
               </p>
-            </div>
+            </Link>
           </div>
         </div>
       </section>

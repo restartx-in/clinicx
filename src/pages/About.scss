@@ -75,7 +75,7 @@ $transition-speed: 0.3s;
     grid-template-columns: 1fr;
     // gap: 4rem; // gap-16
     align-items: stretch;
-    margin-bottom: 6rem; // mb-24
+    // margin-bottom: 6rem; // mb-24
     background-color: var(--lumina-gold);
     
     @media (min-width: 768px) {
@@ -148,7 +148,6 @@ $transition-speed: 0.3s;
     }
   }
 
-  // --- NEW: Workshops Offered Section (Matches Screenshot) ---
   &__workshops {
     padding-top: 2rem;
     
@@ -160,7 +159,7 @@ $transition-speed: 0.3s;
       text-transform: uppercase;
       letter-spacing: 0.15em;
       margin-bottom: 2rem;
-      margin-top: -4rem;
+      margin-top: 5rem;
       font-weight: 800;
     }
 
