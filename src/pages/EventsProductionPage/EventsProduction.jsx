@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { PageRoute } from '@/constants/types';
-import './About.scss';
+import './EventsProduction.scss';
 
-export const About = () => {
+export const EventsProduction = () => {
   const location = useLocation();
 
   // Handle auto-scrolling when URL has a hash (e.g., #workshops)
@@ -135,3 +135,4 @@ export const About = () => {
     </div>
   );
 };
+export default EventsProduction;

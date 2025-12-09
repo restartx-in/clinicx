@@ -12,10 +12,10 @@ export const Navbar = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   const navLinks = [
-    { name: 'Events & Production', path: PageRoute.ABOUT },
+    { name: 'Events & Production', path: PageRoute.EVENTSPRODUCTION },
     { name: 'Fashion Show Details', path: PageRoute.FASHION_SHOW },
     { name: '6-Day Workshop', path: PageRoute.WORKSHOP },
-    { name: 'Portfolio', path: PageRoute.PORTFOLIO },
+    { name: 'Program', path: PageRoute.PROGRAM },
     { name: 'Contact / Register', path: PageRoute.CONTACT },
   ];
 
@@ -90,3 +90,4 @@ export const Navbar = () => {
     </nav>
   );
 };
+export default Navbar;

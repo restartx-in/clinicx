@@ -103,3 +103,4 @@ export const FashionShow = () => {
     </div>
   );
 };
+export default FashionShow;

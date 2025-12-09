@@ -240,3 +240,4 @@ export const Workshop = () => {
     </div>
   );
 };
+export default Workshop;

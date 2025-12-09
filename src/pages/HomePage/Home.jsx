@@ -72,7 +72,7 @@ export const Home = () => {
           <div className="services-list">
             {/* Service 1 - Links to Production Page AND scrolls to Workshops */}
             <Link 
-              to={`${PageRoute.ABOUT}#workshops`} 
+              to={`${PageRoute.EVENTSPRODUCTION}#workshops`} 
               className="service-item" 
               style={{ textDecoration: 'none', color: 'inherit', display: 'block', cursor: 'pointer' }}
             >
@@ -88,7 +88,7 @@ export const Home = () => {
 
             {/* Service 2 */}
             <Link 
-              to={`${PageRoute.ABOUT}#workshops`} 
+              to={`${PageRoute.EVENTSPRODUCTION}#workshops`} 
               className="service-item" 
               style={{ textDecoration: 'none', color: 'inherit', display: 'block', cursor: 'pointer' }}
             >
@@ -104,7 +104,7 @@ export const Home = () => {
 
             {/* Service 3 */}
             <Link 
-              to={`${PageRoute.ABOUT}#workshops`} 
+              to={`${PageRoute.EVENTSPRODUCTION}#workshops`} 
               className="service-item" 
               style={{ textDecoration: 'none', color: 'inherit', display: 'block', cursor: 'pointer' }}
             >
@@ -123,3 +123,4 @@ export const Home = () => {
     </div>
   );
 };
+export default Home;
