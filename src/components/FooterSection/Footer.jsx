@@ -18,7 +18,7 @@ export const Footer = () => {
                   alt="Royal Runway Logo" 
                   className="footer-logo-img"
                 />
-                <span className="brand-text">ROYAL RUNWAY</span>
+                <span className="brand-text">ROYAL RUNWAY FASHION</span>
             </div>
             
             <p className="brand-desc">
@@ -40,7 +40,7 @@ export const Footer = () => {
               </li> */}
               <li>
                 <Mail className="icon" />
-                <span>bookings@royalrunway.com</span>
+                <span>bookings@royalrunwayfashion.com</span>
               </li>
             </ul>
           </div>
@@ -60,7 +60,7 @@ export const Footer = () => {
               </a>
             </div>
             <div className="copyright">
-              <p>© 2024 Royal Runway.</p>
+              <p>© 2024 Royal Runway Fashion.</p>
             </div>
           </div>
 

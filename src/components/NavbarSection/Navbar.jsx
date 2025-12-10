@@ -37,7 +37,7 @@ export const Navbar = () => {
               className="logo-image"
             />
             <div className="logo-text-col">
-              <span className="logo-text">ROYAL RUNWAY</span>
+              <span className="logo-text desktop-only">ROYAL RUNWAY Fashion</span>
             </div>
           </Link>
 

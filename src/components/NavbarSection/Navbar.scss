@@ -1,6 +1,15 @@
 
 $nav-height: 5rem;
 $transition-speed: 0.3s;
+.desktop-only {
+  display: none;
+}
+@media (min-width: 768px) {
+  .desktop-only {
+    display: block;
+  }
+}
+
 
 .navbar {
   position: fixed;

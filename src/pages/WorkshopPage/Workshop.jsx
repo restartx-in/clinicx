@@ -84,11 +84,7 @@ export const Workshop = () => {
   return (
     <div className="workshop-page">
       {/* Header */}
-      <div className="workshop-header">
-        <Link to={PageRoute.HOME} className="back-link">
-          <ArrowLeft className="icon" /> Back Home
-        </Link>
-      </div>
+     
 
       {/* Hero */}
       <div className="workshop-hero">

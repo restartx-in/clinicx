@@ -9,7 +9,7 @@ export const Home = () => {
       {/* Hero Section */}
       <section className="hero-section">
         <h1 className="hero-title">
-          Royal Runway
+          Royal Runway Fashion
         </h1>
         <p className="hero-subtitle">
           Where Elegance Meets <span className="highlight">Opportunity</span>
