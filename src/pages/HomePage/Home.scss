@@ -1,6 +1,13 @@
+// --- ADD THIS AT THE VERY TOP OF THE FILE ---
+// This ensures padding doesn't add to the width causing overflow
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 // Variables
-$font-poppins: 'Poppins', sans-serif; // Ensure this font is imported
+$font-poppins: 'Poppins', sans-serif; 
 $transition-slow: 0.7s;
 $transition-super-slow: 1s;
 
@@ -31,17 +38,17 @@ $transition-super-slow: 1s;
   width: 100%;
   background-color: var(--lumina-bg-dark);
   min-height: 100vh;
+  // --- FIX 1: Prevent Horizontal Scrolling ---
+  overflow-x: hidden; 
+  position: relative;
 }
 
 // --- Hero Section ---
 .hero-section {
   position: relative;
-  font-weight: 100 !important;
   width: 100%;
-  padding-top: 8rem; 
-  padding-bottom: 5rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  // Changed padding to be safer
+  padding: 8rem 0rem 5rem 0rem; 
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -49,6 +56,7 @@ $transition-super-slow: 1s;
   text-align: center;
   z-index: 10;
 
+  // ... (Keep existing hero styles) ...
   .hero-title {
     font-family: "sans-serif";
     color: var(--lumina-white);
@@ -126,8 +134,7 @@ $transition-super-slow: 1s;
     &:hover img {
       transform: scale(1.1);
     }
-  }
-}
+  }}
 
 // --- About Section (Gold) ---
 .home-about-section {
@@ -136,6 +143,8 @@ $transition-super-slow: 1s;
   display: flex;
   flex-direction: column;
   min-height: 90vh;
+  // --- FIX 2: Stop animations from causing scrollbars ---
+  overflow: hidden; 
 
   @media (min-width: 768px) {
     flex-direction: row;
@@ -144,7 +153,8 @@ $transition-super-slow: 1s;
   // Left Content
   .home-about-content {
     flex: 1;
-    padding: 3rem;
+    // --- FIX 3: Reduce mobile padding ---
+    padding: 2rem 1.5rem; // Reduced from 3rem for mobile
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -205,7 +215,7 @@ $transition-super-slow: 1s;
     flex: 1;
     position: relative;
     overflow: hidden;
-    min-height: 50vh;
+    min-height: 40vh; // Reduced height slightly for mobile balance
     order: 1;
 
     @media (min-width: 768px) {
@@ -231,10 +241,9 @@ $transition-super-slow: 1s;
 // --- Services Section (Dark) ---
 .services-section {
   width: 100%;
-  background-color: #111; // Darker than hero
+  background-color: #111;
   color: #fff;
-  padding: 5rem 2rem;
-  // margin-top:-1rem;
+  padding: 4rem 1.5rem; // Adjusted padding
 
   @media (min-width: 768px) {
     padding: 8rem 5rem;
@@ -253,22 +262,35 @@ $transition-super-slow: 1s;
   }
 
   .services-label {
-    flex: 0 0 200px;
-    margin-bottom: 3rem;
+    // On mobile, let this be auto width so it doesn't push
+    flex: 0 0 auto; 
+    margin-bottom: 2rem;
 
+    @media (min-width: 1024px) {
+       flex: 0 0 200px;
+       margin-bottom: 3rem;
+    }
 
     h3 {
       color: var(--lumina-gold);
       font-size: 1rem;
-     margin-left: 170px;
-     margin-top:-80px;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       font-weight: 600;
+
+      // --- FIX 4: REMOVED FIXED MARGINS FOR MOBILE ---
+      // Reset margins for mobile layout
+      margin-left: 0; 
+      margin-top: 0;
+
+      // Only apply that specific positioning on Desktop
+      @media (min-width: 1024px) {
+        margin-left: 170px;
+        margin-top: -80px;
+      }
     }
   }
-
-  .services-list {
+.services-list {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -316,4 +338,5 @@ $transition-super-slow: 1s;
       font-weight: 300;
     }
   }
+  // ... (Keep the rest of services-list and service-item styles) ...
 }
