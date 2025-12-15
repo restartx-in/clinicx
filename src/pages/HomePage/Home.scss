@@ -1,32 +1,12 @@
-// --- ADD THIS AT THE VERY TOP OF THE FILE ---
-// This ensures padding doesn't add to the width causing overflow
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-// Variables
-$font-poppins: 'Poppins', sans-serif; 
+$font-serif: serif; // Replace with your actual serif font
+$transition-speed: 0.3s;
 $transition-slow: 0.7s;
-$transition-super-slow: 1s;
 
-// Keyframes for entry animations
-@keyframes fadeSlideInLeft {
+// Keyframes
+@keyframes fadeSlideUp {
   from {
     opacity: 0;
-    transform: translateX(-2.5rem);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes fadeSlideInBottom {
-  from {
-    opacity: 0;
-    transform: translateY(2.5rem);
+    transform: translateY(1.25rem); // 20px
   }
   to {
     opacity: 1;
@@ -34,310 +14,217 @@ $transition-super-slow: 1s;
   }
 }
 
-.home-page {
-  width: 100%;
-  background-color: var(--lumina-bg-dark);
-  min-height: 100vh;
-  // --- FIX 1: Prevent Horizontal Scrolling ---
-  overflow-x: hidden; 
-  position: relative;
+// Mixin for standard container
+@mixin container-width {
+  max-width: 80rem; // max-w-7xl
+  margin: 0 auto;
+  padding: 0 1rem;
+
+  @media (min-width: 640px) { padding: 0 1.5rem; }
+  @media (min-width: 1024px) { padding: 0 2rem; }
 }
 
-// --- Hero Section ---
-.hero-section {
-  position: relative;
-  width: 100%;
-  // Changed padding to be safer
-  padding: 8rem 0rem 5rem 0rem; 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  z-index: 10;
+.programs-page {
+  min-height: 100vh;
+  background-color: var(--lumina-bg-dark);
+  padding-top: 8rem; // pt-32
+  padding-bottom: 6rem; // pb-24
 
-  // ... (Keep existing hero styles) ...
-  .hero-title {
-    font-family: "sans-serif";
-    color: var(--lumina-white);
-    letter-spacing: 0.08em;
-    line-height: 1.25;
+  .programs-container {
+    @include container-width;
+  }
+}
+
+// --- Header Section ---
+.programs-header {
+  text-align: center;
+  margin-bottom: 5rem; // mb-20
+  
+  // Animation
+  animation: fadeSlideUp 1s ease-out forwards;
+
+  .subtitle {
+    color: var(--lumina-gold);
+    font-size: 0.65rem; // text-xs
+    font-weight: 700;
     text-transform: uppercase;
+    letter-spacing: 0.3em;
     margin-bottom: 1rem;
-    font-size: 2rem;
-    @media (min-width: 768px) { font-size: 4.5rem; }
-    @media (min-width: 1024px) { font-size: 5rem; }
+    display: block;
   }
 
-  .hero-subtitle {
-    font-family: $font-poppins;
-    font-weight: 300;
-    color: var(--lumina-white)-dim;
-    letter-spacing: 0.25em;
+  h1 {
+    font-size: 2rem; // text-5xl
+    font-weight: 100; // font-thin
+    color: var(--lumina-white);
     text-transform: uppercase;
-    margin-bottom: 3rem;
+    letter-spacing: 0.05em; // tracking-wider
+    margin-bottom: 2rem;
 
-    font-size: 1rem;
-    @media (min-width: 768px) { font-size: 1.125rem; }
-    @media (min-width: 1024px) { font-size: 1.25rem; }
-
-    .highlight {
-      font-weight: 600;
-      color: var(--lumina-gold); // Changed to Gold for contrast
+    @media (min-width: 768px) {
+      font-size: 4.5rem; // md:text-7xl
     }
   }
 
-  // Hero CTA Button
-  .hero-btn {
-    display: inline-block;
-    text-decoration: none;
-    margin-top: 2rem;
-    padding: 1rem 2rem;
+  p {
+    color: var(--color-neutral-400);
+    max-width: 42rem; // max-w-2xl
+    margin: 0 auto;
+    font-size: 0.875rem; // text-sm
+    line-height: 1.625; // leading-relaxed
+    letter-spacing: 0.025em; // tracking-wide
+  }
+}
+
+// --- Filter Buttons ---
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem; // gap-6
+  margin-bottom: 4rem; // mb-16
+  
+  // Animation delay
+  opacity: 0;
+  animation: fadeSlideUp 1s ease-out 0.1s forwards;
+
+  .filter-btn {
     background: transparent;
-    border: 1px solid var(--lumina-gold);
-    color: var(--lumina-gold);
+    font-size: 0.75rem; // text-xs
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    transition: all 0.3s ease;
+    letter-spacing: 0.2em;
+    padding: 0.5rem 1rem; // px-4 py-2
+    border: 1px solid transparent;
+    transition: all $transition-speed;
+    cursor: pointer;
+
+    // Default State
+    color: var(--color-neutral-500);
     
     &:hover {
-      background: var(--lumina-gold);
-      color: #000;
-    }
-  }
-
-  // Hero Image Container
-  .hero-image-wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 36rem;
-    margin-bottom: 2rem;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-    overflow: hidden;
-    aspect-ratio: 16 / 9;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top;
-      transition: transform $transition-slow ease-out;
-    }
-
-    .image-overlay {
-      position: absolute;
-      inset: 0;
-      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-      pointer-events: none;
-    }
-
-    &:hover img {
-      transform: scale(1.1);
-    }
-  }}
-
-// --- About Section (Gold) ---
-.home-about-section {
-  width: 100%;
-  background-color: var(--lumina-gold);
-  display: flex;
-  flex-direction: column;
-  min-height: 90vh;
-  // --- FIX 2: Stop animations from causing scrollbars ---
-  overflow: hidden; 
-
-  @media (min-width: 768px) {
-    flex-direction: row;
-  }
-
-  // Left Content
-  .home-about-content {
-    flex: 1;
-    // --- FIX 3: Reduce mobile padding ---
-    padding: 2rem 1.5rem; // Reduced from 3rem for mobile
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    text-align: left;
-    order: 2; 
-
-    @media (min-width: 768px) {
-      padding: 5rem;
-      order: 1;
-    }
-
-    .small-heading {
-      font-size: 0.875rem;
-      font-weight: 700;
-      color: rgba(255, 255, 255, 0.9);
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      margin-bottom: 0.5rem;
-      animation: fadeSlideInLeft $transition-slow ease-out forwards;
-    }
-
-    .main-heading {
-      font-weight: 100;
       color: var(--lumina-white);
-      margin-bottom: 3rem;
-      line-height: 1.1;
-      font-size: 3.75rem;
-      
-      @media (min-width: 768px) { font-size: 5rem; } // Adjusted slightly to fit "About Me"
-      @media (min-width: 1024px) { font-size: 7rem; }
-
-      opacity: 0;
-      animation: fadeSlideInLeft $transition-slow ease-out 0.1s forwards;
+      border-color: #374151; // gray-700
     }
 
-    .text-body {
-      max-width: 32rem;
-      color: rgba(255, 255, 255, 0.95);
-      font-size: 1.125rem;
-      line-height: 1.625;
-      font-weight: 300;
-      opacity: 0;
-      animation: fadeSlideInBottom $transition-slow ease-out 0.2s forwards;
-
-      p {
-        margin-bottom: 1.5rem;
-        strong {
-          font-weight: 600;
-          color: var(--lumina-white);
-        }
-      }
-    }
-  }
-
-  // Right Image
-  .home-about-image-wrapper {
-    flex: 1;
-    position: relative;
-    overflow: hidden;
-    min-height: 40vh; // Reduced height slightly for mobile balance
-    order: 1;
-
-    @media (min-width: 768px) {
-      min-height: auto;
-      order: 2;
-    }
-
-    img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform $transition-super-slow;
-
-      &:hover {
-        transform: scale(1.05);
-      }
+    // Active State
+    &.active {
+      color: var(--lumina-gold);
+      border-color: var(--lumina-gold);
     }
   }
 }
 
-// --- Services Section (Dark) ---
-.services-section {
-  width: 100%;
-  background-color: #111;
-  color: #fff;
-  padding: 4rem 1.5rem; // Adjusted padding
+// --- Grid Section ---
+.programs-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem; // gap-6
+  
+  // Animation delay
+  opacity: 0;
+  animation: fadeSlideUp 1s ease-out 0.2s forwards;
 
-  @media (min-width: 768px) {
-    padding: 8rem 5rem;
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+// --- Program Card ---
+.program-card {
+  position: relative;
+  background-color: var(--lumina-bg-card);
+  overflow: hidden; // Ensure hover zoom stays inside
+
+  // Aspect Ratio Wrapper
+  .image-wrapper {
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    width: 100%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.8;
+      transition: transform $transition-slow, opacity $transition-speed, filter $transition-speed;
+    }
   }
 
-  .services-container {
-    max-width: 1200px;
-    margin: 0 auto;
+  // Overlay Content
+  .card-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.4); // bg-black/40
+    opacity: 0;
+    transition: opacity $transition-speed;
     display: flex;
     flex-direction: column;
-    
-    @media (min-width: 1024px) {
-      flex-direction: row;
-      gap: 4rem;
-    }
-  }
-
-  .services-label {
-    // On mobile, let this be auto width so it doesn't push
-    flex: 0 0 auto; 
-    margin-bottom: 2rem;
-
-    @media (min-width: 1024px) {
-       flex: 0 0 200px;
-       margin-bottom: 3rem;
-    }
+    justify-content: flex-end;
+    padding: 1.5rem; // p-6
 
     h3 {
+      font-size: 1.25rem; // text-xl
+      font-family: $font-serif;
       color: var(--lumina-gold);
-      font-size: 1rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      font-weight: 600;
-
-      // --- FIX 4: REMOVED FIXED MARGINS FOR MOBILE ---
-      // Reset margins for mobile layout
-      margin-left: 0; 
-      margin-top: 0;
-
-      // Only apply that specific positioning on Desktop
-      @media (min-width: 1024px) {
-        margin-left: 170px;
-        margin-top: -80px;
-      }
-    }
-  }
-.services-list {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 4rem;
-  }
-
-  .service-item {
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    padding-bottom: 3rem;
-
-    &:last-child {
-      border-bottom: none;
+      font-style: italic;
+      margin-bottom: 0.25rem;
+      
+      // Transform setup
+      transform: translateY(1rem);
+      transition: transform $transition-speed 0.075s; // delay-75
     }
 
-    .service-category {
-      display: block;
-      font-size: 0.75rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.5);
+    .divider {
+      width: 2rem; // w-8
+      height: 1px;
+      background-color: rgba(255, 255, 255, 0.5);
       margin-bottom: 0.5rem;
-    }
-
-    h2 {
-      font-size: 2.5rem;
-      font-weight: 300;
-      margin-bottom: 0.5rem;
-      color: var(--lumina-white);
-    }
-
-    .service-sub {
-      display: block;
-      font-size: 0.875rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.7);
-      margin-bottom: 1.5rem;
+      
+      // Transform setup
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s ease;
     }
 
     p {
-      font-size: 1rem;
-      line-height: 1.6;
-      color: rgba(255,255,255,0.8);
-      max-width: 40rem;
-      font-weight: 300;
+      font-size: 10px;
+      color: var(--lumina-white);
+      text-transform: uppercase;
+      letter-spacing: 0.1em; // tracking-widest
+      
+      // Transform setup
+      transform: translateY(1rem);
+      transition: transform $transition-speed 0.1s; // delay-100
     }
   }
-  // ... (Keep the rest of services-list and service-item styles) ...
-}
 
+  // --- Hover Effects (Parent Selector) ---
+  &:hover {
+    .image-wrapper img {
+      transform: scale(1.1);
+      opacity: 1;
+      // Note: original CSS had grayscale-0. If image starts grayscale, add filter: grayscale(1) to .image-wrapper img above.
+      // filter: grayscale(0); 
+    }
+
+    .card-overlay {
+      opacity: 1;
+
+      h3 {
+        transform: translateY(0);
+      }
+      
+      .divider {
+        transform: scaleX(1);
+      }
+
+      p {
+        transform: translateY(0);
+      }
+    }
+  }
+}

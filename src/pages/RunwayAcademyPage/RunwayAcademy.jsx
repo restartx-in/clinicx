@@ -12,9 +12,9 @@ import {
   Users,
   Zap,
 } from "lucide-react";
-import "./Workshop.scss";
+import "./RunwayAcademy.scss";
 
-export const Workshop = () => {
+export const RunwayAcademy = () => {
   const schedule = [
     {
       day: "Day 1",
@@ -90,24 +90,25 @@ export const Workshop = () => {
       <div className="workshop-hero">
         <div className="hero-grid">
           <div className="hero-content">
+            
             <div className="live-badge">
               <span className="pulse-dot"></span>
               <span>Registration Open</span>
             </div>
 
             <h1>
-              6-Day Comprehensive <br />
+              {/* 6-Day Comprehensive <br /> */}
               <span className="highlight">Model Training Workshop</span>
             </h1>
             <p>
               Step into the world of fashion with confidence and style! This
-              exclusive 6-day workshop is designed for aspiring models looking
+             workshop is designed for aspiring models looking
               to master the art of runway walking, posing, grooming, and
               portfolio development.
             </p>
             <p className="hero-subtext">
               Under the guidance of 2 expert trainers from{" "}
-              <strong>Athul’s Academy</strong>, participants will receive
+              <strong>RunWay Academy</strong>, participants will receive
               hands-on training, personalized feedback, and professional
               photoshoot experience to shine in the competitive modeling
               industry.
@@ -128,8 +129,8 @@ export const Workshop = () => {
               />
               <div className="gradient-overlay"></div>
               <div className="image-caption">
-                <p>Featuring Athul Suresh</p>
-                <p>Athul's Academy</p>
+                {/* <p>Featuring Athul Suresh</p> */}
+                {/* <p>Athul's Academy</p> */}
               </div>
             </div>
           </div>
@@ -236,4 +237,4 @@ export const Workshop = () => {
     </div>
   );
 };
-export default Workshop;
+export default RunwayAcademy;

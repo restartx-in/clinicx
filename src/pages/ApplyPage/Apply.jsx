@@ -1,9 +1,9 @@
 
 import React, { useState, useRef } from 'react';
 import { Mail, ArrowRight, CheckCircle, Info, Crown } from 'lucide-react';
-import './Contact.scss';
+import './Apply.scss';
 
-export const Contact = () => {
+export const Apply = () => {
   const [formStatus, setFormStatus] = useState('idle');
   const formRef = useRef(null);
 
@@ -150,4 +150,4 @@ export const Contact = () => {
     </div>
   );
 };
-export default Contact;
+export default Apply;

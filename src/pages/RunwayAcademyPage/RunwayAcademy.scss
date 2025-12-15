@@ -5,20 +5,20 @@ $transition-slow: 0.7s;
 
 // Mixin for standard max-width container
 @mixin container-width {
-  max-width: 80rem; // max-w-7xl
+  max-width: 100%; // max-w-7xl
   margin: 0 auto;
-  padding: 0 1rem;
+  // padding: 0rem;
 
-  @media (min-width: 640px) { padding: 0 1.5rem; }
-  @media (min-width: 1024px) { padding: 0 2rem; }
+  // @media (min-width: 640px) { padding: 0 1.5rem; }
+  // @media (min-width: 1024px) { padding: 0 2rem; }
 }
 
 .workshop-page {
   width: 100%;
   background-color: var(--lumina-bg-dark);
   min-height: 100vh;
-  padding-top: 6rem; // pt-24
-  padding-bottom: 3rem; // pb-12
+  padding-top: 5rem; // pt-24
+  // padding-bottom: 3rem; // pb-12
 }
 
 // --- Header / Back Link ---
@@ -70,7 +70,11 @@ $transition-slow: 0.7s;
 
   // Text Content
   .hero-content {
-  margin-top: 2rem;
+  margin-top: -15rem;
+  padding: 1rem;
+    @media (max-width: 768px) {
+    margin-top: 0rem;
+  }
 
     
     .live-badge {
@@ -168,7 +172,7 @@ $transition-slow: 0.7s;
     position: relative;
     aspect-ratio: 1; // aspect-square
     border: 1px solid var(--lumina-border-faint);
-    padding: 1rem;
+    // padding: 1rem;
     background-color: var(--lumina-bg-card);
 
     @media (min-width: 768px) {

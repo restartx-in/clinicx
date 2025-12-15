@@ -3,17 +3,17 @@ import React from 'react';
 import { Star, Camera, Video, Globe, MapPin, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { PageRoute } from '@/constants/types';
-import './FashionShow.scss';
+import './GlobalModels.scss';
 
-export const FashionShow = () => {
+export const GlobalModels = () => {
   return (
     <div className="fashion-show-page">
       
       {/* 1. Hero Section (Matches provided image) */}
-      <section className="fs-hero">
+      {/* <section className="fs-hero">
         <div className="fs-hero__content">
           {/* Left Column */}
-          <div className="fs-hero__left">
+          {/* <div className="fs-hero__left">
             <span className="fs-subtitle">ORGANIZING HIGH-IMPACT EVENTS</span>
             <h1 className="fs-title">
               Fashion Show<br />
@@ -22,7 +22,7 @@ export const FashionShow = () => {
           </div>
 
           {/* Right Column */}
-          <div className="fs-hero__right">
+          {/* <div className="fs-hero__right">
             <div className="feature-group">
               <span className="asterisk">*</span>
               <div className="text-content">
@@ -40,9 +40,9 @@ export const FashionShow = () => {
                 <p>Seamless Flow</p>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
+          </div> */}
+        {/* </div>  */}
+      {/* </section>  */}
 
       {/* 2. Cannes / Luxury Package Section */}
       <section className="fs-package">
@@ -84,12 +84,12 @@ export const FashionShow = () => {
               <p>1 full day of in-person training: ramp walk, dress rehearsal, choreography & posing.</p>
             </div>
 
-            <div className="fs-card highlight-card">
-              <div className="card-bg"></div>
-              <div className="content">
+            <div className="fs-card ">
+              <MapPin className="icon" />
+              
+                
                  <h3>A Chance to Shine</h3>
                  <p>One model will be selected & fully sponsored to compete in <strong>Miss & Mrs. Glam World</strong> and <strong>Miss & Mrs. Asia Global</strong>.</p>
-              </div>
             </div>
           </div>
 
@@ -103,4 +103,4 @@ export const FashionShow = () => {
     </div>
   );
 };
-export default FashionShow;
+export default GlobalModels;

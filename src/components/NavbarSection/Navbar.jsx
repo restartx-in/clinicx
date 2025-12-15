@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
@@ -12,11 +11,12 @@ export const Navbar = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   const navLinks = [
-    { name: 'Events & Production', path: PageRoute.EVENTSPRODUCTION },
-    { name: 'Fashion Show Details', path: PageRoute.FASHION_SHOW },
-    { name: '6-Day Workshop', path: PageRoute.WORKSHOP },
-    { name: 'Program', path: PageRoute.PROGRAM },
-    { name: 'Contact / Register', path: PageRoute.CONTACT },
+    { name: 'Home', path: PageRoute.HOME },
+    { name: 'About Us', path: PageRoute.ABOUT },
+    { name: 'Designer Collective', path: PageRoute.DESIGNER_COLLECTIVE },
+    { name: 'Global Models', path: PageRoute.GLOBAL_MODELS },
+    { name: 'Runway Academy', path: PageRoute.RUNWAY_ACADEMY },
+    { name: 'Apply', path: PageRoute.APPLY },
   ];
 
   const isActive = (path) => {
@@ -30,7 +30,6 @@ export const Navbar = () => {
         <div className="nav-wrapper">
           {/* Logo Section */}
           <Link to={PageRoute.HOME} className="nav-logo">
-            {/* Replace 'royal-logo.png' with the actual path to your saved image */}
             <img 
               src="src\assets\new.png" 
               alt="Royal Runway Logo" 
