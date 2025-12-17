@@ -91,45 +91,10 @@ export const About = () => {
 
       {/* Services Section Removed from here and moved to Home Page */}
       
-      {/* Original EventsProduction Content Layout */}
+      {/* Experience Section Removed from here and moved to Home Page */}
+      
       <div className="lumina-about__layout">
-        
-        {/* Original Bio / Legacy Section (Gold Background) */}
-        <div className="lumina-about__bio">
-          <div className="lumina-about__bio-info">
-            <h2>The Royal Runway Experience</h2>
-            <p>
-              We specialize in organizing high-impact events and full-scale fashion show production. 
-              Our mission is to provide a platform where aspiring models can shine on an international scale.
-            </p>
-            <p>
-              From local luxury runways to international stages, we curate experiences that blend high fashion with professional development.
-            </p>
-            <p style={{fontWeight: 'bold', color: 'var(--lumina-bg-darker)'}}>
-              Calling the bold, the fierce, and the absolutely unstoppable. Walk the global runway with elite designers and take part in our luxury model experience.
-            </p>
-            
-            <div className="lumina-about__bio-stats">
-              <div className="stat-box">
-                <h4>May 2nd</h4>
-                <p>Season 2 Show</p>
-              </div>
-              <div className="stat-box">
-                <h4>Aug 2026</h4>
-                <p>Intl. Pageant</p>
-              </div>
-            </div>
-          </div>
-          
-          <div className="lumina-about__bio-visual">
-            <img 
-              src="https://img2.wallspic.com/previews/0/4/0/5/6/165040/165040-gigi_hadid-model-celebrity-hair-glasses-550x310.jpg" 
-              alt="Backstage" 
-              className="bio-img"
-            />
-          </div>
-        </div>
-        
+         {/* Layout container kept for structure if needed, currently empty */}
       </div>
     </div>
   );

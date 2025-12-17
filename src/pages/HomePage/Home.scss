@@ -28,7 +28,7 @@ $transition-slow: 0.7s;
   min-height: 100vh;
   background-color: var(--lumina-bg-dark);
   padding-top: 8rem; // pt-32
-  padding-bottom: 6rem; // pb-24
+  padding-bottom: 0; // Removed bottom padding to allow grid to sit flush if needed
 
   .programs-container {
     @include container-width;
@@ -76,154 +76,119 @@ $transition-slow: 0.7s;
   }
 }
 
-// --- Filter Buttons ---
-.filter-bar {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem; // gap-6
-  margin-bottom: 4rem; // mb-16
-  
-  // Animation delay
-  opacity: 0;
-  animation: fadeSlideUp 1s ease-out 0.1s forwards;
-
-  .filter-btn {
-    background: transparent;
-    font-size: 0.75rem; // text-xs
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    padding: 0.5rem 1rem; // px-4 py-2
-    border: 1px solid transparent;
-    transition: all $transition-speed;
-    cursor: pointer;
-
-    // Default State
-    color: var(--color-neutral-500);
-    
-    &:hover {
-      color: var(--lumina-white);
-      border-color: #374151; // gray-700
-    }
-
-    // Active State
-    &.active {
-      color: var(--lumina-gold);
-      border-color: var(--lumina-gold);
-    }
-  }
-}
-
-// --- Grid Section ---
-.programs-grid {
+// --- NEW FULL-WIDTH CATEGORIES GRID ---
+.home-categories-grid {
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem; // gap-6
-  
-  // Animation delay
-  opacity: 0;
-  animation: fadeSlideUp 1s ease-out 0.2s forwards;
+  gap: 2px; // Very sleek gap like the reference image
+  margin-top: 3rem;
+  padding: 0; // No padding for full width
 
-  @media (min-width: 640px) {
-    grid-template-columns: repeat(2, 1fr);
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr); // 2 columns on desktop
   }
-  
-  @media (min-width: 1024px) {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
 
-// --- Program Card ---
-.program-card {
-  position: relative;
-  background-color: var(--lumina-bg-card);
-  overflow: hidden; // Ensure hover zoom stays inside
-
-  // Aspect Ratio Wrapper
-  .image-wrapper {
-    aspect-ratio: 3 / 4;
-    overflow: hidden;
+  .category-card {
+    position: relative;
     width: 100%;
+    height: 30rem; // Substantial height
+    overflow: hidden;
+    background-color: #000;
+    
+    @media (min-width: 1024px) {
+      height: 30rem; // Even taller on large screens for dramatic effect
+    }
 
-    img {
+    // Background Image
+    .card-bg {
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      opacity: 0.8;
-      transition: transform $transition-slow, opacity $transition-speed, filter $transition-speed;
-    }
-  }
-
-  // Overlay Content
-  .card-overlay {
-    position: absolute;
-    inset: 0;
-    background-color: rgba(0, 0, 0, 0.4); // bg-black/40
-    opacity: 0;
-    transition: opacity $transition-speed;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 1.5rem; // p-6
-
-    h3 {
-      font-size: 1.25rem; // text-xl
-      font-family: $font-serif;
-      color: var(--lumina-gold);
-      font-style: italic;
-      margin-bottom: 0.25rem;
       
-      // Transform setup
-      transform: translateY(1rem);
-      transition: transform $transition-speed 0.075s; // delay-75
-    }
-
-    .divider {
-      width: 2rem; // w-8
-      height: 1px;
-      background-color: rgba(255, 255, 255, 0.5);
-      margin-bottom: 0.5rem;
-      
-      // Transform setup
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.5s ease;
-    }
-
-    p {
-      font-size: 10px;
-      color: var(--lumina-white);
-      text-transform: uppercase;
-      letter-spacing: 0.1em; // tracking-widest
-      
-      // Transform setup
-      transform: translateY(1rem);
-      transition: transform $transition-speed 0.1s; // delay-100
-    }
-  }
-
-  // --- Hover Effects (Parent Selector) ---
-  &:hover {
-    .image-wrapper img {
-      transform: scale(1.1);
-      opacity: 1;
-      // Note: original CSS had grayscale-0. If image starts grayscale, add filter: grayscale(1) to .image-wrapper img above.
-      // filter: grayscale(0); 
-    }
-
-    .card-overlay {
-      opacity: 1;
-
-      h3 {
-        transform: translateY(0);
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.7; // Darker to make text pop
+        transition: transform 0.8s ease, opacity 0.5s ease;
       }
-      
-      .divider {
-        transform: scaleX(1);
+    }
+
+    // Content Overlay
+    .card-content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 3rem;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); // Gradient for text legibility
+      transition: background 0.3s ease;
+
+      h2 {
+        font-family: $font-serif;
+        color: #fff;
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        transform: translateY(10px);
+        transition: transform 0.4s ease;
       }
 
       p {
-        transform: translateY(0);
+        color: rgba(255,255,255,0.8);
+        font-size: 1rem;
+        max-width: 30rem;
+        margin-bottom: 2.5rem;
+        font-weight: 300;
+        line-height: 1.6;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        opacity: 0.9;
+        transform: translateY(10px);
+        transition: transform 0.4s ease 0.1s; // Slight delay
+      }
+
+      .action-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background-color: #fff;
+        color: #000;
+        padding: 1rem 2rem;
+        text-decoration: none;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        letter-spacing: 0.15em;
+        border: none;
+        transition: all 0.3s ease;
+        transform: translateY(10px);
+        opacity: 0.9;
+
+        &:hover {
+          background-color: var(--lumina-gold);
+          transform: translateY(7px); // Slight lift on hover
+          opacity: 1;
+        }
+      }
+    }
+
+    // Hover Effect for Card
+    &:hover {
+      .card-bg img {
+        transform: scale(1.05); // Subtle zoom
+        opacity: 0.4; // Darken bg further to focus on text
+      }
+      
+      .card-content {
+        h2, p, .action-btn {
+          transform: translateY(0); // Elements float up to position
+        }
       }
     }
   }
@@ -235,7 +200,7 @@ $transition-slow: 0.7s;
   background-color: #111;
   color: #fff;
   padding: 4rem 1.5rem; 
-  margin-top: 5rem; // Added for spacing from grid
+  margin-top: 0; // Removed margin since grid is now above it flush
 
   @media (min-width: 768px) {
     padding: 8rem 5rem;
@@ -324,6 +289,78 @@ $transition-slow: 0.7s;
       color: rgba(255,255,255,0.8);
       max-width: 40rem;
       font-weight: 300;
+    }
+  }
+}
+
+// --- The Royal Runway Experience Section (Moved from About.scss) ---
+.home-experience-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: stretch;
+  background-color: var(--lumina-gold);
+  
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .experience-info {
+    padding: 3rem;
+    @media(min-width: 768px) { padding: 50px; }
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem; 
+
+    h2 {
+      font-size: 1.875rem; 
+      font-family: $font-serif;
+      margin-bottom: 1rem;
+      color: var(--lumina-bg-darker);
+    }
+
+    p {
+      color: var(--lumina-bg-dark); // Use dark text for gold bg
+      line-height: 1.625;
+    }
+  }
+
+  .experience-stats {
+    padding-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+
+    .stat-box {
+      h4 {
+        font-weight: 700;
+        font-size: 1.5rem;
+        margin-bottom: 0.25rem;
+        color: var(--lumina-bg-darker);
+      }
+      p {
+        font-size: 0.875rem;
+        color: var(--lumina-bg-dark); // Use dark text
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+    }
+  }
+
+  .experience-visual {
+    position: relative;
+    min-height: 300px;
+    height: 100%; 
+    background-color: var(--lumina-bg-card);
+
+    .experience-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(100%);
+      z-index: 10;
     }
   }
 }
