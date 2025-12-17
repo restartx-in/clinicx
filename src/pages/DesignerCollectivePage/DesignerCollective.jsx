@@ -1,46 +1,77 @@
-import React from "react";
-// Importing icons for the benefits section
-import { FaGlobe, FaUsers, FaLightbulb } from "react-icons/fa";
+import React, { useRef } from "react";
+import {
+  FaGlobe,
+  FaCamera,
+  FaBullhorn,
+  FaHandshake,
+  FaLaptop,
+  FaTrophy,
+  FaTools,
+  FaPlane,
+  FaStar,
+  FaChevronLeft,
+  FaChevronRight,
+  FaUsers,
+  FaLightbulb,
+} from "react-icons/fa";
 import "./DesignerCollective.scss";
 
-// --- Sample Data (Can be replaced with your actual data) ---
+import posterImg1 from "@/assets/DesignerCollective/image-1.jpeg";
+import posterImg2 from "@/assets/DesignerCollective/image-2.jpeg";
+import posterImg3 from "@/assets/DesignerCollective/image-3.jpeg";
+import posterImg4 from "@/assets/DesignerCollective/image-4.jpeg";
 
-// Data for the "For Designers" event cards
 const designerEvents = [
   {
     name: "Cannes Fashion Week",
     date: "May 21st, 2026",
-    location: "Cannes",
+    location: "Cannes, France",
     link: "#",
+    image:
+      "https://media.gettyimages.com/id/689843944/photo/cannes-france-a-model-wearing-abha-choudary-couture-india-walks-the-runway-during-the-tiffanys.jpg?s=612x612&w=0&k=20&c=IeblnzTCiLHBdT43ZLF63ikNQdx8fXy8yIZ1ZLJWubU=",
   },
   {
     name: "Dubai Fashion Week",
     date: "August 2026",
-    location: "Dubai",
+    location: "Dubai, UAE",
     link: "#",
+    image:
+      "https://i0.wp.com/rumemagazine.com/wp-content/uploads/2024/12/Dubai-Fashion-Week-2025-4.webp",
   },
   {
     name: "New York Fashion Week",
     date: "September 2026",
-    location: "New York",
+    location: "New York, USA",
     link: "#",
+    image:
+      "https://media.gettyimages.com/id/2234443189/photo/model-on-the-runway-at-christian-siriano-fashion-show-as-part-of-spring-summer-2026-new-york.jpg?s=612x612&w=0&k=20&c=a5ntV_pmsu46JZcliNB7gdoGJbzCAZ9KeYAqeH9dd9U=",
   },
   {
     name: "Los Angeles Fashion Week",
     date: "October 2026",
-    location: "Los Angeles",
+    location: "Los Angeles, USA",
     link: "#",
+    image:
+      "https://media.gettyimages.com/id/932672050/photo/los-angeles-ca-a-model-walks-the-runway-wearing-rene-tyler-at-los-angeles-fashion-week-powered.jpg?s=612x612&w=0&k=20&c=wb_gXhBOgGSxtCvd12Th5LUL1esS0rERG7FOLS2c8UI=",
   },
 ];
 
-// Data for the "Featured Designers" section
+const showcasePosters = [
+  { id: 1, title: "Showcase 1", src: posterImg1 },
+  { id: 2, title: "Showcase 2", src: posterImg2 },
+  { id: 3, title: "Showcase 3", src: posterImg3 },
+  { id: 4, title: "Showcase 4", src: posterImg4 },
+  // { id: 5, title: "Showcase 5", src: posterImg5 },
+];
+
 const featuredDesigners = [
   {
     name: "Elena Velez",
     specialty: "Avant-Garde Couture",
     bio: "Known for her deconstructed approach and use of industrial materials, creating pieces that challenge conventional beauty.",
     imageUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/6/60/ELENA_VELEZ%2C_2023.png" },
+      "https://upload.wikimedia.org/wikipedia/commons/6/60/ELENA_VELEZ%2C_2023.png",
+  },
   {
     name: "Kenji Tanaka",
     specialty: "Minimalist Streetwear",
@@ -57,11 +88,70 @@ const featuredDesigners = [
   },
 ];
 
+// UPDATED: Structured Data for Grid Cards (Replaces the text list)
+const showcaseFeatures = [
+  {
+    icon: <FaGlobe />,
+    title: "Global Runway Access",
+    desc: "Participation at Cannes, Dubai, New York, and Los Angeles fashion weeks.",
+  },
+  {
+    icon: <FaCamera />,
+    title: "Editorial Photography",
+    desc: "Professional photoshoot for your portfolio, lookbooks, and press releases.",
+  },
+  {
+    icon: <FaBullhorn />,
+    title: "International PR",
+    desc: "Extensive media coverage and public relations support across global channels.",
+  },
+  {
+    icon: <FaHandshake />,
+    title: "Elite Networking",
+    desc: "Exclusive opportunities to connect with industry leaders and buyers.",
+  },
+  {
+    icon: <FaLaptop />,
+    title: "Digital Showcase",
+    desc: "Online features for global buyers and fashion enthusiasts to view your work.",
+  },
+  {
+    icon: <FaTrophy />,
+    title: "Awards & Recognition",
+    desc: "Chance to win 'Designer of the Year' and other prestigious accolades.",
+  },
+  {
+    icon: <FaTools />,
+    title: "Logistics Support",
+    desc: "Assistance with fittings, backstage coordination, and show logistics.",
+  },
+  {
+    icon: <FaPlane />,
+    title: "Sponsored Travel",
+    desc: "Accommodation and travel support included for all fashion week shows.",
+  },
+  {
+    icon: <FaStar />,
+    title: "Premium Add-ons",
+    desc: "Optional model pairing, Show Opener/Stopper spots, and styling assistance.",
+  },
+];
+
 export const DesignerCollective = () => {
+  const sliderRef = useRef(null);
+
+  const scroll = (direction) => {
+    if (sliderRef.current) {
+      const { current } = sliderRef;
+      const scrollAmount = direction === "left" ? -480 : 480;
+      current.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    }
+  };
+
   return (
     <div className="designer-collective-page">
       <div className="dc-container">
-        {/* --- Section 1: For Designers (Original) --- */}
+        {/* --- Section 1: For Designers Header --- */}
         <div className="dc-header">
           <h1>For Designers</h1>
           <p>
@@ -69,24 +159,91 @@ export const DesignerCollective = () => {
             designers in the world's most prestigious fashion weeks.
           </p>
         </div>
+
+        {/* --- Section 2: Events Grid --- */}
         <div className="dc-events-grid">
           {designerEvents.map((event, index) => (
-            <div className="event-card" key={index}>
+            <div
+              className="event-card"
+              key={index}
+              style={{ backgroundImage: `url(${event.image})` }}
+            >
+              <div className="event-overlay"></div>
               <div className="event-card-content">
-                <h3>{event.name}</h3>
-                <p className="event-details">
-                  Event Date: {event.date},<br />
-                  {event.location}
-                </p>
+                <div className="text-content">
+                  <h3>{event.name}</h3>
+                  <p className="event-details">
+                    {event.date}
+                    <br />
+                    {event.location}
+                  </p>
+                </div>
+                <a href={event.link} className="apply-button">
+                  Apply Now
+                </a>
               </div>
-              <a href={event.link} className="apply-button">
-                Apply
-              </a>
             </div>
           ))}
         </div>
 
-        {/* --- Section 2: Featured Designers (New) --- */}
+        {/* --- Section 3: NEW Showcase Package GRID --- */}
+        <div className="dc-showcase-section">
+          <div className="dc-section-header">
+            <span className="subtitle">Comprehensive Support</span>
+            <h2>Designer Global Showcase Package</h2>
+            <p>
+              Showcase your talent globally with our all-inclusive support
+              system designed to elevate your brand to new heights.
+            </p>
+          </div>
+
+          {/* Grid Layout for Features */}
+          <div className="showcase-grid">
+            {showcaseFeatures.map((feature, idx) => (
+              <div key={idx} className="feature-card">
+                <div className="card-icon">{feature.icon}</div>
+                <div className="card-text">
+                  <h3>{feature.title}</h3>
+                  <p>{feature.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <p className="contact-text">
+            If you want to discuss possibilities of showcasing on our platform,
+            email us at <br />
+            <a href="mailto:royalrunway@gmail.com">royalrunway@gmail.com</a>
+          </p>
+        </div>
+
+        {/* --- Section 4: Designer Global Showcase (SLIDER) --- */}
+        <div className="dc-posters-section">
+          <div className="dc-section-header">
+            <h2>Designer Global Showcase</h2>
+            <span className="subtitle">Official Event Posters</span>
+          </div>
+
+          <div className="poster-carousel-wrapper">
+            <button className="nav-btn left" onClick={() => scroll("left")}>
+              <FaChevronLeft />
+            </button>
+
+            <div className="posters-track" ref={sliderRef}>
+              {showcasePosters.map((poster) => (
+                <div key={poster.id} className="poster-card">
+                  <img src={poster.src} alt={poster.title} />
+                </div>
+              ))}
+            </div>
+
+            <button className="nav-btn right" onClick={() => scroll("right")}>
+              <FaChevronRight />
+            </button>
+          </div>
+        </div>
+
+        {/* --- Section 5: Featured Designers --- */}
         <div className="dc-section-header">
           <span className="subtitle">Our Visionaries</span>
           <h2>Meet the Collective</h2>
@@ -110,7 +267,7 @@ export const DesignerCollective = () => {
           ))}
         </div>
 
-        {/* --- Section 3: Why Collaborate? (New) --- */}
+        {/* --- Section 6: Why Collaborate? --- */}
         <div className="dc-section-header">
           <span className="subtitle">The Royal Runway Advantage</span>
           <h2>Why Collaborate With Us?</h2>
@@ -146,7 +303,7 @@ export const DesignerCollective = () => {
           </div>
         </div>
 
-        {/* --- Section 4: Final CTA (New) --- */}
+        {/* --- Section 7: Final CTA --- */}
         <div className="dc-cta-section">
           <h2>Become a Part of the Movement</h2>
           <p>
