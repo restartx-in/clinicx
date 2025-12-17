@@ -236,16 +236,47 @@ $transition-speed: 0.3s;
 
     // New wrapper for split logic
     .about-split-block {
-      margin-bottom: 3.5rem;
+      margin-bottom: 0; // Removed bottom margin to fit images snugly
 
-      &:last-child {
-        margin-bottom: 0;
+      // Secondary title adjustment
+      &.secondary {
+        margin-top: 0;
+        
+        .main-heading {
+            margin-bottom: 1.5rem;
+        }
       }
-      
-      // Secondary title adjustment if needed
-      &.secondary .main-heading {
-        margin-bottom: 2rem;
-      }
+    }
+
+    // --- NEW MID-SECTION VISUALS (Updated for 3 Images) ---
+    .about-mid-visuals {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); // 3 Columns
+        gap: 0.75rem;
+        margin: 3rem 0 4rem 0;
+        width: 100%;
+        max-width: 36rem; // Slightly wider to fit 3 images
+
+        .img-box {
+            position: relative;
+            aspect-ratio: 3/4; // Portrait style for elegance
+            overflow: hidden;
+            border-radius: 2px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.5s ease;
+                filter: grayscale(20%); 
+
+                &:hover {
+                    transform: scale(1.1);
+                    filter: grayscale(0%);
+                }
+            }
+        }
     }
 
     .small-heading {
@@ -262,7 +293,7 @@ $transition-speed: 0.3s;
     .main-heading {
       font-weight: 100;
       color: var(--lumina-white);
-      margin-bottom: 2rem; // Reduced to fit split better
+      margin-bottom: 2rem; 
       line-height: 1.1;
       font-size: 3.75rem;
       

@@ -64,6 +64,31 @@ export const About = () => {
             </div>
           </div>
 
+          {/* --- NEW MID-SECTION IMAGES (3 Images) --- */}
+          <div className="about-mid-visuals">
+            {/* Image 1: Runway Atmosphere */}
+            <div className="img-box">
+              <img 
+                src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=800&auto=format&fit=crop" 
+                alt="Runway Atmosphere" 
+              />
+            </div>
+            {/* Image 2: Gold/Fabric Detail */}
+            <div className="img-box">
+              <img 
+                src='https://indianpolos.com/wp-content/uploads/2024/01/man-walking-beside-the-road-scaled.jpg.webp' 
+                alt="Fashion Detail" 
+              />
+            </div>
+            {/* Image 3: Model Portrait */}
+            <div className="img-box">
+              <img 
+                src='https://assets.vogue.in/photos/5e5f7ab335619f0008e2decf/2:3/w_2560%2Cc_limit/Priyal_%2520Y%2520_Project%2520Fall%25202020.jpg' 
+                alt="Model Portrait" 
+              />
+            </div>
+          </div>
+
           {/* Section 2: Founder’s Note */}
           <div className="about-split-block secondary">
             <h3 className="main-heading">

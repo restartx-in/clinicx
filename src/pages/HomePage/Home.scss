@@ -20,8 +20,12 @@ $transition-slow: 0.7s;
   margin: 0 auto;
   padding: 0 1rem;
 
-  @media (min-width: 640px) { padding: 0 1.5rem; }
-  @media (min-width: 1024px) { padding: 0 2rem; }
+  @media (min-width: 640px) {
+    padding: 0 1.5rem;
+  }
+  @media (min-width: 1024px) {
+    padding: 0 2rem;
+  }
 }
 
 .programs-page {
@@ -39,7 +43,7 @@ $transition-slow: 0.7s;
 .programs-header {
   text-align: center;
   margin-bottom: 5rem; // mb-20
-  
+
   // Animation
   animation: fadeSlideUp 1s ease-out forwards;
 
@@ -95,9 +99,9 @@ $transition-slow: 0.7s;
     height: 30rem; // Substantial height
     overflow: hidden;
     background-color: #000;
-    
+
     @media (min-width: 1024px) {
-      height: 30rem; // Even taller on large screens for dramatic effect
+      height: 28rem; // Even taller on large screens for dramatic effect
     }
 
     // Background Image
@@ -106,7 +110,7 @@ $transition-slow: 0.7s;
       inset: 0;
       width: 100%;
       height: 100%;
-      
+
       img {
         width: 100%;
         height: 100%;
@@ -127,7 +131,11 @@ $transition-slow: 0.7s;
       justify-content: center;
       text-align: center;
       padding: 3rem;
-      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); // Gradient for text legibility
+      background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.8),
+        transparent
+      ); // Gradient for text legibility
       transition: background 0.3s ease;
 
       h2 {
@@ -135,19 +143,19 @@ $transition-slow: 0.7s;
         color: #fff;
         font-size: 2.5rem;
         margin-bottom: 1rem;
-        text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
         transform: translateY(10px);
         transition: transform 0.4s ease;
       }
 
       p {
-        color: rgba(255,255,255,0.8);
+        color: rgba(255, 255, 255, 0.8);
         font-size: 1rem;
         max-width: 30rem;
         margin-bottom: 2.5rem;
         font-weight: 300;
         line-height: 1.6;
-        text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
         opacity: 0.9;
         transform: translateY(10px);
         transition: transform 0.4s ease 0.1s; // Slight delay
@@ -184,9 +192,11 @@ $transition-slow: 0.7s;
         transform: scale(1.05); // Subtle zoom
         opacity: 0.4; // Darken bg further to focus on text
       }
-      
+
       .card-content {
-        h2, p, .action-btn {
+        h2,
+        p,
+        .action-btn {
           transform: translateY(0); // Elements float up to position
         }
       }
@@ -199,7 +209,7 @@ $transition-slow: 0.7s;
   width: 100%;
   background-color: #111;
   color: #fff;
-  padding: 4rem 1.5rem; 
+  padding: 4rem 1.5rem;
   margin-top: 0; // Removed margin since grid is now above it flush
 
   @media (min-width: 768px) {
@@ -211,7 +221,7 @@ $transition-slow: 0.7s;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    
+
     @media (min-width: 1024px) {
       flex-direction: row;
       gap: 4rem;
@@ -219,12 +229,12 @@ $transition-slow: 0.7s;
   }
 
   .services-label {
-    flex: 0 0 auto; 
+    flex: 0 0 auto;
     margin-bottom: 2rem;
 
     @media (min-width: 1024px) {
-       flex: 0 0 200px;
-       margin-bottom: 3rem;
+      flex: 0 0 200px;
+      margin-bottom: 3rem;
     }
 
     h3 {
@@ -233,7 +243,7 @@ $transition-slow: 0.7s;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       font-weight: 600;
-      margin-left: 0; 
+      margin-left: 0;
       margin-top: 0;
 
       @media (min-width: 1024px) {
@@ -251,7 +261,7 @@ $transition-slow: 0.7s;
   }
 
   .service-item {
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     // padding-bottom: 3rem;
 
     &:last-child {
@@ -263,7 +273,7 @@ $transition-slow: 0.7s;
       font-size: 0.75rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.5);
+      color: rgba(255, 255, 255, 0.5);
       margin-bottom: 0.5rem;
     }
 
@@ -279,14 +289,14 @@ $transition-slow: 0.7s;
       font-size: 0.875rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.7);
+      color: rgba(255, 255, 255, 0.7);
       margin-bottom: 1.5rem;
     }
 
     p {
       font-size: 1rem;
       line-height: 1.6;
-      color: rgba(255,255,255,0.8);
+      color: rgba(255, 255, 255, 0.8);
       max-width: 40rem;
       font-weight: 300;
     }
@@ -299,21 +309,23 @@ $transition-slow: 0.7s;
   grid-template-columns: 1fr;
   align-items: stretch;
   background-color: var(--lumina-gold);
-  
+
   @media (min-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
   }
 
   .experience-info {
     padding: 3rem;
-    @media(min-width: 768px) { padding: 50px; }
+    @media (min-width: 768px) {
+      padding: 50px;
+    }
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 1.5rem; 
+    gap: 1.5rem;
 
     h2 {
-      font-size: 1.875rem; 
+      font-size: 1.875rem;
       font-family: $font-serif;
       margin-bottom: 1rem;
       color: var(--lumina-bg-darker);
@@ -350,7 +362,7 @@ $transition-slow: 0.7s;
   .experience-visual {
     position: relative;
     min-height: 300px;
-    height: 100%; 
+    height: 100%;
     background-color: var(--lumina-bg-card);
 
     .experience-img {
