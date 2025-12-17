@@ -31,7 +31,6 @@ export const Apply = () => {
     const googleData = new FormData();
 
     Object.keys(FORM_MAPPING).forEach(key => {
-        // If the mapping has the placeholder text, don't append it to avoid errors or just append empty
         if (FORM_MAPPING[key] !== "entry.YOUR_EVENT_ID_HERE") {
              googleData.append(FORM_MAPPING[key], formData.get(key) || '');
         }
@@ -92,16 +91,18 @@ export const Apply = () => {
                     </div>
                 </div>
 
-                {/* Added Event Select Field */}
-                <div className="input-group">
+                {/* Event Select Field - Updated class for horizontal layout */}
+                <div className="input-group horizontal-select">
                     <label>Select Event Location</label>
-                    <select name="event" required defaultValue="">
-                        <option value="" disabled>Choose an event location</option>
-                        <option value="New York">New York</option>
-                        <option value="Cannes">Cannes</option>
-                        <option value="Dubai">Dubai</option>
-                        <option value="Los Angeles">Los Angeles</option>
-                    </select>
+                    <div className="select-wrapper">
+                      <select name="event" required defaultValue="">
+                          <option value="" disabled hidden>Choose location...</option>
+                          <option value="New York">New York</option>
+                          <option value="Cannes">Cannes</option>
+                          <option value="Dubai">Dubai</option>
+                          <option value="Los Angeles">Los Angeles</option>
+                      </select>
+                    </div>
                 </div>
 
                 <div>

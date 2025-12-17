@@ -266,16 +266,93 @@ $transition-speed: 0.3s;
       padding: 0.75rem 0;
     }
 
-    // --- Added Style for Select Element ---
+    // --- Added Horizontal Layout Modifier ---
+    &.horizontal-select {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        
+        label {
+            margin-bottom: 0;
+            white-space: nowrap; // Don't wrap text
+            flex-shrink: 0;
+        }
+
+        .select-wrapper {
+            flex-grow: 1;
+            max-width: 60%; // Limit width on large screens
+            
+            @media (max-width: 640px) {
+                max-width: 100%;
+            }
+        }
+    }
+
+    // --- PROFESSIONAL SELECT STYLING ---
     select {
       @include input-reset;
-      padding: 0.75rem 0;
-      cursor: pointer;
+      appearance: none;        // Remove default system arrow
+      -webkit-appearance: none;
+      -moz-appearance: none;
       
-      // Ensure options have background in dark mode
-      option {
-        background-color: var(--lumina-bg-card); 
+      cursor: pointer;
+      padding-top: 0.75rem;
+      padding-bottom: 0.75rem;
+      padding-right: 2.5rem;   // Space for custom arrow
+      text-align: right;       // Align text right for side-by-side look
+      
+      // Typography
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.5;
+      
+      // Custom Arrow Icon (SVG Data URI - Initially Gray)
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 0 center;
+      background-size: 1.25em;
+      
+      transition: border-color $transition-speed, background-image $transition-speed, color $transition-speed;
+
+      // Placeholder Logic
+      &:invalid, 
+      &[value=""] {
+        color: rgba(255, 255, 255, 0.3);
+      }
+
+      // Valid Selection State
+      &:valid {
         color: var(--lumina-white);
+      }
+
+      // Hover State
+      &:hover:not(:disabled) {
+        border-bottom-color: rgba(255, 255, 255, 0.5);
+      }
+
+      // Active / Focus State
+      &:focus {
+        border-bottom-color: var(--lumina-gold);
+        outline: none;
+        
+        // Change Arrow to Gold on Focus
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23C4A484' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+      }
+
+      // --- DROPDOWN ITEMS (OPTIONS) ---
+      option {
+        background-color: #1a1a1a; 
+        color: #e5e5e5;            
+        padding: 12px;             
+        font-size: 0.95rem;
+        text-align: left; // Reset options to left align for readability
+
+        &:checked, &:hover, &:active, &:focus {
+            background-color: var(--lumina-gold);
+            color: #000;
+            box-shadow: 0 0 10px 100px var(--lumina-gold) inset; 
+        }
       }
     }
   }
