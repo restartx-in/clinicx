@@ -45,28 +45,42 @@ export const About = () => {
       {/* About Section from Home Page (Gold Background) with UPDATED TEXT */}
       <section className="home-about-section">
         <div className="home-about-content">
-          <span className="small-heading">
-            My Fashion Journey
-          </span>
-          <h2 className="main-heading">
-            About Us
-          </h2>
-
-          <div className="text-body">
-            <p>
-              I am Sujitha Karayil, Winner of Mrs. Elite Universe – Chicago, USA 2026, and the founder of this global fashion platform.
-            </p>
-            <p>
-              Founded with a bold vision to bring the world of fashion closer to talent everywhere, our platform exists to bridge global opportunity with extraordinary potential. We create access, visibility, and transformation for designers and models by opening doors to the world’s most prestigious fashion capitals.
-            </p>
-            <p>
-              At the heart of our mission is the belief that talent knows no boundaries. We curate, elevate, and connect creatives globally — shaping careers, fostering collaboration, and redefining what is possible in the international fashion industry.
-            </p>
-            <p>
-             My journey on international stages inspired me to create more than personal success — a platform that brings the world closer and places global opportunities within reach for designers and models everywhere. This is a movement to empower, connect, and elevate talent globally.
-            </p>
+          
+          {/* Section 1: Journey Label + About Us */}
+          <div className="about-split-block">
+            <span className="small-heading">
+              My Fashion Journey
+            </span>
+            <h3 className="main-heading">
+              About Us
+            </h3>
+            <div className="text-body">
+              <p>
+                Founded with a bold vision to bring the world of fashion closer to talent everywhere, our platform exists to bridge global opportunity with extraordinary potential. We create access, visibility, and transformation for designers and models by opening doors to the world’s most prestigious fashion capitals.
+              </p>
+              <p>
+                At the heart of our mission is the belief that talent knows no boundaries. We curate, elevate, and connect creatives globally — shaping careers, fostering collaboration, and redefining what is possible in the international fashion industry.
+              </p>
+            </div>
           </div>
+
+          {/* Section 2: Founder’s Note */}
+          <div className="about-split-block secondary">
+            <h3 className="main-heading">
+              Founder’s Note
+            </h3>
+            <div className="text-body">
+              <p>
+                I am Sujitha Karayil, Winner of Mrs. Elite Universe – Chicago, USA 2026, and the founder of this global fashion platform.
+              </p>
+              <p>
+                My journey on international stages inspired me to create more than personal success — a platform that brings the world closer and places global opportunities within reach for designers and models everywhere. This is a movement to empower, connect, and elevate talent globally.
+              </p>
+            </div>
+          </div>
+
         </div>
+        
         <div className="home-about-image-wrapper">
           <img
             src="https://royalrunway.my.canva.site/_assets/media/586f619d6c1be9574e0ca3e8117d0d75.jpg"

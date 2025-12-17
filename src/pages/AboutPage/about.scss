@@ -304,6 +304,20 @@ $transition-speed: 0.3s;
       order: 1;
     }
 
+    // New wrapper for split logic
+    .about-split-block {
+      margin-bottom: 3.5rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+      
+      // Secondary title adjustment if needed
+      &.secondary .main-heading {
+        margin-bottom: 2rem;
+      }
+    }
+
     .small-heading {
       font-size: 0.875rem;
       font-weight: 700;
@@ -312,17 +326,18 @@ $transition-speed: 0.3s;
       letter-spacing: 0.15em;
       margin-bottom: 0.5rem;
       animation: fadeSlideInLeft $transition-slow ease-out forwards;
+      display: block; // Ensure it's on its own line
     }
 
     .main-heading {
       font-weight: 100;
       color: var(--lumina-white);
-      margin-bottom: 3rem;
+      margin-bottom: 2rem; // Reduced to fit split better
       line-height: 1.1;
       font-size: 3.75rem;
       
       @media (min-width: 768px) { font-size: 5rem; }
-      @media (min-width: 1024px) { font-size: 7rem; }
+      @media (min-width: 1024px) { font-size: 5rem; } 
 
       opacity: 0;
       animation: fadeSlideInLeft $transition-slow ease-out 0.1s forwards;
