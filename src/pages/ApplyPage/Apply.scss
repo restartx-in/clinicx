@@ -1,4 +1,3 @@
-
 $font-serif: serif; // Replace with your font family
 $transition-speed: 0.3s;
 
@@ -261,9 +260,23 @@ $transition-speed: 0.3s;
     label {
       @include label-text;
     }
+    
     input {
       @include input-reset;
       padding: 0.75rem 0;
+    }
+
+    // --- Added Style for Select Element ---
+    select {
+      @include input-reset;
+      padding: 0.75rem 0;
+      cursor: pointer;
+      
+      // Ensure options have background in dark mode
+      option {
+        background-color: var(--lumina-bg-card); 
+        color: var(--lumina-white);
+      }
     }
   }
 

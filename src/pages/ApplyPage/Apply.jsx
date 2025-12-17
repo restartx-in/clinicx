@@ -1,4 +1,3 @@
-
 import React, { useState, useRef } from 'react';
 import { Mail, ArrowRight, CheckCircle, Info, Crown } from 'lucide-react';
 import './Apply.scss';
@@ -13,6 +12,7 @@ export const Apply = () => {
   // PASTE YOUR GOOGLE ENTRY IDs HERE  
   const FORM_MAPPING = {
     interest:   "entry.667555457",
+    event:      "entry.YOUR_EVENT_ID_HERE", // <--- REPLACE WITH YOUR GOOGLE ENTRY ID FOR EVENT
     firstName:  "entry.1775935934",
     lastName:   "entry.904463290",
     email:      "entry.1915678508",
@@ -31,7 +31,10 @@ export const Apply = () => {
     const googleData = new FormData();
 
     Object.keys(FORM_MAPPING).forEach(key => {
-        googleData.append(FORM_MAPPING[key], formData.get(key) || '');
+        // If the mapping has the placeholder text, don't append it to avoid errors or just append empty
+        if (FORM_MAPPING[key] !== "entry.YOUR_EVENT_ID_HERE") {
+             googleData.append(FORM_MAPPING[key], formData.get(key) || '');
+        }
     });
 
     try {
@@ -87,6 +90,18 @@ export const Apply = () => {
                         <div className="option-box"><span>Luxury Package Info</span></div>
                       </label>
                     </div>
+                </div>
+
+                {/* Added Event Select Field */}
+                <div className="input-group">
+                    <label>Select Event Location</label>
+                    <select name="event" required defaultValue="">
+                        <option value="" disabled>Choose an event location</option>
+                        <option value="New York">New York</option>
+                        <option value="Cannes">Cannes</option>
+                        <option value="Dubai">Dubai</option>
+                        <option value="Los Angeles">Los Angeles</option>
+                    </select>
                 </div>
 
                 <div>
