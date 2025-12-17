@@ -75,6 +75,59 @@ export const Home = () => {
           ))}
         </div>
       </div>
+
+      {/* Services Section Moved from About Page */}
+      <section className="services-section">
+          <div className="services-label">
+            <h3>SERVICES OFFERED</h3>
+          </div>
+        <div className="services-container">
+          <div className="services-list">
+            <Link 
+              to={`${PageRoute.EVENTSPRODUCTION}#workshops`} 
+              className="service-item" 
+              style={{ textDecoration: 'none', color: 'inherit', display: 'block', cursor: 'pointer' }}
+            >
+              <span className="service-category">WORKSHOPS</span>
+              <h2>Mastering the Runway</h2>
+              <span className="service-sub">KEY COMPONENTS OF OUR TRAINING</span>
+              <p>
+                Our training sessions are designed to equip aspiring models with the essential skills needed for success.
+                Participants engage in practical exercises and receive personalized feedback, ensuring they develop confidence and
+                grace on the runway, preparing them for the competitive fashion industry.
+              </p>
+            </Link>
+            <Link 
+              to={`${PageRoute.EVENTSPRODUCTION}#workshops`} 
+              className="service-item" 
+              style={{ textDecoration: 'none', color: 'inherit', display: 'block', cursor: 'pointer' }}
+            >
+              <span className="service-category">TRAINING</span>
+              <h2>Workshops</h2>
+              <span className="service-sub">COMPREHENSIVE LEARNING EXPERIENCES</span>
+              <p>
+                Ramp walk coaching focuses on refining posture, stride, and overall presence. Through intensive practice and
+                expert guidance, models learn to exude elegance and poise, making a lasting impression during fashion shows and
+                events, essential for their professional development.
+              </p>
+            </Link>
+            <Link 
+              to={`${PageRoute.EVENTSPRODUCTION}#workshops`} 
+              className="service-item" 
+              style={{ textDecoration: 'none', color: 'inherit', display: 'block', cursor: 'pointer' }}
+            >
+              <span className="service-category">RAMP WALKS</span>
+              <h2>Special Events</h2>
+              <span className="service-sub">UNIQUE OPPORTUNITIES FOR NETWORKING AND SKILL ENHANCEMENT</span>
+              <p>
+                Our workshops provide hands-on experience in various aspects of modeling. From styling tips to makeup
+                application, participants gain valuable insights from industry professionals, enhancing their skills and boosting their
+                confidence.
+              </p>
+            </Link>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

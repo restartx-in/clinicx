@@ -137,6 +137,64 @@ export const RunwayAcademy = () => {
         </div>
       </div>
 
+      {/* Moved Workshops Section */}
+      <div id="workshops" className="lumina-about__workshops">
+        <h2 className="section-title">Workshop Offerd</h2>
+        
+        <div className="workshops-grid">
+          <Link 
+            to={PageRoute.FASHION_SHOW} 
+            className="workshop-card"
+            style={{ textDecoration: 'none', color: 'inherit', cursor: 'pointer' }}
+          >
+            <h4>PERSONALIZED COACHING FOR EACH MODEL</h4>
+            <div className="img-wrapper">
+              <img 
+                src="https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?q=80&w=800&auto=format&fit=crop" 
+                alt="Personalized Coaching" 
+              />
+            </div>
+            <p>
+              Our workshops offer hands-on training for models at all levels.
+            </p>
+          </Link>
+
+          <Link 
+            to={PageRoute.FASHION_SHOW} 
+            className="workshop-card"
+            style={{ textDecoration: 'none', color: 'inherit', cursor: 'pointer' }}
+          >
+            <h4>ESSENTIAL SKILLS FOR THE RUNWAY</h4>
+            <div className="img-wrapper">
+              <img 
+                src="https://images.unsplash.com/photo-1581044777550-4cfa60707c03?q=80&w=800&auto=format&fit=crop" 
+                alt="Group Runway Skills" 
+              />
+            </div>
+            <p>
+              Tailored sessions focus on individual strengths and growth areas.
+            </p>
+          </Link>
+
+          <Link 
+            to={PageRoute.FASHION_SHOW} 
+            className="workshop-card"
+            style={{ textDecoration: 'none', color: 'inherit', cursor: 'pointer' }}
+          >
+            <h4>INDUSTRY INSIGHTS AND NETWORKING OPPORTUNITIES</h4>
+            <div className="img-wrapper">
+              <img 
+                src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=800&auto=format&fit=crop" 
+                alt="Industry Insights" 
+              />
+            </div>
+            <p>
+              Participants learn vital techniques for walking and posing effectively.
+            </p>
+          </Link>
+        </div>
+      </div>
+
       {/* Package Highlights Section */}
       <div className="package-section">
         <div className="package-container">

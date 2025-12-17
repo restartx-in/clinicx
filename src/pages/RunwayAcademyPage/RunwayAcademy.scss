@@ -1,4 +1,3 @@
-
 $font-serif: serif; // Replace with your serif font
 $transition-speed: 0.3s;
 $transition-slow: 0.7s;
@@ -226,6 +225,87 @@ $transition-slow: 0.7s;
           letter-spacing: 0.1em; // tracking-widest
         }
       }
+    }
+  }
+}
+
+// --- Moved Workshops Styles ---
+.lumina-about__workshops {
+  max-width: 80rem; 
+  margin: 0 auto;
+  padding: .5rem;
+  padding-bottom: 60px;
+  
+  
+.section-title {
+        font-size: 1.5rem;
+        color: var(--lumina-white);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        text-align: center;
+        margin-bottom: 3rem;
+        font-weight: 400;
+        
+        &::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 1px;
+            background-color: var(--lumina-gold);
+            margin: 1rem auto 0;
+        }
+    }
+
+  .workshops-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+
+    @media (min-width: 900px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .workshop-card {
+    h4 {
+      color: var(--lumina-gold);
+      text-transform: uppercase;
+      font-family: sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.5rem;
+      min-height: 3em;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .img-wrapper {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      margin-bottom: 1.5rem;
+      overflow: hidden;
+      
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+        filter: grayscale(20%);
+        
+        &:hover {
+          transform: scale(1.05);
+          filter: grayscale(0%);
+        }
+      }
+    }
+
+    p {
+      color: var(--lumina-white);
+      font-size: 0.9rem;
+      line-height: 1.5;
+      font-family: sans-serif;
+      font-weight: 300;
     }
   }
 }

@@ -75,58 +75,7 @@ export const About = () => {
         </div>
       </section>
 
-      {/* Services Section from Home Page (Dark Background) */}
-      <section className="services-section">
-          <div className="services-label">
-            <h3>SERVICES OFFERED</h3>
-          </div>
-        <div className="services-container">
-          <div className="services-list">
-            <Link 
-              to={`${PageRoute.EVENTSPRODUCTION}#workshops`} 
-              className="service-item" 
-              style={{ textDecoration: 'none', color: 'inherit', display: 'block', cursor: 'pointer' }}
-            >
-              <span className="service-category">WORKSHOPS</span>
-              <h2>Mastering the Runway</h2>
-              <span className="service-sub">KEY COMPONENTS OF OUR TRAINING</span>
-              <p>
-                Our training sessions are designed to equip aspiring models with the essential skills needed for success.
-                Participants engage in practical exercises and receive personalized feedback, ensuring they develop confidence and
-                grace on the runway, preparing them for the competitive fashion industry.
-              </p>
-            </Link>
-            <Link 
-              to={`${PageRoute.EVENTSPRODUCTION}#workshops`} 
-              className="service-item" 
-              style={{ textDecoration: 'none', color: 'inherit', display: 'block', cursor: 'pointer' }}
-            >
-              <span className="service-category">TRAINING</span>
-              <h2>Workshops</h2>
-              <span className="service-sub">COMPREHENSIVE LEARNING EXPERIENCES</span>
-              <p>
-                Ramp walk coaching focuses on refining posture, stride, and overall presence. Through intensive practice and
-                expert guidance, models learn to exude elegance and poise, making a lasting impression during fashion shows and
-                events, essential for their professional development.
-              </p>
-            </Link>
-            <Link 
-              to={`${PageRoute.EVENTSPRODUCTION}#workshops`} 
-              className="service-item" 
-              style={{ textDecoration: 'none', color: 'inherit', display: 'block', cursor: 'pointer' }}
-            >
-              <span className="service-category">RAMP WALKS</span>
-              <h2>Special Events</h2>
-              <span className="service-sub">UNIQUE OPPORTUNITIES FOR NETWORKING AND SKILL ENHANCEMENT</span>
-              <p>
-                Our workshops provide hands-on experience in various aspects of modeling. From styling tips to makeup
-                application, participants gain valuable insights from industry professionals, enhancing their skills and boosting their
-                confidence.
-              </p>
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* Services Section Removed from here and moved to Home Page */}
       
       {/* Original EventsProduction Content Layout */}
       <div className="lumina-about__layout">
@@ -166,64 +115,7 @@ export const About = () => {
             />
           </div>
         </div>
-
-        {/* Original Workshops Section */}
-        <div id="workshops" className="lumina-about__workshops">
-          <h3 className="section-label">Workshop Offerd</h3>
-          
-          <div className="workshops-grid">
-            <Link 
-              to={PageRoute.FASHION_SHOW} 
-              className="workshop-card"
-              style={{ textDecoration: 'none', color: 'inherit', cursor: 'pointer' }}
-            >
-              <h4>PERSONALIZED COACHING FOR EACH MODEL</h4>
-              <div className="img-wrapper">
-                <img 
-                  src="https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?q=80&w=800&auto=format&fit=crop" 
-                  alt="Personalized Coaching" 
-                />
-              </div>
-              <p>
-                Our workshops offer hands-on training for models at all levels.
-              </p>
-            </Link>
-
-            <Link 
-              to={PageRoute.FASHION_SHOW} 
-              className="workshop-card"
-              style={{ textDecoration: 'none', color: 'inherit', cursor: 'pointer' }}
-            >
-              <h4>ESSENTIAL SKILLS FOR THE RUNWAY</h4>
-              <div className="img-wrapper">
-                <img 
-                  src="https://images.unsplash.com/photo-1581044777550-4cfa60707c03?q=80&w=800&auto=format&fit=crop" 
-                  alt="Group Runway Skills" 
-                />
-              </div>
-              <p>
-                Tailored sessions focus on individual strengths and growth areas.
-              </p>
-            </Link>
-
-            <Link 
-              to={PageRoute.FASHION_SHOW} 
-              className="workshop-card"
-              style={{ textDecoration: 'none', color: 'inherit', cursor: 'pointer' }}
-            >
-              <h4>INDUSTRY INSIGHTS AND NETWORKING OPPORTUNITIES</h4>
-              <div className="img-wrapper">
-                <img 
-                  src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=800&auto=format&fit=crop" 
-                  alt="Industry Insights" 
-                />
-              </div>
-              <p>
-                Participants learn vital techniques for walking and posing effectively.
-              </p>
-            </Link>
-          </div>
-        </div>
+        
       </div>
     </div>
   );
