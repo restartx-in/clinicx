@@ -93,10 +93,10 @@ export const GlobalModels = () => {
             </div>
           </div>
 
-          <div className="fs-cta">
+          {/* <div className="fs-cta">
             <p>Show Opener & Show Stopper spots available at additional cost.</p>
             <Link to={PageRoute.CONTACT} className="btn-register">Apply for Season 2</Link>
-          </div>
+          </div> */}
         </div>
       </section>
 

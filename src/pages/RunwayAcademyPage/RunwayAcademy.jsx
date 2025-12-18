@@ -40,7 +40,7 @@ export const RunwayAcademy = () => {
     },
     {
       day: "Day 3",
-      title: "Grooming & Runway (Athul Suresh)",
+      title: "Grooming & Runway",
       items: [
         "Ramp Walk fundamentals",
         "Grooming",
@@ -107,7 +107,7 @@ export const RunwayAcademy = () => {
               portfolio development.
             </p>
             <p className="hero-subtext">
-              Under the guidance of 2 expert trainers from{" "}
+              Under the guidance of expert trainers from{" "}
               <strong>RunWay Academy</strong>, participants will receive
               hands-on training, personalized feedback, and professional
               photoshoot experience to shine in the competitive modeling
@@ -270,7 +270,7 @@ export const RunwayAcademy = () => {
           </p>
         </div>
       </div>
-      <div className="details-bar">
+      {/* <div className="details-bar">
         <div className="details-grid">
           <div className="detail-item group">
             <UserCheck className="icon" />
@@ -291,7 +291,7 @@ export const RunwayAcademy = () => {
             <p className="sub-text">Guest Speaker Session</p>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

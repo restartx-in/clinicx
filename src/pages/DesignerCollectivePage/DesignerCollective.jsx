@@ -21,41 +21,6 @@ import posterImg2 from "@/assets/DesignerCollective/image-2.jpeg";
 import posterImg3 from "@/assets/DesignerCollective/image-3.jpeg";
 import posterImg4 from "@/assets/DesignerCollective/image-4.jpeg";
 
-const designerEvents = [
-  {
-    name: "Cannes Fashion Week",
-    date: "May 21st, 2026",
-    location: "Cannes, France",
-    link: "#",
-    image:
-      "https://media.gettyimages.com/id/689843944/photo/cannes-france-a-model-wearing-abha-choudary-couture-india-walks-the-runway-during-the-tiffanys.jpg?s=612x612&w=0&k=20&c=IeblnzTCiLHBdT43ZLF63ikNQdx8fXy8yIZ1ZLJWubU=",
-  },
-  {
-    name: "Dubai Fashion Week",
-    date: "August 2026",
-    location: "Dubai, UAE",
-    link: "#",
-    image:
-      "https://i0.wp.com/rumemagazine.com/wp-content/uploads/2024/12/Dubai-Fashion-Week-2025-4.webp",
-  },
-  {
-    name: "New York Fashion Week",
-    date: "September 2026",
-    location: "New York, USA",
-    link: "#",
-    image:
-      "https://media.gettyimages.com/id/2234443189/photo/model-on-the-runway-at-christian-siriano-fashion-show-as-part-of-spring-summer-2026-new-york.jpg?s=612x612&w=0&k=20&c=a5ntV_pmsu46JZcliNB7gdoGJbzCAZ9KeYAqeH9dd9U=",
-  },
-  {
-    name: "Los Angeles Fashion Week",
-    date: "October 2026",
-    location: "Los Angeles, USA",
-    link: "#",
-    image:
-      "https://media.gettyimages.com/id/932672050/photo/los-angeles-ca-a-model-walks-the-runway-wearing-rene-tyler-at-los-angeles-fashion-week-powered.jpg?s=612x612&w=0&k=20&c=wb_gXhBOgGSxtCvd12Th5LUL1esS0rERG7FOLS2c8UI=",
-  },
-];
-
 const showcasePosters = [
   { id: 1, title: "Showcase 1", src: posterImg1 },
   { id: 2, title: "Showcase 2", src: posterImg2 },
@@ -63,6 +28,37 @@ const showcasePosters = [
   { id: 4, title: "Showcase 4", src: posterImg4 },
   // { id: 5, title: "Showcase 5", src: posterImg5 },
 ];
+const designerEvents = [
+  {
+    name: "Cannes Fashion Week",
+    date: "May 21st, 2026",
+    location: "Cannes, France",
+    link: "#",
+    image:posterImg1
+  },
+  {
+    name: "Dubai Fashion Week",
+    date: "August 2026",
+    location: "Dubai, UAE",
+    link: "#",
+    image:posterImg2,
+  },
+  {
+    name: "New York Fashion Week",
+    date: "September 2026",
+    location: "New York, USA",
+    link: "#",
+    image:posterImg4
+  },
+  {
+    name: "Los Angeles Fashion Week",
+    date: "October 2026",
+    location: "Los Angeles, USA",
+    link: "#",
+    image:posterImg3
+  },
+];
+
 
 const featuredDesigners = [
   {
@@ -244,7 +240,7 @@ export const DesignerCollective = () => {
         </div>
 
         {/* --- Section 5: Featured Designers --- */}
-        <div className="dc-section-header">
+        {/* <div className="dc-section-header">
           <span className="subtitle">Our Visionaries</span>
           <h2>Meet the Collective</h2>
           <p>
@@ -265,7 +261,7 @@ export const DesignerCollective = () => {
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
 
         {/* --- Section 6: Why Collaborate? --- */}
         <div className="dc-section-header">
@@ -304,7 +300,7 @@ export const DesignerCollective = () => {
         </div>
 
         {/* --- Section 7: Final CTA --- */}
-        <div className="dc-cta-section">
+        {/* <div className="dc-cta-section">
           <h2>Become a Part of the Movement</h2>
           <p>
             Are you ready to elevate your brand and share your vision with the
@@ -314,7 +310,7 @@ export const DesignerCollective = () => {
           <a href="#" className="cta-button">
             Apply to the Collective
           </a>
-        </div>
+        </div> */}
       </div>
     </div>
   );

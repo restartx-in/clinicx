@@ -170,7 +170,7 @@ export const Home = () => {
       </section>
 
       {/* "The Royal Runway Experience" Section - MOVED FROM ABOUT PAGE */}
-      <div className="home-experience-section">
+      {/* <div className="home-experience-section">
         <div className="experience-info">
           <h2>The Royal Runway Experience</h2>
           <p>
@@ -207,7 +207,7 @@ export const Home = () => {
             className="experience-img"
           />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
