@@ -22,7 +22,7 @@ export const Footer = () => {
             </div>
             
             <p className="brand-desc">
-              Empowering aspiring queens to build confidence, presence, and a legacy of their own.
+              Empowering Designers and Models for the World Stage,  Built for the Global Runway.
             </p>
           </div>
           

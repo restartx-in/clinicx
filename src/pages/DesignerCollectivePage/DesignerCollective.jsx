@@ -30,35 +30,34 @@ const showcasePosters = [
 ];
 const designerEvents = [
   {
-    name: "Cannes Fashion Week",
-    date: "May 21st, 2026",
-    location: "Cannes, France",
-    link: "#",
-    image:posterImg1
-  },
-  {
-    name: "Dubai Fashion Week",
-    date: "August 2026",
-    location: "Dubai, UAE",
-    link: "#",
-    image:posterImg2,
-  },
-  {
     name: "New York Fashion Week",
     date: "September 2026",
     location: "New York, USA",
     link: "#",
-    image:posterImg4
+    image: posterImg4,
   },
   {
     name: "Los Angeles Fashion Week",
     date: "October 2026",
     location: "Los Angeles, USA",
     link: "#",
-    image:posterImg3
+    image: posterImg3,
+  },
+  {
+    name: "Cannes Fashion Week",
+    date: "May 21st, 2026",
+    location: "Cannes, France",
+    link: "#",
+    image: posterImg1,
+  },
+  {
+    name: "Dubai Fashion Week",
+    date: "August 2026",
+    location: "Dubai, UAE",
+    link: "#",
+    image: posterImg2,
   },
 ];
-
 
 const featuredDesigners = [
   {
@@ -185,12 +184,12 @@ export const DesignerCollective = () => {
         {/* --- Section 3: NEW Showcase Package GRID --- */}
         <div className="dc-showcase-section">
           <div className="dc-section-header">
-            <span className="subtitle">Comprehensive Support</span>
+            <span className="subtitle"></span>
             <h2>Designer Global Showcase Package</h2>
-            <p>
+            {/* <p>
               Showcase your talent globally with our all-inclusive support
               system designed to elevate your brand to new heights.
-            </p>
+            </p> */}
           </div>
 
           {/* Grid Layout for Features */}

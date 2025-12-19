@@ -74,7 +74,7 @@ export const Apply = () => {
               <form ref={formRef} onSubmit={handleSubmit} className="contact-form">
                 
                 <div className="selection-group">
-                    <label className="group-label">I am interested in</label>
+                    <label className="group-label">I AM interested in - Designer, Runway Model, Workshop</label>
                     <div className="radio-options">
                       <label className="radio-label">
                         <input type="radio" name="interest" value="6-Day Workshop" defaultChecked />
@@ -159,7 +159,6 @@ export const Apply = () => {
             <h4>Royal Runway Inquiries</h4>
             <div className="footer-details">
                 <span><Mail /> info@royalrunway.com</span>
-                <span><Crown /> Season 2: May 2nd & 3rd</span>
             </div>
         </div>
       </div>

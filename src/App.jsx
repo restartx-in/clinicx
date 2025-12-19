@@ -21,24 +21,38 @@ const ScrollToTop = () => {
   return null;
 };
 
+// New component to handle conditional rendering of Footer based on route
+const MainContent = () => {
+  const location = useLocation();
+  // Check if the current pathname matches the ABOUT route
+  const isAboutPage = location.pathname === PageRoute.ABOUT;
+
+  return (
+    <div className="flex flex-col min-h-screen">
+      <Navbar />
+      <main className="flex-grow">
+        <Routes>
+          <Route path={PageRoute.HOME} element={<Home />} />
+          <Route path={PageRoute.ABOUT} element={<About />} />
+          <Route path={PageRoute.DESIGNER_COLLECTIVE} element={<DesignerCollective />} />
+          <Route path={PageRoute.GLOBAL_MODELS} element={<GlobalModels />} />
+          <Route path={PageRoute.RUNWAY_ACADEMY} element={<RunwayAcademy />} />
+          <Route path={PageRoute.APPLY} element={<Apply />} />
+        </Routes>
+      </main>
+      
+      {/* Conditional Rendering: Show Footer only if it's NOT the About page */}
+      {!isAboutPage && <Footer />}
+    </div>
+  );
+};
+
 const App = () => {
   return (
     <Router>
       <ScrollToTop />
-      <div className="flex flex-col min-h-screen">
-        <Navbar />
-        <main className="flex-grow">
-          <Routes>
-            <Route path={PageRoute.HOME} element={<Home />} />
-            <Route path={PageRoute.ABOUT} element={<About />} />
-            <Route path={PageRoute.DESIGNER_COLLECTIVE} element={<DesignerCollective />} />
-            <Route path={PageRoute.GLOBAL_MODELS} element={<GlobalModels />} />
-            <Route path={PageRoute.RUNWAY_ACADEMY} element={<RunwayAcademy />} />
-            <Route path={PageRoute.APPLY} element={<Apply />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
+      {/* Render MainContent which contains the conditional Footer logic */}
+      <MainContent />
     </Router>
   );
 };
