@@ -21,11 +21,10 @@ const ScrollToTop = () => {
   return null;
 };
 
-// New component to handle conditional rendering of Footer based on route
 const MainContent = () => {
-  const location = useLocation();
+  const location = useLocation(); // Need useLocation to check the route
   // Check if the current pathname matches the ABOUT route
-  const isAboutPage = location.pathname === PageRoute.ABOUT;
+  const hideBrandColumn = location.pathname === PageRoute.ABOUT; // New conditional variable
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -41,8 +40,8 @@ const MainContent = () => {
         </Routes>
       </main>
       
-      {/* Conditional Rendering: Show Footer only if it's NOT the About page */}
-      {!isAboutPage && <Footer />}
+      {/* Pass the new prop to Footer. Footer is always rendered. */}
+      <Footer hideBrandColumn={hideBrandColumn} />
     </div>
   );
 };
@@ -51,7 +50,6 @@ const App = () => {
   return (
     <Router>
       <ScrollToTop />
-      {/* Render MainContent which contains the conditional Footer logic */}
       <MainContent />
     </Router>
   );

@@ -1,30 +1,32 @@
-
 import React from 'react';
-import { Instagram, Twitter, Facebook, Mail, Phone, MapPin } from 'lucide-react'; // Removed Crown
+import { Instagram, Twitter, Facebook, Mail, Phone, MapPin } from 'lucide-react'; 
 import './Footer.scss';
 
-export const Footer = () => {
+// Updated to accept the new prop
+export const Footer = ({ hideBrandColumn }) => {
   return (
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-grid">
           
-          {/* Brand Column */}
-          <div className="brand-column">
-            {/* Updated Logo Section */}
-            <div className="brand-logo">
-                <img 
-                  src="src/assets/new.png" 
-                  alt="Royal Runway Logo" 
-                  className="footer-logo-img"
-                />
-                <span className="brand-text">ROYAL RUNWAY FASHION</span>
+          {/* Brand Column - CONDITIONAL RENDERING APPLIED HERE */}
+          {!hideBrandColumn && (
+            <div className="brand-column">
+              {/* Updated Logo Section */}
+              <div className="brand-logo">
+                  <img 
+                    src="src/assets/new.png" 
+                    alt="Royal Runway Logo" 
+                    className="footer-logo-img"
+                  />
+                  <span className="brand-text">ROYAL RUNWAY FASHION</span>
+              </div>
+              
+              <p className="brand-desc">
+                Empowering Designers and Models for the World Stage,  Built for the Global Runway.
+              </p>
             </div>
-            
-            <p className="brand-desc">
-              Empowering Designers and Models for the World Stage,  Built for the Global Runway.
-            </p>
-          </div>
+          )}
           
           {/* Contact Column */}
           <div className="contact-column">
