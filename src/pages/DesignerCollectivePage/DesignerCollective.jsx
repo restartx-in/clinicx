@@ -59,31 +59,6 @@ const designerEvents = [
   },
 ];
 
-const featuredDesigners = [
-  {
-    name: "Elena Velez",
-    specialty: "Avant-Garde Couture",
-    bio: "Known for her deconstructed approach and use of industrial materials, creating pieces that challenge conventional beauty.",
-    imageUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/6/60/ELENA_VELEZ%2C_2023.png",
-  },
-  {
-    name: "Kenji Tanaka",
-    specialty: "Minimalist Streetwear",
-    bio: "Fuses traditional Japanese minimalism with modern urban aesthetics, focusing on clean lines and sustainable fabrics.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    name: "Sofia Reyes",
-    specialty: "Bohemian Luxury",
-    bio: "Her collections celebrate free-spirited elegance with intricate embroidery, flowing silhouettes, and rich, earthy tones.",
-    imageUrl:
-      "https://www.billboard.com/wp-content/uploads/2023/11/Sofia-Reyes-MILAMORES-cr-Steph-Munguia-press-2023-billboard-1548.jpg?w=942&h=628&crop=1",
-  },
-];
-
-// UPDATED: Structured Data for Grid Cards (Replaces the text list)
 const showcaseFeatures = [
   {
     icon: <FaGlobe />,
@@ -146,40 +121,65 @@ export const DesignerCollective = () => {
   return (
     <div className="designer-collective-page">
       <div className="dc-container">
-        {/* --- Section 1: For Designers Header --- */}
-        <div className="dc-header">
-          <h1>For Designers</h1>
-          <p>
-            Showcase your talent globally and compete alongside international
-            designers in the world's most prestigious fashion weeks.
-          </p>
-        </div>
+        <div className="dc-posters-section">
+          <div className="dc-section-header">
+            <h2>Designer Global Showcase</h2>
+            <p>
+              Showcase your talent globally and compete alongside international
+              designers in the world's most prestigious fashion weeks.
+            </p>
+            <span className="subtitle">Official Event Posters</span>
+          </div>
 
-        {/* --- Section 2: Events Grid --- */}
-        <div className="dc-events-grid">
-          {designerEvents.map((event, index) => (
-            <div
-              className="event-card"
-              key={index}
-              style={{ backgroundImage: `url(${event.image})` }}
-            >
-              <div className="event-overlay"></div>
-              <div className="event-card-content">
-                <div className="text-content">
-                  <h3>{event.name}</h3>
-                  <p className="event-details">
-                    {event.date}
-                    <br />
-                    {event.location}
-                  </p>
+                    
+           <div className="poster-carousel-wrapper">
+            <button className="nav-btn left" onClick={() => scroll("left")}>
+              <FaChevronLeft />
+            </button>
+
+            <div className="posters-track" ref={sliderRef}>
+              {showcasePosters.map((poster) => (
+                <div key={poster.id} className="poster-card">
+                  <img src={poster.src} alt={poster.title} />
                 </div>
-                <a href={event.link} className="apply-button">
-                  Apply Now
-                </a>
-              </div>
+              ))}
             </div>
-          ))}
+
+            <button className="nav-btn right" onClick={() => scroll("right")}>
+              <FaChevronRight />
+            </button>
+          </div> 
+
+          {/* ///////////////////////////////////////////////////////////// */}
+
+          
+          <div className="posters-grids">
+            {showcasePosters.map((poster) => (
+              <div key={poster.id} className="poster-cards">
+                <img
+                  src={poster.src}
+                  alt={poster.title}
+                  className={`poster-img ${poster.id === 4 ? "tall" : ""}`}
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* ///////////////////////////////////////////////////////////////////////////// */}
+
+          <div className="posters-marquee-container">
+            <div className="marquee-track">
+       
+                 {[...showcasePosters, ...showcasePosters].map((poster, index) => (
+                <div key={index} className="poster-slide">
+                  <img src={poster.src} alt={poster.title} />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
+        
+        {/* ////////////////////////////////////////////////////////////////////////////////////////// */}
 
         {/* --- Section 3: NEW Showcase Package GRID --- */}
         <div className="dc-showcase-section">
@@ -212,57 +212,6 @@ export const DesignerCollective = () => {
           </p>
         </div>
 
-        {/* --- Section 4: Designer Global Showcase (SLIDER) --- */}
-        <div className="dc-posters-section">
-          <div className="dc-section-header">
-            <h2>Designer Global Showcase</h2>
-            <span className="subtitle">Official Event Posters</span>
-          </div>
-
-          <div className="poster-carousel-wrapper">
-            <button className="nav-btn left" onClick={() => scroll("left")}>
-              <FaChevronLeft />
-            </button>
-
-            <div className="posters-track" ref={sliderRef}>
-              {showcasePosters.map((poster) => (
-                <div key={poster.id} className="poster-card">
-                  <img src={poster.src} alt={poster.title} />
-                </div>
-              ))}
-            </div>
-
-            <button className="nav-btn right" onClick={() => scroll("right")}>
-              <FaChevronRight />
-            </button>
-          </div>
-        </div>
-
-        {/* --- Section 5: Featured Designers --- */}
-        {/* <div className="dc-section-header">
-          <span className="subtitle">Our Visionaries</span>
-          <h2>Meet the Collective</h2>
-          <p>
-            We are proud to collaborate with designers who are pushing the
-            boundaries of fashion.
-          </p>
-        </div>
-        <div className="featured-designers-grid">
-          {featuredDesigners.map((designer, index) => (
-            <div className="designer-profile-card" key={index}>
-              <div className="designer-image-wrapper">
-                <img src={designer.imageUrl} alt={designer.name} />
-              </div>
-              <div className="designer-info">
-                <h4>{designer.name}</h4>
-                <span className="specialty">{designer.specialty}</span>
-                <p>{designer.bio}</p>
-              </div>
-            </div>
-          ))}
-        </div> */}
-
-        {/* --- Section 6: Why Collaborate? --- */}
         <div className="dc-section-header">
           <span className="subtitle">The Royal Runway Advantage</span>
           <h2>Why Collaborate With Us?</h2>
