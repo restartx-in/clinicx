@@ -101,7 +101,6 @@ $font-serif: serif;
   }
 }
 
-// --- 2. Package Section ---
 .fs-package {
   background-color: var(--dark-bg);
   padding: 6rem 1rem;
@@ -109,13 +108,11 @@ $font-serif: serif;
   &__container {
     max-width: 75rem;
     margin: 0 auto;
-    
   }
 
   .fs-header {
     text-align: center;
     margin-bottom: 5rem;
-    
     
     .tagline {
       color: var(--gold-primary);
@@ -131,7 +128,6 @@ $font-serif: serif;
       font-size: 2.5rem;
       font-weight: 300;
       margin-bottom: 1.5rem;
-      
       @media(min-width: 768px) { font-size: 3.5rem; }
     }
     
@@ -144,98 +140,117 @@ $font-serif: serif;
     }
   }
   
-  
   // Grid
   .fs-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 2rem;
 
-    @media (min-width: 768px) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    @media (min-width: 1024px) {
-      grid-template-columns: repeat(3, 1fr);
-    }
+    @media (min-width: 768px) { grid-template-columns: repeat(2, 1fr); }
+    @media (min-width: 1024px) { grid-template-columns: repeat(3, 1fr); }
 
     .fs-card {
+      position: relative;
       background-color: #1a1a1a;
+      height: 350px; // Consistent height for the image cards
+      display: flex;
+      align-items: flex-end;
       padding: 2.5rem;
-      border: 1px solid rgba(255,255,255,0.05);
-      transition: transform 0.3s ease, border-color 0.3s ease;
+      border: 1px solid rgba(255,255,255,0.1);
+      overflow: hidden;
+      transition: transform 0.4s ease, border-color 0.4s ease;
+
+      // The Background Image Layer
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background-size: cover;
+        background-position: center;
+        transition: transform 0.6s ease;
+        z-index: 0;
+      }
+
+      // The Dark Overlay Layer (Crucial for text readability)
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: linear-gradient(
+          to bottom, 
+          rgba(0, 0, 0, 0.2) 0%, 
+          rgba(0, 0, 0, 0.8) 70%, 
+          rgba(0, 0, 0, 0.95) 100%
+        );
+        z-index: 1;
+      }
+
+      .card-inner {
+        position: relative;
+        z-index: 2; // Sits above the image and overlay
+        width: 100%;
+      }
 
       &:hover {
-        transform: translateY(-5px);
+        transform: translateY(-8px);
         border-color: var(--gold-primary);
         
-        .icon { color: var(--gold-primary); }
+        &::before {
+          transform: scale(1.1); // Smooth zoom effect on hover
+        }
+
+        .icon { 
+          color: var(--gold-primary); 
+          transform: scale(1.1);
+        }
       }
 
       .icon {
-        color: #4b5563;
-        width: 2rem;
-        height: 2rem;
+        color: #ffffff;
+        width: 2.25rem;
+        height: 2.25rem;
         margin-bottom: 1.5rem;
-        transition: color 0.3s ease;
+        transition: all 0.3s ease;
       }
 
       h3 {
         color: var(--lumina-white);
-        font-size: 1.25rem;
-        margin-bottom: 1rem;
-        font-family: $font-serif;
+        font-size: 1.4rem;
+        margin-bottom: 0.75rem;
+        font-family: serif; // Matches luxury aesthetic
       }
 
       p {
-        color: #9ca3af;
-        font-size: 0.9rem;
-        line-height: 1.6;
+        color: #d1d5db;
+        font-size: 0.95rem;
+        line-height: 1.5;
       }
 
-      // Special Highlight Card
+      // Assigning Images from Unsplash
+      &.card-wardrobe::before { background-image: url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&q=80&w=800'); }
+      &.card-grooming::before { background-image: url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&q=80&w=800'); }
+      &.card-photo::before { background-image: url('https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&q=80&w=800'); }
+      &.card-media::before { background-image: url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80&w=800'); }
+      &.card-training::before { background-image: url('https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&q=80&w=800'); }
+      &.card-shine::before { background-image: url('https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&q=80&w=800'); }
+
+      // Special Highlight Card (Golden version)
       &.highlight-card {
-        background: linear-gradient(135deg, var(--gold-primary),var(--gold-primary), 20%);
-        border: none;
-        
-        h3, p { color: #000; }
-        
-        h3 { font-weight: 700; }
-        
-        &:hover {
-          transform: scale(1.02);
+        &::after {
+          background: linear-gradient(
+            135deg, 
+            rgba(212, 175, 55, 0.8) 0%, 
+            rgba(0, 0, 0, 0.9) 100%
+          );
         }
-      }
-    }
-  }
-
-  // CTA Footer
-  .fs-cta {
-    margin-top: 5rem;
-    text-align: center;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    padding-top: 3rem;
-
-    p {
-      color: var(--gold-primary);
-      font-style: italic;
-      font-family: $font-serif;
-      margin-bottom: 2rem;
-    }
-
-    .btn-register {
-      display: inline-block;
-      text-decoration: none;
-      padding: 1rem 3rem;
-      background-color: var(--lumina-white);
-      color: #000;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      transition: all 0.3s ease;
-
-      &:hover {
-        background-color: var(--gold-primary);
-        color: var(--lumina-white);
+        
+        &:hover::after {
+          background: linear-gradient(
+            135deg, 
+            rgba(212, 175, 55, 0.9) 0%, 
+            rgba(0, 0, 0, 0.85) 100%
+          );
+        }
       }
     }
   }

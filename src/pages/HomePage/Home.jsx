@@ -13,7 +13,7 @@ const categoryCards = [
       "Showcasing the avant-garde collections of world-renowned fashion brands.",
     // Image: High-fashion garment/texture focus (Design)
     image:
-      "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=2670&auto=format&fit=crop",
+      "https://royalrunway.my.canva.site/_assets/media/972518e913ca8bc28f2a573344a4a5b6.jpg",
     link: PageRoute.DESIGNER_COLLECTIVE,
   },
   {

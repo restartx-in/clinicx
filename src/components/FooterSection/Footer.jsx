@@ -22,8 +22,8 @@ export const Footer = ({ hideBrandColumn }) => {
                   <span className="brand-text">ROYAL RUNWAY FASHION</span>
               </div>
               
-              <p className="brand-desc">
-                Empowering Designers and Models for the World Stage,  Built for the Global Runway.
+              <p className="brand-desc fw600 fs14">
+                The World Is Your RunWay.
               </p>
             </div>
           )}
@@ -42,7 +42,7 @@ export const Footer = ({ hideBrandColumn }) => {
               </li> */}
               <li>
                 <Mail className="icon" />
-                <span>bookings@royalrunwayfashion.com</span>
+                <span>info@royalrunway.com</span>
               </li>
             </ul>
           </div>

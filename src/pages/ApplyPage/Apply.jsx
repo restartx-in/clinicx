@@ -155,12 +155,12 @@ export const Apply = () => {
             )}
         </div>
         
-        <div className="contact-footer">
+        {/* <div className="contact-footer">
             <h4>Royal Runway Inquiries</h4>
             <div className="footer-details">
                 <span><Mail /> info@royalrunway.com</span>
             </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

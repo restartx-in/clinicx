@@ -48,137 +48,54 @@ $font-primary: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 
 //////////////////////////////////////////////////////////////////////////
-/// 
-//
-.dc-posters-section {
-  margin-top: 6rem;
-  position: relative;
+.posters-grids {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 1rem;
+  margin-top: 3rem;
+  align-items: stretch; // Ensures cards in the same row stay the same height
+height:80rem;
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr; // Stack on mobile
+  }
+}
 
-  .poster-carousel-wrapper {
-    display: flex;
-    align-items: center;
-    position: relative;
+.poster-cards {
+  width: 95%;
+  // This forces a 2:3 "Poster" aspect ratio. 
+  // If you want them taller, try 3/4. If shorter, 1/1.
+  aspect-ratio: 2 / 3; 
+     // Fill the container height
+
+  
+  border-radius: 12px;
+  overflow: hidden;
+  background: #1a1a1a; // Fallback background color
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+
+  img.poster-img {
+    width: 100%;
+    height: 100%; // Fill the container height
+    display: block;
+    object-fit:fill; // This is the secret: it fills the box without stretching
+    object-position: center; // Centers the image focus
+    transition: transform 0.5s ease;
   }
 
-  .posters-track {
-    display: flex;
-    gap: 2rem;
-    overflow-x: auto;
-    padding: 2rem 1rem;
-    scroll-behavior: smooth;
+  &:hover {
+    transform: translateY(-8px);
+    border-color: var(--lumina-gold);
+    box-shadow: 0 20px 40px rgba(196, 164, 132, 0.2);
 
-    &::-webkit-scrollbar {
-      display: none;
-    }
-  }
-
-  .poster-card {
-    width: 300px;
-    height: 450px;
-    flex-shrink: 0;
-    border-radius: 8px;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: 0.3s ease;
-
-    @media (min-width: 768px) {
-      width: 450px;
-      height: 650px;
-    }
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: fill;
-    }
-
-    &:hover {
-      transform: scale(1.02);
-      border-color: var(--lumina-gold);
-    }
-  }
-
-  .nav-btn {
-    position: absolute;
-    width: 3rem;
-    height: 3rem;
-    border-radius: 50%;
-    background: rgba(0, 0, 0, 0.6);
-    color: #fff;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    cursor: pointer;
-
-    &:hover {
-      background: var(--lumina-gold);
-      color: #000;
-    }
-
-    &.left {
-      left: 0;
-    }
-
-    &.right {
-      right: 0;
+    img.poster-img {
+      transform: scale(1.05);
     }
   }
 }
 
 
-
-///////////////////////////////////////////////////////////////////
-
-
-
-
-  .posters-grids {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 2.5rem; // Increased gap for a cleaner look
-    margin-top: 3rem;
-    align-items: start; // Ensures cards align at the top if heights differ
-
-    @media (max-width: 768px) {
-      grid-template-columns: 1fr; // Single column on mobile so posters are large
-    }
-  }
-
-  .poster-cards {
-    width: 100%;
-    border-radius: 12px;
-    overflow: hidden;
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-
-    img.poster-img {
-      width: 100%;
-      height: auto;
-      display: block;
-      object-fit: contain;
-      transition: transform 0.5s ease;
-    }
-    @media (min-width: 768px) {
-
-      img.poster-img.tall {
-        height: 810px;        
-        object-fit: cover;    
-    }
-    }
-
-    &:hover {
-      transform: translateY(-8px);
-      border-color: var(--lumina-gold);
-      box-shadow: 0 20px 40px rgba(196, 164, 132, 0.2);
-
-      img {
-        transform: scale(1.02);
-      }
-    }
-  }
-
-
-  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 // .posters-marquee-container {
@@ -190,55 +107,55 @@ $font-primary: "Helvetica Neue", Helvetica, Arial, sans-serif;
 //   background: transparent; // No background for the whole section
 // }
 
-.marquee-track {
-  display: flex;
-  width: max-content;
-  gap: 1.5rem; // Space between posters
-  animation: scroll-marquee 40s linear infinite;
+// .marquee-track {
+//   display: flex;
+//   width: max-content;
+//   gap: 1.5rem; // Space between posters
+//   animation: scroll-marquee 40s linear infinite;
 
-  &:hover {
-    animation-play-state: paused;
-  }
-}
+//   &:hover {
+//     animation-play-state: paused;
+//   }
+// }
 
-.poster-slide {
-  flex-shrink: 0;
-  height: 550px; 
+// .poster-slide {
+//   flex-shrink: 0;
+//   height: 550px; 
   
-  width: auto; 
+//   width: auto; 
   
-  background: transparent; // Remove the dark background
-  border-radius: 15px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8);
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+//   background: transparent; // Remove the dark background
+//   border-radius: 15px;
+//   overflow: hidden;
+//   border: 1px solid rgba(255, 255, 255, 0.15);
+//   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8);
+//   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
-  img {
-    height: 100%;
-    width: auto; // Image dictates the width of the card
-    display: block;
-    object-fit: cover; // Ensures no tiny gaps
-  }
+//   img {
+//     height: 100%;
+//     width: auto; // Image dictates the width of the card
+//     display: block;
+//     object-fit: cover; // Ensures no tiny gaps
+//   }
 
-  &:hover {
-    transform: scale(1.05);
-    border-color: var(--lumina-gold);
-    box-shadow: 0 25px 50px rgba(196, 164, 132, 0.25);
-    z-index: 10;
-  }
-}
+//   &:hover {
+//     transform: scale(1.05);
+//     border-color: var(--lumina-gold);
+//     box-shadow: 0 25px 50px rgba(196, 164, 132, 0.25);
+//     z-index: 10;
+//   }
+// }
 
-@keyframes scroll-marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
+// @keyframes scroll-marquee {
+//   0% { transform: translateX(0); }
+//   100% { transform: translateX(-50%); }
+// }
 
-@media (max-width: 768px) {
-  .poster-slide {
-    height: 400px;
-  }
-}
+// @media (max-width: 768px) {
+//   .poster-slide {
+//     height: 400px;
+//   }
+// }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 

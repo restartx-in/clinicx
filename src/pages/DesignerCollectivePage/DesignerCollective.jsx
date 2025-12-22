@@ -131,35 +131,15 @@ export const DesignerCollective = () => {
             <span className="subtitle">Official Event Posters</span>
           </div>
 
-                    
-           <div className="poster-carousel-wrapper">
-            <button className="nav-btn left" onClick={() => scroll("left")}>
-              <FaChevronLeft />
-            </button>
-
-            <div className="posters-track" ref={sliderRef}>
-              {showcasePosters.map((poster) => (
-                <div key={poster.id} className="poster-card">
-                  <img src={poster.src} alt={poster.title} />
-                </div>
-              ))}
-            </div>
-
-            <button className="nav-btn right" onClick={() => scroll("right")}>
-              <FaChevronRight />
-            </button>
-          </div> 
-
           {/* ///////////////////////////////////////////////////////////// */}
 
-          
           <div className="posters-grids">
             {showcasePosters.map((poster) => (
               <div key={poster.id} className="poster-cards">
                 <img
                   src={poster.src}
                   alt={poster.title}
-                  className={`poster-img ${poster.id === 4 ? "tall" : ""}`}
+                  className="poster-img" // Removed the conditional "tall" class
                 />
               </div>
             ))}
@@ -167,18 +147,17 @@ export const DesignerCollective = () => {
 
           {/* ///////////////////////////////////////////////////////////////////////////// */}
 
-          <div className="posters-marquee-container">
+          {/* <div className="posters-marquee-container">
             <div className="marquee-track">
-       
-                 {[...showcasePosters, ...showcasePosters].map((poster, index) => (
+              {[...showcasePosters, ...showcasePosters].map((poster, index) => (
                 <div key={index} className="poster-slide">
                   <img src={poster.src} alt={poster.title} />
                 </div>
               ))}
             </div>
-          </div>
+          </div> */}
         </div>
-        
+
         {/* ////////////////////////////////////////////////////////////////////////////////////////// */}
 
         {/* --- Section 3: NEW Showcase Package GRID --- */}
