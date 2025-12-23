@@ -9,9 +9,6 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  server: {
-    allowedHosts: [
-      "43432ff220c0.ngrok-free.app"
-    ]
-  }
+
+  base: process.env.VITE_BASE_PATH || "/",
 });
