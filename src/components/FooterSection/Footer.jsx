@@ -1,6 +1,13 @@
-import React from 'react';
-import { Instagram, Twitter, Facebook, Mail, Phone, MapPin } from 'lucide-react'; 
-import './Footer.scss';
+import React from "react";
+import {
+  Instagram,
+  Twitter,
+  Facebook,
+  Mail,
+  Phone,
+  MapPin,
+} from "lucide-react";
+import "./Footer.scss";
 
 // Updated to accept the new prop
 export const Footer = ({ hideBrandColumn }) => {
@@ -8,26 +15,9 @@ export const Footer = ({ hideBrandColumn }) => {
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-grid">
-          
           {/* Brand Column - CONDITIONAL RENDERING APPLIED HERE */}
-          {!hideBrandColumn && (
-            <div className="brand-column">
-              {/* Updated Logo Section */}
-              <div className="brand-logo">
-                  <img 
-                    src="src/assets/new.png" 
-                    alt="Royal Runway Logo" 
-                    className="footer-logo-img"
-                  />
-                  <span className="brand-text">ROYAL RUNWAY FASHION</span>
-              </div>
-              
-              <p className="brand-desc fw600 fs14">
-                The World Is Your RunWay.
-              </p>
-            </div>
-          )}
-          
+          {/* <div /> */}
+
           {/* Contact Column */}
           <div className="contact-column">
             <h4>Contact</h4>
@@ -65,7 +55,6 @@ export const Footer = ({ hideBrandColumn }) => {
               <p>© 2024 Royal Runway Fashion.</p>
             </div>
           </div>
-
         </div>
 
         {/* Bottom Bar */}

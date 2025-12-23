@@ -54,15 +54,17 @@ export const Home = () => {
       <div className="programs-container">
         {/* Header Section */}
         <div className="programs-header">
-          <span className="subtitle ">
+          {/* <span className="subtitle ">
             where global fashion Meets opportunity
-          </span>
+          </span> */}
           <h1>Fashion Show Production</h1>
           <p>
             Explore our comprehensive services for designers, models, and
             aspiring talents. From curating and producing fashion shows on
-            global stages to intensive model training and runway academy
-            programs, we bring your fashion vision to life.
+            global stages, showcasing world-class designers, providing models
+            with unmatched opportunities to shine on the world stage, to
+            intensive model training, we are here to bring your fashion vision
+            to life
           </p>
         </div>
       </div>
@@ -153,7 +155,7 @@ export const Home = () => {
               <span className="service-category"></span>
               <h2>Workshops</h2>
               <span className="service-sub">
-                Global Standards. Local Excellence.
+                Global Standards & Excellence.
               </span>
               <ul>
                 <li>Runway & posture mastery</li>

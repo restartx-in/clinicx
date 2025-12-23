@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
-import { PageRoute } from '@/constants/types';
-import './Navbar.scss';
+import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Menu, X } from "lucide-react";
+import { PageRoute } from "@/constants/types";
+import "./Navbar.scss";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,12 +11,12 @@ export const Navbar = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   const navLinks = [
-    { name: 'Home', path: PageRoute.HOME },
-    { name: 'About Us', path: PageRoute.ABOUT },
-    { name: 'Designer Collective', path: PageRoute.DESIGNER_COLLECTIVE },
-    { name: 'Global Models', path: PageRoute.GLOBAL_MODELS },
-    { name: 'Runway Academy', path: PageRoute.RUNWAY_ACADEMY },
-    { name: 'Apply', path: PageRoute.APPLY },
+    { name: "Home", path: PageRoute.HOME },
+    { name: "About Us", path: PageRoute.ABOUT },
+    { name: "Designer Collective", path: PageRoute.DESIGNER_COLLECTIVE },
+    { name: "Global Models", path: PageRoute.GLOBAL_MODELS },
+    { name: "Runway Academy", path: PageRoute.RUNWAY_ACADEMY },
+    { name: "Apply", path: PageRoute.APPLY },
   ];
 
   const isActive = (path) => {
@@ -30,13 +30,21 @@ export const Navbar = () => {
         <div className="nav-wrapper">
           {/* Logo Section */}
           <Link to={PageRoute.HOME} className="nav-logo">
-            <img 
-              src="src\assets\new.png" 
-              alt="Royal Runway Logo" 
+            <img
+              src="src\assets\new.png"
+              alt="Royal Runway Logo"
               className="logo-image"
             />
             <div className="logo-text-col">
-              <span className="logo-text desktop-only">ROYAL RUNWAY Fashion</span>
+              <span className="logo-text desktop-only">
+                ROYAL RUNWAY Fashion
+              </span>
+              <p
+                className="brand-desc fw500 fs12"
+                style={{ color: "white", opacity: 0.6, fontStyle: "italic" }}
+              >
+                Where Designers and Models Go Global
+              </p>
             </div>
           </Link>
 
@@ -47,7 +55,7 @@ export const Navbar = () => {
                 key={link.name}
                 to={link.path}
                 className={`nav-link ${
-                  isActive(link.path) ? 'active' : 'inactive'
+                  isActive(link.path) ? "active" : "inactive"
                 }`}
               >
                 {link.name}
@@ -57,11 +65,12 @@ export const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <div className="mobile-toggle-btn-wrapper">
-            <button
-              onClick={toggleMenu}
-              aria-label="Toggle menu"
-            >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            <button onClick={toggleMenu} aria-label="Toggle menu">
+              {isOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
             </button>
           </div>
         </div>
@@ -77,7 +86,7 @@ export const Navbar = () => {
                 to={link.path}
                 onClick={() => setIsOpen(false)}
                 className={`mobile-nav-link ${
-                  isActive(link.path) ? 'active' : 'inactive'
+                  isActive(link.path) ? "active" : "inactive"
                 }`}
               >
                 {link.name}
