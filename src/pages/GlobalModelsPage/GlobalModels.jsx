@@ -87,7 +87,7 @@ export const GlobalModels = () => {
             </div>
 
             {/* Highlight Card */}
-            <div className="fs-card card-shine highlight-card">
+            <div className="fs-card card-shine ">
               <div className="card-inner">
                 <MapPin className="icon" />
                 <h3>A Chance to Shine</h3>

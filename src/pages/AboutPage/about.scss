@@ -7,7 +7,7 @@
 }
 
 // Variables
-$font-poppins: 'Poppins', sans-serif; 
+$font-poppins: "Poppins", sans-serif;
 $transition-slow: 0.7s;
 $transition-super-slow: 1s;
 
@@ -35,16 +35,14 @@ $transition-super-slow: 1s;
 }
 
 // --- ORIGINAL EventsProduction.scss STYLES ---
-$font-serif: serif; 
+$font-serif: serif;
 $transition-speed: 0.3s;
 
 // Mixin for standard max-width container
 @mixin about-container-width {
-  max-width: 80rem; 
+  max-width: 80rem;
   margin: 0 auto;
-  padding:.5rem;
-
-  
+  padding: 0.5rem;
 }
 
 .lumina-about {
@@ -83,13 +81,13 @@ $transition-speed: 0.3s;
       justify-content: center;
 
       h1 {
-        font-size: 3rem; 
+        font-size: 3rem;
         font-family: $font-serif;
         color: var(--lumina-white);
         text-align: center;
 
         @media (min-width: 768px) {
-          font-size: 4.5rem; 
+          font-size: 4.5rem;
         }
 
         span {
@@ -107,10 +105,9 @@ $transition-speed: 0.3s;
   }
 
   // Experience Section Styles Removed (Moved to Home.scss)
-  
+
   // Removed __workshops section styles
 }
-
 
 // --- STYLES ADDED FROM Home.scss ---
 
@@ -118,7 +115,7 @@ $transition-speed: 0.3s;
 .hero-section {
   position: relative;
   width: 100%;
-  padding: 8rem 0rem 5rem 0rem; 
+  padding: 8rem 0rem 5rem 0rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -126,7 +123,6 @@ $transition-speed: 0.3s;
   text-align: center;
   z-index: 10;
   background-color: var(--lumina-bg-dark);
-
 
   .hero-title {
     font-family: "sans-serif";
@@ -136,8 +132,12 @@ $transition-speed: 0.3s;
     text-transform: uppercase;
     margin-bottom: 1rem;
     font-size: 2rem;
-    @media (min-width: 768px) { font-size: 4.5rem; }
-    @media (min-width: 1024px) { font-size: 5rem; }
+    @media (min-width: 768px) {
+      font-size: 4.5rem;
+    }
+    @media (min-width: 1024px) {
+      font-size: 5rem;
+    }
   }
 
   .hero-subtitle {
@@ -148,8 +148,12 @@ $transition-speed: 0.3s;
     text-transform: uppercase;
     margin-bottom: 3rem;
     font-size: 1rem;
-    @media (min-width: 768px) { font-size: 1.125rem; }
-    @media (min-width: 1024px) { font-size: 1.25rem; }
+    @media (min-width: 768px) {
+      font-size: 1.125rem;
+    }
+    @media (min-width: 1024px) {
+      font-size: 1.25rem;
+    }
 
     .highlight {
       font-weight: 600;
@@ -168,7 +172,7 @@ $transition-speed: 0.3s;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     transition: all 0.3s ease;
-    
+
     &:hover {
       background: var(--lumina-gold);
       color: #000;
@@ -212,7 +216,7 @@ $transition-speed: 0.3s;
   display: flex;
   flex-direction: column;
   min-height: 90vh;
-  overflow: hidden; 
+  overflow: hidden;
   margin-top: 5rem;
 
   @media (min-width: 768px) {
@@ -221,13 +225,13 @@ $transition-speed: 0.3s;
 
   .home-about-content {
     flex: 1;
-    padding: 2rem 1.5rem; 
+    padding: 2rem 1.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
     text-align: left;
-    order: 2; 
+    order: 2;
 
     @media (min-width: 768px) {
       padding: 5rem;
@@ -241,42 +245,42 @@ $transition-speed: 0.3s;
       // Secondary title adjustment
       &.secondary {
         margin-top: 0;
-        
+
         .main-heading {
-            margin-bottom: 1.5rem;
+          margin-bottom: 1.5rem;
         }
       }
     }
 
     // --- NEW MID-SECTION VISUALS (Updated for 3 Images) ---
     .about-mid-visuals {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr); // 3 Columns
-        gap: 0.75rem;
-        margin: 3rem 0 4rem 0;
-        width: 100%;
-        max-width: 36rem; // Slightly wider to fit 3 images
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); // 3 Columns
+      gap: 0.75rem;
+      margin: 3rem 0 4rem 0;
+      width: 100%;
+      max-width: 36rem; // Slightly wider to fit 3 images
 
-        .img-box {
-            position: relative;
-            aspect-ratio: 3/4; // Portrait style for elegance
-            overflow: hidden;
-            border-radius: 2px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      .img-box {
+        position: relative;
+        aspect-ratio: 3/4; // Portrait style for elegance
+        overflow: hidden;
+        border-radius: 2px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                transition: transform 0.5s ease;
-                filter: grayscale(20%); 
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.5s ease;
+          filter: grayscale(20%);
 
-                &:hover {
-                    transform: scale(1.1);
-                    filter: grayscale(0%);
-                }
-            }
+          &:hover {
+            transform: scale(1.1);
+            filter: grayscale(0%);
+          }
         }
+      }
     }
 
     .small-heading {
@@ -293,12 +297,16 @@ $transition-speed: 0.3s;
     .main-heading {
       font-weight: 100;
       color: var(--lumina-white);
-      margin-bottom: 2rem; 
+      margin-bottom: 2rem;
       line-height: 1.1;
       font-size: 3.75rem;
-      
-      @media (min-width: 768px) { font-size: 5rem; }
-      @media (min-width: 1024px) { font-size: 6rem; } 
+
+      @media (min-width: 768px) {
+        font-size: 5rem;
+      }
+      @media (min-width: 1024px) {
+        font-size: 6rem;
+      }
 
       opacity: 0;
       animation: fadeSlideInLeft $transition-slow ease-out 0.1s forwards;
@@ -349,5 +357,99 @@ $transition-speed: 0.3s;
     }
   }
 }
+.royal-gallery {
+  background: #0e0e0e;
+  padding: 120px 80px;
+  color: #fff;
+}
 
-// Services Section Removed
+.gallery-header {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 80px;
+
+  .gallery-label {
+    letter-spacing: 2px;
+    color: #c9a45c;
+    font-size: 13px;
+  }
+
+  h2 {
+    font-size: 46px;
+    font-family: "Playfair Display", serif;
+    margin: 16px 0;
+  }
+
+  p {
+    color: #9a9a9a;
+    line-height: 1.7;
+  }
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); // <-- 4 columns
+  gap: 30px;
+}
+
+.gallery-card {
+  position: relative;
+  height: 420px;
+  overflow: hidden;
+  border-radius: 4px;
+  cursor: pointer;
+
+  img,
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.75),
+      rgba(0, 0, 0, 0.1)
+    );
+  }
+
+  &:hover img,
+  &:hover video {
+    transform: scale(1.08);
+  }
+}
+
+.gallery-overlay {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  z-index: 2;
+
+  h3 {
+    font-size: 22px;
+    font-family: "Playfair Display", serif;
+  }
+
+  span {
+    font-size: 13px;
+    color: #c9a45c;
+    letter-spacing: 1px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr); // 2 per row on tablets
+  }
+}
+
+@media (max-width: 640px) {
+  .gallery-grid {
+    grid-template-columns: 1fr; // 1 per row on mobile
+  }
+}

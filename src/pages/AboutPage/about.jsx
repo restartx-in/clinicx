@@ -17,6 +17,25 @@ export const About = () => {
       }
     }
   }, [location]);
+  const galleryItems = [
+    {
+      id: 1,
+      title: "Runway Walk Highlights",
+      src: "src/assets/Gallery/1.mp4",
+    },
+    {
+      id: 2,
+      src: "src/assets/Gallery/2.mp4",
+    },
+    {
+      id: 3,
+      src: "src/assets/Gallery/3.mp4",
+    },
+    {
+      id: 4,
+      src: "src/assets/Gallery/4.MOV",
+    },
+  ];
 
   return (
     <div className="lumina-about">
@@ -78,21 +97,21 @@ export const About = () => {
             {/* Image 1: Runway Atmosphere */}
             <div className="img-box">
               <img
-                src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=800&auto=format&fit=crop"
+                src="src/assets/AboutUs/about-us-4.jpeg"
                 alt="Runway Atmosphere"
               />
             </div>
             {/* Image 2: Gold/Fabric Detail */}
             <div className="img-box">
               <img
-                src="https://indianpolos.com/wp-content/uploads/2024/01/man-walking-beside-the-road-scaled.jpg.webp"
+                src="src/assets/AboutUs/about-us-2.JPG"
                 alt="Fashion Detail"
               />
             </div>
             {/* Image 3: Model Portrait */}
             <div className="img-box">
               <img
-                src="https://assets.vogue.in/photos/5e5f7ab335619f0008e2decf/2:3/w_2560%2Cc_limit/Priyal_%2520Y%2520_Project%2520Fall%25202020.jpg"
+                src="src/assets/AboutUs/about-us-3.JPG"
                 alt="Model Portrait"
               />
             </div>
@@ -119,9 +138,33 @@ export const About = () => {
 
         <div className="home-about-image-wrapper">
           <img
-            src="https://royalrunway.my.canva.site/_assets/media/586f619d6c1be9574e0ca3e8117d0d75.jpg"
+            src="src/assets/AboutUs/about-us-main.JPG"
             alt="Founder Portrait"
           />
+        </div>
+      </section>
+
+      <section className="royal-gallery" id="gallery">
+        <div className="gallery-header">
+          <span className="gallery-label">THE ROYAL EXPERIENCE</span>
+          <h2>Runway Moments & Fashion Films</h2>
+          <p>
+            A curated glimpse into our runway productions, backstage artistry,
+            and cinematic fashion storytelling.
+          </p>
+        </div>
+
+        <div className="gallery-grid">
+          {/* Card 1 */}
+          {galleryItems.map((item) => (
+            <div className="gallery-card">
+              <video src={item.src} muted loop autoPlay playsInline />
+              <div className="gallery-overlay">
+                <h3>Royal Runway</h3>
+                <span>Fashion Week</span>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 

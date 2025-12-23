@@ -44,7 +44,7 @@ const categoryCards = [
     // Image: Atmospheric shot of stage lights/audience (Experience)
     image:
       "https://static01.nyt.com/images/2025/10/13/lens/13ST-FAVORITE-FW-LOOKS-top/13ST-FAVORITE-FW-LOOKS-top-superJumbo.jpg?quality=75&auto=webp",
-    link: PageRoute.GALLERY || "#",
+    link: `${PageRoute.ABOUT}#gallery`,
   },
 ];
 
