@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useLocation, Link } from "react-router-dom";
 import { PageRoute } from "@/constants/types";
-import "./About.scss";
+import "./about.scss";
 
 export const About = () => {
   const location = useLocation();
