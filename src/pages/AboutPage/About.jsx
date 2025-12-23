@@ -2,7 +2,15 @@ import React, { useEffect } from "react";
 import { useLocation, Link } from "react-router-dom";
 import { PageRoute } from "@/constants/types";
 import "./about.scss";
+import Spot from "@/assets/AboutUs/about-us-main.JPG";
+import AboutUs1 from "@/assets/AboutUs/about-us-4.jpeg";
+import AboutUs2 from "@/assets/AboutUs/about-us-2.JPG";
+import AboutUs3 from "@/assets/AboutUs/about-us-3.JPG";
 
+import Gallery1 from "@/assets/Gallery/1.mp4";
+import Gallery2 from "@/assets/Gallery/2.mp4";
+import Gallery3 from "@/assets/Gallery/3.mp4";
+import Gallery4 from "@/assets/Gallery/4.MOV";
 export const About = () => {
   const location = useLocation();
 
@@ -21,22 +29,23 @@ export const About = () => {
     {
       id: 1,
       title: "Runway Walk Highlights",
-      src: "@/assets/Gallery/1.mp4",
+      src: Gallery1,
     },
     {
       id: 2,
-      src: "@/assets/Gallery/2.mp4",
+      src: Gallery2,
     },
     {
       id: 3,
-      src: "@/assets/Gallery/3.mp4",
+      src: Gallery3,
     },
     {
       id: 4,
-      src: "@/assets/Gallery/4.MOV",
+      src: Gallery4,
     },
   ];
 
+  const AboutsImageCard = [AboutUs1, AboutUs2, AboutUs3];
   return (
     <div className="lumina-about">
       {/* Hero Section from Home Page */}
@@ -95,20 +104,12 @@ export const About = () => {
           {/* --- NEW MID-SECTION IMAGES (3 Images) --- */}
           <div className="about-mid-visuals">
             {/* Image 1: Runway Atmosphere */}
-            <div className="img-box">
-              <img
-                src="@/assets/AboutUs/about-us-4.jpeg"
-                alt="Runway Atmosphere"
-              />
-            </div>
-            {/* Image 2: Gold/Fabric Detail */}
-            <div className="img-box">
-              <img src="@/assets/AboutUs/about-us-2.JPG" alt="Fashion Detail" />
-            </div>
-            {/* Image 3: Model Portrait */}
-            <div className="img-box">
-              <img src="@/assets/AboutUs/about-us-3.JPG" alt="Model Portrait" />
-            </div>
+
+            {AboutsImageCard.map((item) => (
+              <div className="img-box">
+                <img src={item} alt="Runway Atmosphere" />
+              </div>
+            ))}
           </div>
 
           {/* Section 2: Founder’s Note */}
@@ -131,10 +132,7 @@ export const About = () => {
         </div>
 
         <div className="home-about-image-wrapper">
-          <img
-            src="@/assets/AboutUs/about-us-main.JPG"
-            alt="Founder Portrait"
-          />
+          <img src={Spot} alt="Founder Portrait" />
         </div>
       </section>
 

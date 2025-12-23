@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { PageRoute } from "@/constants/types";
+import Logo from "@/assets/new.png";
 import "./Navbar.scss";
 
 export const Navbar = () => {
@@ -30,11 +31,7 @@ export const Navbar = () => {
         <div className="nav-wrapper">
           {/* Logo Section */}
           <Link to={PageRoute.HOME} className="nav-logo">
-            <img
-              src="src\assets\new.png"
-              alt="Royal Runway Logo"
-              className="logo-image"
-            />
+            <img src={Logo} alt="Royal Runway Logo" className="logo-image" />
             <div className="logo-text-col">
               <span className="logo-text desktop-only">
                 ROYAL RUNWAY Fashion
