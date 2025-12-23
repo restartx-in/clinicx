@@ -21,19 +21,19 @@ export const About = () => {
     {
       id: 1,
       title: "Runway Walk Highlights",
-      src: "src/assets/Gallery/1.mp4",
+      src: "@/assets/Gallery/1.mp4",
     },
     {
       id: 2,
-      src: "src/assets/Gallery/2.mp4",
+      src: "@/assets/Gallery/2.mp4",
     },
     {
       id: 3,
-      src: "src/assets/Gallery/3.mp4",
+      src: "@/assets/Gallery/3.mp4",
     },
     {
       id: 4,
-      src: "src/assets/Gallery/4.MOV",
+      src: "@/assets/Gallery/4.MOV",
     },
   ];
 
@@ -97,23 +97,17 @@ export const About = () => {
             {/* Image 1: Runway Atmosphere */}
             <div className="img-box">
               <img
-                src="src/assets/AboutUs/about-us-4.jpeg"
+                src="@/assets/AboutUs/about-us-4.jpeg"
                 alt="Runway Atmosphere"
               />
             </div>
             {/* Image 2: Gold/Fabric Detail */}
             <div className="img-box">
-              <img
-                src="src/assets/AboutUs/about-us-2.JPG"
-                alt="Fashion Detail"
-              />
+              <img src="@/assets/AboutUs/about-us-2.JPG" alt="Fashion Detail" />
             </div>
             {/* Image 3: Model Portrait */}
             <div className="img-box">
-              <img
-                src="src/assets/AboutUs/about-us-3.JPG"
-                alt="Model Portrait"
-              />
+              <img src="@/assets/AboutUs/about-us-3.JPG" alt="Model Portrait" />
             </div>
           </div>
 
@@ -138,7 +132,7 @@ export const About = () => {
 
         <div className="home-about-image-wrapper">
           <img
-            src="src/assets/AboutUs/about-us-main.JPG"
+            src="@/assets/AboutUs/about-us-main.JPG"
             alt="Founder Portrait"
           />
         </div>

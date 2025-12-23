@@ -240,22 +240,22 @@ $font-serif: serif;
 
       // Assigning Images from Unsplash
       &.card-wardrobe::before {
-        background-image: url("src/assets/GlobalModel/pkg-1.png");
+        background-image: url("@/assets/GlobalModel/pkg-1.png");
       }
       &.card-grooming::before {
-        background-image: url("src/assets/GlobalModel/pkg-2.png");
+        background-image: url("@/assets/GlobalModel/pkg-2.png");
       }
       &.card-photo::before {
-        background-image: url("src/assets/GlobalModel/pkg-3.png");
+        background-image: url("@/assets/GlobalModel/pkg-3.png");
       }
       &.card-media::before {
-        background-image: url("src/assets/GlobalModel/pkg-4.png");
+        background-image: url("@/assets/GlobalModel/pkg-4.png");
       }
       &.card-training::before {
-        background-image: url("src/assets/GlobalModel/pkg-5.png");
+        background-image: url("@/assets/GlobalModel/pkg-5.png");
       }
       &.card-shine::before {
-        background-image: url("src/assets/GlobalModel/pkg-6.png");
+        background-image: url("@/assets/GlobalModel/pkg-6.png");
       }
 
       // Special Highlight Card (Golden version)
