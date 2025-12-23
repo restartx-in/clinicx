@@ -7,7 +7,7 @@ import {
   Phone,
   MapPin,
 } from "lucide-react";
-import "./Footer.scss";
+import "./footer.scss";
 
 // Updated to accept the new prop
 export const Footer = ({ hideBrandColumn }) => {
