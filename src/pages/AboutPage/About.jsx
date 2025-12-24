@@ -176,7 +176,7 @@ function GalleryCard({ src, index, activeIndex, setActiveIndex }) {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
-  // Reset when another card becomes active
+  // Reset when another video becomes active
   useEffect(() => {
     if (activeIndex !== index) {
       const video = videoRef.current;
@@ -188,6 +188,8 @@ function GalleryCard({ src, index, activeIndex, setActiveIndex }) {
       video.controls = false;
       video.currentTime = 0;
 
+      // Resume autoplay preview
+      video.play().catch(() => {});
       setIsPlaying(false);
     }
   }, [activeIndex, index]);
@@ -196,7 +198,7 @@ function GalleryCard({ src, index, activeIndex, setActiveIndex }) {
     const video = videoRef.current;
     if (!video) return;
 
-    // If this card is not active → play immediately
+    // First click or switching video
     if (activeIndex !== index) {
       setActiveIndex(index);
 
@@ -208,7 +210,7 @@ function GalleryCard({ src, index, activeIndex, setActiveIndex }) {
       return;
     }
 
-    // If same card → toggle
+    // Toggle play / pause
     if (video.paused) {
       video.play();
       setIsPlaying(true);
