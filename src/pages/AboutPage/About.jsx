@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 import { PageRoute } from "@/constants/types";
 import "./about.scss";
@@ -46,6 +46,8 @@ export const About = () => {
   ];
 
   const AboutsImageCard = [AboutUs1, AboutUs2, AboutUs3];
+  const [activeIndex, setActiveIndex] = useState(null);
+
   return (
     <div className="lumina-about">
       {/* Hero Section from Home Page */}
@@ -147,15 +149,14 @@ export const About = () => {
         </div>
 
         <div className="gallery-grid">
-          {/* Card 1 */}
-          {galleryItems.map((item) => (
-            <div className="gallery-card">
-              <video src={item.src} muted loop autoPlay playsInline />
-              <div className="gallery-overlay">
-                <h3>Royal Runway</h3>
-                <span>Fashion Week</span>
-              </div>
-            </div>
+          {galleryItems.map((item, index) => (
+            <GalleryCard
+              key={index}
+              src={item.src}
+              index={index}
+              activeIndex={activeIndex}
+              setActiveIndex={setActiveIndex}
+            />
           ))}
         </div>
       </section>
@@ -170,5 +171,77 @@ export const About = () => {
     </div>
   );
 };
+
+function GalleryCard({ src, index, activeIndex, setActiveIndex }) {
+  const videoRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  // Reset when another card becomes active
+  useEffect(() => {
+    if (activeIndex !== index) {
+      const video = videoRef.current;
+      if (!video) return;
+
+      video.pause();
+      video.muted = true;
+      video.loop = true;
+      video.controls = false;
+      video.currentTime = 0;
+
+      setIsPlaying(false);
+    }
+  }, [activeIndex, index]);
+
+  const handleClick = () => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    // If this card is not active → play immediately
+    if (activeIndex !== index) {
+      setActiveIndex(index);
+
+      video.loop = false;
+      video.controls = true;
+      video.muted = false;
+      video.play();
+      setIsPlaying(true);
+      return;
+    }
+
+    // If same card → toggle
+    if (video.paused) {
+      video.play();
+      setIsPlaying(true);
+    } else {
+      video.pause();
+      setIsPlaying(false);
+    }
+  };
+
+  return (
+    <div className="gallery-card" onClick={handleClick}>
+      <video ref={videoRef} src={src} muted loop autoPlay playsInline />
+
+      {activeIndex === index && (
+        <div className="play-overlay">{isPlaying ? "❚❚" : "▶"}</div>
+      )}
+
+      <div className="gallery-overlay">
+        <h3>Royal Runway</h3>
+        <span>Fashion Week</span>
+      </div>
+    </div>
+  );
+}
+
+function stopAllVideos() {
+  document.querySelectorAll("video").forEach((v) => {
+    v.pause();
+    v.muted = true;
+    v.loop = true;
+    v.controls = false;
+    v.currentTime = 0;
+  });
+}
 
 export default About;

@@ -24,7 +24,7 @@ export const Footer = ({ hideBrandColumn }) => {
             <ul className="contact-list">
               <li>
                 <MapPin className="icon" />
-                <span>New York / Global</span>
+                <span>Chicago / Global</span>
               </li>
               {/* <li>
                 <Phone className="icon" />
@@ -32,7 +32,7 @@ export const Footer = ({ hideBrandColumn }) => {
               </li> */}
               <li>
                 <Mail className="icon" />
-                <span>info@royalrunway.com</span>
+                <span>royalrunwayfashion@gmail.com</span>
               </li>
             </ul>
           </div>
@@ -41,13 +41,19 @@ export const Footer = ({ hideBrandColumn }) => {
           <div className="social-column">
             <h4>Follow Us</h4>
             <div className="social-links">
-              <a href="#" aria-label="Instagram">
+              <a
+                href="https://www.instagram.com/royalrunwayfashionweek?igsh=dDF3YW9ndm1zeDZk&utm_source=qr"
+                aria-label="Instagram"
+              >
                 <Instagram className="icon" />
               </a>
               <a href="#" aria-label="Twitter">
                 <Twitter className="icon" />
               </a>
-              <a href="#" aria-label="Facebook">
+              <a
+                href="https://www.facebook.com/share/1e7sHHCUZt/?mibextid=wwXIfr"
+                aria-label="Facebook"
+              >
                 <Facebook className="icon" />
               </a>
             </div>

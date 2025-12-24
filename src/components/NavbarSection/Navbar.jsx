@@ -37,7 +37,7 @@ export const Navbar = () => {
                 ROYAL RUNWAY Fashion
               </span>
               <p
-                className="brand-desc fw500 fs12"
+                className="brand-desc fw500 fs12 desktop-only"
                 style={{ color: "white", opacity: 0.6, fontStyle: "italic" }}
               >
                 Where Designers and Models Go Global

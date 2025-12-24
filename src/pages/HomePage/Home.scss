@@ -74,7 +74,7 @@ $transition-slow: 0.7s;
     color: var(--color-neutral-400);
     max-width: 42rem; // max-w-2xl
     margin: 0 auto;
-    font-size: 0.875rem; // text-sm
+    font-size: 17px; // text-sm
     line-height: 1.625; // leading-relaxed
     letter-spacing: 0.025em; // tracking-wide
   }
@@ -229,23 +229,23 @@ $transition-slow: 0.7s;
 
   .services-label {
     flex: 0 0 auto;
-    margin-bottom: 3rem; 
+    margin-bottom: 3rem;
     margin-left: 80px;
 
     @media (min-width: 1024px) {
       flex: 0 0 200px;
       margin-bottom: 0;
-      text-align: left; 
+      text-align: left;
     }
 
     h3 {
       color: var(--lumina-gold);
-      font-size: 0.9rem; 
-      letter-spacing: 0.3em; 
+      font-size: 0.9rem;
+      letter-spacing: 0.3em;
       text-transform: uppercase;
       font-weight: 600;
-      margin: 0 auto; 
-      display: inline-block; 
+      margin: 0 auto;
+      display: inline-block;
     }
   }
 
@@ -259,15 +259,15 @@ $transition-slow: 0.7s;
   .service-item {
     border-top: 1px solid rgba(255, 255, 255, 0.1); // Separator line at the top
     padding: 3rem 0; // Generous vertical padding for space
-    
+
     // Ensures the link wrapper is a block and clickable
     & > * {
-        transition: color 0.3s ease;
-        display: block; 
+      transition: color 0.3s ease;
+      display: block;
     }
 
     &:first-child {
-        border-top: none; // Remove border-top for the very first item
+      border-top: none; // Remove border-top for the very first item
     }
 
     &:last-child {
@@ -275,7 +275,7 @@ $transition-slow: 0.7s;
     }
 
     &:hover h2 {
-        color: var(--lumina-gold); // Subtle hover effect on the title
+      color: var(--lumina-gold); // Subtle hover effect on the title
     }
 
     .service-category {
@@ -306,30 +306,32 @@ $transition-slow: 0.7s;
     }
 
     ul {
-        list-style: none; 
-        padding-left: 0; 
-        margin: 0;
-        
-        li {
-            position: relative;
-            padding-left: 1.25rem; 
-            font-size: 1rem;
-            line-height: 1.8; 
-            color: rgba(255, 255, 255, 0.8);
-            max-width: 40rem;
-            font-weight: 300;
-            
-            &::before {
-                content: "•"; 
-                color: var(--lumina-gold); 
-                font-size: 1.25rem; 
-                line-height: 1; // MODIFIED: Important for centering with transform
-                position: absolute;
-                left: 0; 
-                top: 50%; // MODIFIED: Start at the vertical center
-                transform: translateY(-50%); // MODIFIED: Shift up by half its height to center
-            }
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+
+      li {
+        position: relative;
+        padding-left: 1.25rem;
+        font-size: 1rem;
+        line-height: 1.8;
+        color: rgba(255, 255, 255, 0.8);
+        max-width: 40rem;
+        font-weight: 300;
+
+        &::before {
+          content: "•";
+          color: var(--lumina-gold);
+          font-size: 1.25rem;
+          line-height: 1; // MODIFIED: Important for centering with transform
+          position: absolute;
+          left: 0;
+          top: 50%; // MODIFIED: Start at the vertical center
+          transform: translateY(
+            -50%
+          ); // MODIFIED: Shift up by half its height to center
         }
+      }
     }
   }
 }

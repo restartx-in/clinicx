@@ -187,7 +187,9 @@ export const DesignerCollective = () => {
           <p className="contact-text">
             If you want to discuss possibilities of showcasing on our platform,
             email us at <br />
-            <a href="mailto:royalrunway@gmail.com">royalrunway@gmail.com</a>
+            <a href="mailto:royalrunwayfashion@gmail.com">
+              royalrunwayfashion@gmail.com
+            </a>
           </p>
         </div>
 
