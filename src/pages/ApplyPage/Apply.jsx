@@ -29,47 +29,53 @@ export const Apply = () => {
   };
   const GOOGLE_FORMS = {
     DESIGNER: {
-      url: "https://docs.google.com/forms/d/e/1FAIpQLSdT9vcAc8ThjVrudvalhIjHhn-Zw9AQ07xq3oGaMNeF2NtHPQ/formResponse",
+      url: "https://docs.google.com/forms/d/e/1FAIpQLSeqeTkIR7gR4lqT0gql4ffn2FTARzScc70EOJjgd3NAHdhkkg/formResponse",
       mapping: {
+        interest: "entry.xxxxxx", // NEW: Workshop vs Fashion
+        event: "entry.xxxxxx", // NEW: Location Dropdown
         firstName: "entry.xxxxxx",
         lastName: "entry.xxxxxx",
         phone: "entry.xxxxxx",
         country: "entry.xxxxxx",
         email: "entry.xxxxxx",
         companyName: "entry.xxxxxx",
-        areYouModel: "entry.xxxxxx", // New field from JSX
+        areYouModel: "entry.xxxxxx",
         website: "entry.xxxxxx",
         instagram: "entry.xxxxxx",
-        pastShows: "entry.xxxxxx", // Matches name="pastShows"
-        designCount: "entry.xxxxxx", // Matches name="designCount"
-        eventInterested: "entry.xxxxxx", // Matches name="eventInterested"
-        retailCategory: "entry.xxxxxx", // Matches name="retailCategory"
+        pastShows: "entry.xxxxxx",
+        designCount: "entry.xxxxxx",
+        eventInterested: "entry.xxxxxx", // Specific Sony Hall dates
+        retailCategory: "entry.xxxxxx",
         budget: "entry.xxxxxx",
-        contactTime: "entry.xxxxxx", // Matches name="contactTime"
-        sourcePlatform: "entry.xxxxxx", // Matches name="sourcePlatform"
+        contactTime: "entry.xxxxxx",
+        sourcePlatform: "entry.xxxxxx",
       },
     },
 
     MODEL: {
-      url: "https://docs.google.com/forms/d/e/1FAIpQLScP87wTmYpbXOsqh6KBMIsyKhwirUuH25PgMIMliyaWMwRZhA/formResponse",
+      url: "https://docs.google.com/forms/d/e/1FAIpQLSfodaXy6BVg1ytWakiv_KKIejZcBjHLzZ80dNdSZTuQhscpVg/formResponse",
       mapping: {
+        interest: "entry.xxxxxx", // NEW
+        event: "entry.xxxxxx", // NEW
         fullName: "entry.xxxxxx",
         email: "entry.xxxxxx",
         phone: "entry.xxxxxx",
         age: "entry.xxxxxx",
         gender: "entry.xxxxxx",
-        locationState: "entry.xxxxxx", // Matches name="locationState"
+        locationState: "entry.xxxxxx",
         height: "entry.xxxxxx",
         ethnicity: "entry.xxxxxx",
         portfolio: "entry.xxxxxx",
         instagram: "entry.xxxxxx",
-        previouslySelected: "entry.xxxxxx", // Matches name="previouslySelected"
+        previouslySelected: "entry.xxxxxx",
       },
     },
 
     "KIDS MODEL": {
-      url: "https://docs.google.com/forms/d/e/1FAIpQLSf5ywP7j32EFNdEYIlPxZkkKD_Q9sNy7vw3P14ielteMkxT0g/formResponse",
+      url: "https://docs.google.com/forms/d/e/1FAIpQLSduaJ7VWLeO2cOIyDKzP-knO1TXjjrv-5qc2gO17EGOmvDBgg/formResponse",
       mapping: {
+        interest: "entry.xxxxxx", // NEW
+        event: "entry.xxxxxx", // NEW
         firstName: "entry.xxxxxx",
         lastName: "entry.xxxxxx",
         email: "entry.xxxxxx",
@@ -80,14 +86,14 @@ export const Apply = () => {
         hairColour: "entry.xxxxxx",
         age: "entry.xxxxxx",
         dressSize: "entry.xxxxxx",
-        ethnicity: "entry.xxxxxx", // Matches name="ethnicity"
+        ethnicity: "entry.xxxxxx",
         height: "entry.xxxxxx",
         experience: "entry.xxxxxx",
-        residence: "entry.xxxxxx", // Matches name="residence" (City/State)
-        applyingShow: "entry.xxxxxx", // Matches name="applyingShow"
+        residence: "entry.xxxxxx",
+        applyingShow: "entry.xxxxxx", // Specific cities checkboxes
         catalogShoot: "entry.xxxxxx",
-        referral: "entry.xxxxxx", // Matches name="referral"
-        agencyName: "entry.xxxxxx", // Matches name="agencyName"
+        referral: "entry.xxxxxx",
+        agencyName: "entry.xxxxxx",
       },
     },
   };
