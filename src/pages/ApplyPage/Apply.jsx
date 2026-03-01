@@ -176,23 +176,9 @@ export const Apply = () => {
                     </div>
                   </label>
                   <label className="radio-label">
-                    <input
-                      type="radio"
-                      name="interest"
-                      value="Fashion Show Season 2"
-                    />
+                    <input type="radio" name="interest" value="Fashion" />
                     <div className="option-box">
-                      <span>Fashion Show Season 2</span>
-                    </div>
-                  </label>
-                  <label className="radio-label">
-                    <input
-                      type="radio"
-                      name="interest"
-                      value="Luxury Package"
-                    />
-                    <div className="option-box">
-                      <span>Luxury Package Info</span>
+                      <span>Fashion Show</span>
                     </div>
                   </label>
                 </div>

@@ -142,3 +142,137 @@ select {
     grid-column: span 1;
   }
 }
+
+.audition-section {
+  color: #fff;
+  padding: 10px 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* MAIN HEADING */
+.main-heading {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* SUB HEADING */
+.sub-heading {
+  font-size: 22px;
+  font-weight: 600;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* PARAGRAPHS */
+.audition-section p {
+  font-size: 17px;
+  line-height: 1.8;
+  margin-bottom: 25px;
+  color: #ddd;
+}
+
+/* ORDERED LIST */
+.numbered-list {
+  margin-left: 25px;
+  margin-bottom: 35px;
+}
+
+.numbered-list li {
+  margin-bottom: 12px;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* BULLET LIST */
+.bullet-list {
+  margin-left: 25px;
+  margin-bottom: 35px;
+}
+
+.bullet-list li {
+  margin-bottom: 14px;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* ========================= */
+/* 📱 TABLET VIEW (1024px ↓) */
+/* ========================= */
+
+@media (max-width: 1024px) {
+  .audition-section {
+    padding: 60px 30px;
+  }
+
+  .main-heading {
+    font-size: 38px;
+  }
+
+  .sub-heading {
+    font-size: 24px;
+  }
+
+  .audition-section p {
+    font-size: 16px;
+  }
+}
+
+/* ========================= */
+/* 📱 MOBILE VIEW (768px ↓) */
+/* ========================= */
+
+@media (max-width: 768px) {
+  .audition-section {
+    padding: 50px 20px;
+  }
+
+  .main-heading {
+    font-size: 30px;
+    letter-spacing: 1px;
+  }
+
+  .sub-heading {
+    font-size: 20px;
+    margin-top: 35px;
+  }
+
+  .audition-section p {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .numbered-list,
+  .bullet-list {
+    margin-left: 18px;
+  }
+
+  .numbered-list li,
+  .bullet-list li {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+}
+
+/* ========================= */
+/* 📱 SMALL MOBILE (480px ↓) */
+/* ========================= */
+
+@media (max-width: 480px) {
+  .main-heading {
+    font-size: 24px;
+  }
+
+  .sub-heading {
+    font-size: 18px;
+  }
+
+  .audition-section {
+    padding: 40px 15px;
+  }
+}
