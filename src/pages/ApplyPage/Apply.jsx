@@ -29,42 +29,46 @@ export const Apply = () => {
   };
   const GOOGLE_FORMS = {
     DESIGNER: {
-      url: "DESIGNER_FORM_RESPONSE_URL",
+      url: "https://docs.google.com/forms/d/e/1FAIpQLSdT9vcAc8ThjVrudvalhIjHhn-Zw9AQ07xq3oGaMNeF2NtHPQ/formResponse",
       mapping: {
         firstName: "entry.xxxxxx",
         lastName: "entry.xxxxxx",
-        email: "entry.xxxxxx",
         phone: "entry.xxxxxx",
         country: "entry.xxxxxx",
+        email: "entry.xxxxxx",
         companyName: "entry.xxxxxx",
-        category: "entry.xxxxxx",
+        areYouModel: "entry.xxxxxx", // New field from JSX
         website: "entry.xxxxxx",
         instagram: "entry.xxxxxx",
+        pastShows: "entry.xxxxxx", // Matches name="pastShows"
+        designCount: "entry.xxxxxx", // Matches name="designCount"
+        eventInterested: "entry.xxxxxx", // Matches name="eventInterested"
+        retailCategory: "entry.xxxxxx", // Matches name="retailCategory"
         budget: "entry.xxxxxx",
-        shows: "entry.xxxxxx",
-        platform: "entry.xxxxxx",
+        contactTime: "entry.xxxxxx", // Matches name="contactTime"
+        sourcePlatform: "entry.xxxxxx", // Matches name="sourcePlatform"
       },
     },
 
     MODEL: {
-      url: "MODEL_FORM_RESPONSE_URL",
+      url: "https://docs.google.com/forms/d/e/1FAIpQLScP87wTmYpbXOsqh6KBMIsyKhwirUuH25PgMIMliyaWMwRZhA/formResponse",
       mapping: {
         fullName: "entry.xxxxxx",
         email: "entry.xxxxxx",
         phone: "entry.xxxxxx",
         age: "entry.xxxxxx",
         gender: "entry.xxxxxx",
-        location: "entry.xxxxxx",
+        locationState: "entry.xxxxxx", // Matches name="locationState"
         height: "entry.xxxxxx",
         ethnicity: "entry.xxxxxx",
         portfolio: "entry.xxxxxx",
         instagram: "entry.xxxxxx",
-        selectedNyfw: "entry.xxxxxx",
+        previouslySelected: "entry.xxxxxx", // Matches name="previouslySelected"
       },
     },
 
     "KIDS MODEL": {
-      url: "KIDS_MODEL_FORM_RESPONSE_URL",
+      url: "https://docs.google.com/forms/d/e/1FAIpQLSf5ywP7j32EFNdEYIlPxZkkKD_Q9sNy7vw3P14ielteMkxT0g/formResponse",
       mapping: {
         firstName: "entry.xxxxxx",
         lastName: "entry.xxxxxx",
@@ -76,14 +80,14 @@ export const Apply = () => {
         hairColour: "entry.xxxxxx",
         age: "entry.xxxxxx",
         dressSize: "entry.xxxxxx",
-        race: "entry.xxxxxx",
+        ethnicity: "entry.xxxxxx", // Matches name="ethnicity"
         height: "entry.xxxxxx",
         experience: "entry.xxxxxx",
-        city: "entry.xxxxxx",
-        showApplying: "entry.xxxxxx",
+        residence: "entry.xxxxxx", // Matches name="residence" (City/State)
+        applyingShow: "entry.xxxxxx", // Matches name="applyingShow"
         catalogShoot: "entry.xxxxxx",
-        heardFrom: "entry.xxxxxx",
-        agency: "entry.xxxxxx",
+        referral: "entry.xxxxxx", // Matches name="referral"
+        agencyName: "entry.xxxxxx", // Matches name="agencyName"
       },
     },
   };
@@ -93,26 +97,46 @@ export const Apply = () => {
     setFormStatus("submitting");
 
     const formData = new FormData(formRef.current);
-    const googleData = new FormData();
+    // URLSearchParams is better for "no-cors" Google Form submissions
+    const googleData = new URLSearchParams();
 
     const currentForm = GOOGLE_FORMS[activeTab];
 
+    // Loop through your mapping
     Object.keys(currentForm.mapping).forEach((key) => {
-      googleData.append(currentForm.mapping[key], formData.get(key) || "");
+      const entryId = currentForm.mapping[key];
+
+      // CRITICAL UPDATE: Use .getAll() instead of .get()
+      // This handles checkboxes (multiple values for one entry ID)
+      const values = formData.getAll(key);
+
+      values.forEach((value) => {
+        // Only append if there is actually a value
+        if (value !== "" && value !== null) {
+          googleData.append(entryId, value);
+        }
+      });
     });
 
     try {
       await fetch(currentForm.url, {
         method: "POST",
-        mode: "no-cors",
-        body: googleData,
+        mode: "no-cors", // Required for Google Form cross-origin posts
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: googleData.toString(),
       });
 
       setFormStatus("success");
       formRef.current.reset();
+
+      // Optional: Reset status after 5 seconds
+      setTimeout(() => setFormStatus("idle"), 5000);
     } catch (error) {
       console.error("Error submitting form", error);
       setFormStatus("idle");
+      alert("There was an error submitting the form. Please try again.");
     }
   };
   const [activeTab, setActiveTab] = useState("DESIGNER");
