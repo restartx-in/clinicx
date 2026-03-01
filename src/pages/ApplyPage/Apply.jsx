@@ -1,53 +1,117 @@
 import React, { useState, useRef } from "react";
 import { Mail, ArrowRight, CheckCircle, Info, Crown } from "lucide-react";
 import "./Apply.scss";
-
+import DesignerFrom from "./components/DesignerFrom";
+import ModelForm from "./components/ModelForm";
+import KidsModelForm from "./components/KidsModelForm";
 export const Apply = () => {
   const [formStatus, setFormStatus] = useState("idle");
   const formRef = useRef(null);
 
   // PASTE YOUR GOOGLE FORM ACTION URL HERE
   const GOOGLE_FORM_URL =
-    "https://docs.google.com/forms/d/e/1FAIpQLSf05YfojW20Wnn8aUfcVNbJAtGWeK54TMpY6yxcJkjoI_fogA/formResponse";
+    "https://docs.google.com/forms/d/e/1FAIpQLSe1tpZvuzxxBMhNJMGVm57Jd10v5U1xPVcz_Yl4qp4uwNyJZg/formResponse";
 
   // PASTE YOUR GOOGLE ENTRY IDs HERE
+
   const FORM_MAPPING = {
-    interest: "entry.667555457",
-    event: "entry.YOUR_EVENT_ID_HERE", // <--- REPLACE WITH YOUR GOOGLE ENTRY ID FOR EVENT
-    firstName: "entry.1775935934",
-    lastName: "entry.904463290",
-    email: "entry.1915678508",
-    phone: "entry.868470487",
-    height: "entry.1623945414",
-    bust: "entry.597987699",
-    waist: "entry.165983740",
-    hips: "entry.2025761249",
-    message: "entry.1083009582",
+    interest: "entry.1699495930",
+    event: "entry.1148016379", // <--- REPLACE WITH YOUR GOOGLE ENTRY ID FOR EVENT
+    firstName: "entry.1497232785",
+    lastName: "entry.942242057",
+    email: "entry.1036754728",
+    phone: "entry.1934688489",
+    height: "entry.1499169759",
+    bust: "entry.374544040",
+    waist: "entry.874790301",
+    hips: "entry.623523113",
+    message: "entry.1699616894",
+  };
+  const GOOGLE_FORMS = {
+    DESIGNER: {
+      url: "DESIGNER_FORM_RESPONSE_URL",
+      mapping: {
+        firstName: "entry.xxxxxx",
+        lastName: "entry.xxxxxx",
+        email: "entry.xxxxxx",
+        phone: "entry.xxxxxx",
+        country: "entry.xxxxxx",
+        companyName: "entry.xxxxxx",
+        category: "entry.xxxxxx",
+        website: "entry.xxxxxx",
+        instagram: "entry.xxxxxx",
+        budget: "entry.xxxxxx",
+        shows: "entry.xxxxxx",
+        platform: "entry.xxxxxx",
+      },
+    },
+
+    MODEL: {
+      url: "MODEL_FORM_RESPONSE_URL",
+      mapping: {
+        fullName: "entry.xxxxxx",
+        email: "entry.xxxxxx",
+        phone: "entry.xxxxxx",
+        age: "entry.xxxxxx",
+        gender: "entry.xxxxxx",
+        location: "entry.xxxxxx",
+        height: "entry.xxxxxx",
+        ethnicity: "entry.xxxxxx",
+        portfolio: "entry.xxxxxx",
+        instagram: "entry.xxxxxx",
+        selectedNyfw: "entry.xxxxxx",
+      },
+    },
+
+    "KIDS MODEL": {
+      url: "KIDS_MODEL_FORM_RESPONSE_URL",
+      mapping: {
+        firstName: "entry.xxxxxx",
+        lastName: "entry.xxxxxx",
+        email: "entry.xxxxxx",
+        phone: "entry.xxxxxx",
+        gender: "entry.xxxxxx",
+        parentsName: "entry.xxxxxx",
+        eyeColour: "entry.xxxxxx",
+        hairColour: "entry.xxxxxx",
+        age: "entry.xxxxxx",
+        dressSize: "entry.xxxxxx",
+        race: "entry.xxxxxx",
+        height: "entry.xxxxxx",
+        experience: "entry.xxxxxx",
+        city: "entry.xxxxxx",
+        showApplying: "entry.xxxxxx",
+        catalogShoot: "entry.xxxxxx",
+        heardFrom: "entry.xxxxxx",
+        agency: "entry.xxxxxx",
+      },
+    },
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setFormStatus("submitting");
+
     const formData = new FormData(formRef.current);
     const googleData = new FormData();
 
-    Object.keys(FORM_MAPPING).forEach((key) => {
-      if (FORM_MAPPING[key] !== "entry.YOUR_EVENT_ID_HERE") {
-        googleData.append(FORM_MAPPING[key], formData.get(key) || "");
-      }
+    const currentForm = GOOGLE_FORMS[activeTab];
+
+    Object.keys(currentForm.mapping).forEach((key) => {
+      googleData.append(currentForm.mapping[key], formData.get(key) || "");
     });
 
     try {
-      await fetch(GOOGLE_FORM_URL, {
+      await fetch(currentForm.url, {
         method: "POST",
         mode: "no-cors",
         body: googleData,
       });
+
       setFormStatus("success");
       formRef.current.reset();
     } catch (error) {
       console.error("Error submitting form", error);
-      alert("Something went wrong. Please try again.");
       setFormStatus("idle");
     }
   };
@@ -68,7 +132,7 @@ export const Apply = () => {
           <div className="interest-label">I am interested in</div>
 
           <div className="application-tabs">
-            {["DESIGNER", "RUNWAY MODEL", "WORKSHOP"].map((tab) => (
+            {["DESIGNER", "MODEL", "KIDS MODEL"].map((tab) => (
               <button
                 key={tab}
                 className={`tab-btn ${activeTab === tab ? "active" : ""}`}
@@ -146,63 +210,16 @@ export const Apply = () => {
                     <option value="Cannes">Cannes</option>
                     <option value="Dubai">Dubai</option>
                     <option value="Los Angeles">Los Angeles</option>
+                    <option value="Chicago">Chicago</option>
                   </select>
                 </div>
               </div>
 
-              <div>
-                <h3 className="section-title">Personal Details</h3>
-                <div className="form-grid">
-                  <div className="input-group">
-                    <label>First Name</label>
-                    <input type="text" name="firstName" required />
-                  </div>
-                  <div className="input-group">
-                    <label>Last Name</label>
-                    <input type="text" name="lastName" required />
-                  </div>
-                </div>
-                <div className="form-grid" style={{ marginTop: "2rem" }}>
-                  <div className="input-group">
-                    <label>Email Address</label>
-                    <input type="email" name="email" required />
-                  </div>
-                  <div className="input-group">
-                    <label>Phone</label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      placeholder="+1 (000) 000-0000"
-                    />
-                  </div>
-                </div>
-              </div>
+              {activeTab === "DESIGNER" && <DesignerFrom />}
 
-              {activeTab === "RUNWAY MODEL" && (
-                <div className="fade-in">
-                  <div className="section-title">
-                    <h3>Measurements</h3>
-                    <span className="optional-text">
-                      Required for Runway Models
-                    </span>
-                  </div>
-                  <div className="stats-grid">
-                    <input type="text" name="height" placeholder="Height" />
-                    <input type="text" name="bust" placeholder="Bust" />
-                    <input type="text" name="waist" placeholder="Waist" />
-                    <input type="text" name="hips" placeholder="Hips" />
-                  </div>
-                </div>
-              )}
+              {activeTab === "MODEL" && <ModelForm />}
 
-              <div className="textarea-group">
-                <label>Message / Social Handles</label>
-                <textarea
-                  name="message"
-                  rows={3}
-                  placeholder="Tell us about your experience..."
-                ></textarea>
-              </div>
+              {activeTab === "KIDS MODEL" && <KidsModelForm />}
 
               <button
                 type="submit"

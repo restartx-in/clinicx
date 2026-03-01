@@ -1,0 +1,87 @@
+/* Container for the specific Model Form */
+.model-form-wrapper {
+  color: #ffffff;
+  max-width: 1100px;
+  margin: 0 auto;
+  font-family:
+    "Inter",
+    -apple-system,
+    sans-serif;
+}
+
+/* Grid Layout: 2 columns */
+.model-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 50px;
+  row-gap: 35px;
+  margin-bottom: 35px;
+}
+
+/* Individual Input Wrapper */
+.model-field-group {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Full width for the long question at the bottom */
+.model-field-full {
+  grid-column: span 2;
+}
+
+/* Label Styling: Small, Uppercase, and Grayish */
+.model-field-group label {
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: #a0a0a0;
+  margin-bottom: 10px;
+}
+
+/* Underline Input Style */
+.model-field-group input,
+.model-field-group select {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #333333;
+  color: #ffffff;
+  padding: 12px 0;
+  font-size: 14px;
+  outline: none;
+  border-radius: 0;
+  transition: border-bottom-color 0.3s ease;
+}
+
+/* Hover/Focus effect */
+.model-field-group input:focus,
+.model-field-group select:focus {
+  border-bottom-color: #ffffff;
+}
+
+/* Custom Select Arrow (Small 'v' arrow) */
+.model-field-group select {
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23888888' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 5px center;
+}
+
+/* Placeholder color */
+.model-field-group input::placeholder {
+  color: #444444;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .model-grid {
+    grid-template-columns: 1fr;
+    row-gap: 25px;
+  }
+  .model-field-full {
+    grid-column: span 1;
+  }
+}

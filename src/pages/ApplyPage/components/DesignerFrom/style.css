@@ -1,0 +1,135 @@
+.designer-form-container {
+  color: #ffffff;
+  max-width: 1000px;
+  margin: auto;
+  font-family: "Inter", sans-serif;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 30px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.full-width {
+  grid-column: span 2;
+}
+
+/* Label Styling - Uppercase & Spaced */
+.input-group label {
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  color: #888;
+  margin-bottom: 12px;
+}
+
+/* Underline Input Style */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #333;
+  color: #fff;
+  padding: 10px 0;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+input:focus,
+select:focus {
+  border-bottom-color: #fff;
+}
+
+/* Custom Radio & Checkbox Containers */
+.radio-container,
+.check-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 13px;
+  text-transform: uppercase;
+  color: #ccc;
+  user-select: none;
+}
+
+/* Hide default browser inputs */
+.radio-container input,
+.check-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Custom Circle (Radio) */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  background-color: transparent;
+  border: 2px solid #fff;
+  border-radius: 50%;
+}
+
+.radio-container:hover input ~ .checkmark {
+  background-color: #333;
+}
+
+.radio-container input:checked ~ .checkmark {
+  background-color: #fff;
+}
+
+/* Custom Box (Checkbox) */
+.boxmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  border: 1px solid #444;
+  background-color: transparent;
+}
+
+.check-container input:checked ~ .boxmark {
+  background-color: #007bff; /* Blue check as per image 2 */
+  border-color: #007bff;
+}
+
+/* Layout Helpers */
+.radio-horizontal {
+  display: flex;
+  gap: 20px;
+  margin-top: 5px;
+}
+
+.radio-stack,
+.checkbox-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+select {
+  appearance: none;
+  cursor: pointer;
+}

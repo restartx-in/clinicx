@@ -171,7 +171,9 @@ $transition-speed: 0.3s;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     cursor: pointer;
-    transition: background-color $transition-speed, color $transition-speed;
+    transition:
+      background-color $transition-speed,
+      color $transition-speed;
 
     &:hover {
       background-color: var(--lumina-gold);
@@ -278,23 +280,23 @@ $transition-speed: 0.3s;
     // --- Added Horizontal Layout Modifier ---
     &.horizontal-select {
       display: flex;
+      flex-direction: row; // force horizontal
       align-items: center;
-      justify-content: space-between;
       gap: 1rem;
 
       label {
+        display: inline-block; // ✅ override block
         margin-bottom: 0;
-        white-space: nowrap; // Don't wrap text
-        flex-shrink: 0;
+        white-space: nowrap;
+        flex: 0 0 auto;
       }
 
       .select-wrapper {
-        flex-grow: 1;
-        max-width: 60%; // Limit width on large screens
+        flex: 0 0 250px; // fixed width
+      }
 
-        @media (max-width: 640px) {
-          max-width: 100%;
-        }
+      select {
+        width: 100%;
       }
     }
 
@@ -322,8 +324,10 @@ $transition-speed: 0.3s;
       background-position: right 0 center;
       background-size: 1.25em;
 
-      transition: border-color $transition-speed,
-        background-image $transition-speed, color $transition-speed;
+      transition:
+        border-color $transition-speed,
+        background-image $transition-speed,
+        color $transition-speed;
 
       // Placeholder Logic
       &:invalid,
@@ -426,7 +430,9 @@ $transition-speed: 0.3s;
     font-size: 0.75rem;
     border: none;
     cursor: pointer;
-    transition: background-color $transition-speed, opacity $transition-speed;
+    transition:
+      background-color $transition-speed,
+      opacity $transition-speed;
     display: flex;
     align-items: center;
     justify-content: center;
