@@ -31,118 +31,136 @@ export const Apply = () => {
     DESIGNER: {
       url: "https://docs.google.com/forms/d/e/1FAIpQLSeqeTkIR7gR4lqT0gql4ffn2FTARzScc70EOJjgd3NAHdhkkg/formResponse",
       mapping: {
-        interest: "entry.xxxxxx", // NEW: Workshop vs Fashion
-        event: "entry.xxxxxx", // NEW: Location Dropdown
-        firstName: "entry.xxxxxx",
-        lastName: "entry.xxxxxx",
-        phone: "entry.xxxxxx",
-        country: "entry.xxxxxx",
-        email: "entry.xxxxxx",
-        companyName: "entry.xxxxxx",
-        areYouModel: "entry.xxxxxx",
-        website: "entry.xxxxxx",
-        instagram: "entry.xxxxxx",
-        pastShows: "entry.xxxxxx",
-        designCount: "entry.xxxxxx",
-        eventInterested: "entry.xxxxxx", // Specific Sony Hall dates
-        retailCategory: "entry.xxxxxx",
-        budget: "entry.xxxxxx",
-        contactTime: "entry.xxxxxx",
-        sourcePlatform: "entry.xxxxxx",
+        interest: "entry.422258960",
+        event: "entry.951625884",
+        firstName: "entry.1283991113",
+        lastName: "entry.2045369097",
+        phone: "entry.695103094",
+        country: "entry.1027587743",
+        email: "entry.814548489",
+        companyName: "entry.74631674",
+        areYouModel: "entry.2013301527",
+        website: "entry.1756027588",
+        instagram: "entry.1477245191",
+        pastShows: "entry.561114103",
+        designCount: "entry.243113088",
+        eventInterested: "entry.725140577",
+        retailCategory: "entry.2092669335",
+        budget: "entry.1992942859",
+        contactTime: "entry.699452827",
+        sourcePlatform: "entry.612475021",
       },
     },
 
     MODEL: {
       url: "https://docs.google.com/forms/d/e/1FAIpQLSfodaXy6BVg1ytWakiv_KKIejZcBjHLzZ80dNdSZTuQhscpVg/formResponse",
       mapping: {
-        interest: "entry.xxxxxx", // NEW
-        event: "entry.xxxxxx", // NEW
-        fullName: "entry.xxxxxx",
-        email: "entry.xxxxxx",
-        phone: "entry.xxxxxx",
-        age: "entry.xxxxxx",
-        gender: "entry.xxxxxx",
-        locationState: "entry.xxxxxx",
-        height: "entry.xxxxxx",
-        ethnicity: "entry.xxxxxx",
-        portfolio: "entry.xxxxxx",
-        instagram: "entry.xxxxxx",
-        previouslySelected: "entry.xxxxxx",
+        interest: "entry.1858645529",
+        event: "entry.1613497725",
+        fullName: "entry.1433854423",
+        email: "entry.637277739",
+        phone: "entry.496432421",
+        age: "entry.1033967285",
+        locationState: "entry.275189354",
+        gender: "entry.955563761",
+        height: "entry.1286068029",
+        ethnicity: "entry.845701687",
+        portfolio: "entry.675032621",
+        instagram: "entry.202249256",
+        previouslySelected: "entry.700136409",
       },
     },
 
-    "KIDS MODEL": {
+    KIDS_MODEL: {
       url: "https://docs.google.com/forms/d/e/1FAIpQLSduaJ7VWLeO2cOIyDKzP-knO1TXjjrv-5qc2gO17EGOmvDBgg/formResponse",
       mapping: {
-        interest: "entry.xxxxxx", // NEW
-        event: "entry.xxxxxx", // NEW
-        firstName: "entry.xxxxxx",
-        lastName: "entry.xxxxxx",
-        email: "entry.xxxxxx",
-        phone: "entry.xxxxxx",
-        gender: "entry.xxxxxx",
-        parentsName: "entry.xxxxxx",
-        eyeColour: "entry.xxxxxx",
-        hairColour: "entry.xxxxxx",
-        age: "entry.xxxxxx",
-        dressSize: "entry.xxxxxx",
-        ethnicity: "entry.xxxxxx",
-        height: "entry.xxxxxx",
-        experience: "entry.xxxxxx",
-        residence: "entry.xxxxxx",
-        applyingShow: "entry.xxxxxx", // Specific cities checkboxes
-        catalogShoot: "entry.xxxxxx",
-        referral: "entry.xxxxxx",
-        agencyName: "entry.xxxxxx",
+        interest: "entry.1026348622",
+        event: "entry.527903157",
+        childFirstName: "entry.462259523",
+        childLastName: "entry.719961170",
+        email: "entry.1708209574",
+        phone: "entry.2033733952",
+        gender: "entry.927029866",
+        parentName: "entry.849894346",
+        eyeColor: "entry.725279344",
+        hairColor: "entry.540066982",
+        age: "entry.998591382",
+        tShirtSize: "entry.803907402",
+        ethnicity: "entry.1379404727",
+        height: "entry.292368546",
+        hasExperience: "entry.2025421893",
+        locationState: "entry.280734860",
+        interestedCity: "entry.1567637499",
+        previouslySelected: "entry.1003024267",
+        howDidYouHear: "entry.194072259",
+        representation: "entry.1590157790",
       },
     },
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setFormStatus("submitting");
 
-    const formData = new FormData(formRef.current);
-    // URLSearchParams is better for "no-cors" Google Form submissions
-    const googleData = new URLSearchParams();
+    const formElement = e.target;
+    const formConfig = GOOGLE_FORMS[activeTab]; // MODEL / DESIGNER / KIDS_MODEL
 
-    const currentForm = GOOGLE_FORMS[activeTab];
+    if (!formConfig) {
+      console.error("No form config found for:", activeTab);
+      return;
+    }
 
-    // Loop through your mapping
-    Object.keys(currentForm.mapping).forEach((key) => {
-      const entryId = currentForm.mapping[key];
+    const formDataToSend = new FormData();
 
-      // CRITICAL UPDATE: Use .getAll() instead of .get()
-      // This handles checkboxes (multiple values for one entry ID)
-      const values = formData.getAll(key);
+    // Collect normal inputs
+    Object.keys(formConfig.mapping).forEach((key) => {
+      const field = formElement.elements[key];
 
-      values.forEach((value) => {
-        // Only append if there is actually a value
-        if (value !== "" && value !== null) {
-          googleData.append(entryId, value);
+      if (!field) return;
+
+      // 🔥 HANDLE CHECKBOX (multi-select)
+      if (field.type === "checkbox") {
+        const checkboxes = formElement.querySelectorAll(
+          `input[name="${key}"]:checked`,
+        );
+
+        checkboxes.forEach((checkbox) => {
+          formDataToSend.append(formConfig.mapping[key], checkbox.value);
+        });
+      }
+
+      // 🔥 HANDLE RADIO
+      else if (field.type === "radio") {
+        const selected = formElement.querySelector(
+          `input[name="${key}"]:checked`,
+        );
+
+        if (selected) {
+          formDataToSend.append(formConfig.mapping[key], selected.value);
         }
-      });
+      }
+
+      // 🔥 HANDLE NORMAL INPUT / SELECT
+      else {
+        if (field.value) {
+          formDataToSend.append(formConfig.mapping[key], field.value);
+        }
+      }
     });
 
     try {
-      await fetch(currentForm.url, {
+      await fetch(formConfig.url, {
         method: "POST",
-        mode: "no-cors", // Required for Google Form cross-origin posts
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: googleData.toString(),
+        mode: "no-cors", // 🔥 REQUIRED for Google Forms
+        body: formDataToSend,
       });
 
       setFormStatus("success");
-      formRef.current.reset();
 
-      // Optional: Reset status after 5 seconds
+      formElement.reset();
       setTimeout(() => setFormStatus("idle"), 5000);
     } catch (error) {
-      console.error("Error submitting form", error);
-      setFormStatus("idle");
-      alert("There was an error submitting the form. Please try again.");
+      console.error("Submission error:", error);
+      alert("Submission failed. Please try again.");
     }
   };
   const [activeTab, setActiveTab] = useState("DESIGNER");
@@ -162,7 +180,7 @@ export const Apply = () => {
           <div className="interest-label">I am interested in</div>
 
           <div className="application-tabs">
-            {["DESIGNER", "MODEL", "KIDS MODEL"].map((tab) => (
+            {["DESIGNER", "MODEL", "KIDS_MODEL"].map((tab) => (
               <button
                 key={tab}
                 className={`tab-btn ${activeTab === tab ? "active" : ""}`}
@@ -235,7 +253,7 @@ export const Apply = () => {
 
               {activeTab === "MODEL" && <ModelForm />}
 
-              {activeTab === "KIDS MODEL" && <KidsModelForm />}
+              {activeTab === "KIDS_MODEL" && <KidsModelForm />}
 
               <button
                 type="submit"

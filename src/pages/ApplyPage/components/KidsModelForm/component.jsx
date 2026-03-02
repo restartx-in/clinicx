@@ -88,18 +88,18 @@ const KidsModelForm = () => {
       <div className="form-grid">
         <div className="input-group">
           <label>First Name</label>
-          <input name="firstName" required />
+          <input name="childFirstName" required />
         </div>
         <div className="input-group">
           <label>Last Name</label>
-          <input name="lastName" required />
+          <input name="childLastName" required />
         </div>
       </div>
 
-      {/* Row 2: Contact */}
+      {/* Contact */}
       <div className="form-grid">
         <div className="input-group">
-          <label>Email *</label>
+          <label>Email</label>
           <input name="email" type="email" required />
         </div>
         <div className="input-group">
@@ -108,48 +108,51 @@ const KidsModelForm = () => {
         </div>
       </div>
 
-      {/* Row 3: Identity */}
+      {/* Gender + Parent */}
       <div className="form-grid">
         <div className="input-group">
           <label>Gender</label>
           <select name="gender" defaultValue="">
-            <option value="" disabled></option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="other">Other</option>
+            <option value="" disabled>
+              Select Gender
+            </option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
           </select>
         </div>
+
         <div className="input-group">
-          <label>Parents Name</label>
-          <input name="parentsName" />
+          <label>Parent's Name</label>
+          <input name="parentName" />
         </div>
       </div>
 
-      {/* Row 4: Appearance */}
+      {/* Appearance */}
       <div className="form-grid">
         <div className="input-group">
-          <label>Eye Colour</label>
-          <input name="eyeColour" />
+          <label>Eye Color</label>
+          <input name="eyeColor" />
         </div>
         <div className="input-group">
-          <label>Hair Colour</label>
-          <input name="hairColour" />
+          <label>Hair Color</label>
+          <input name="hairColor" />
         </div>
       </div>
 
-      {/* Row 5: Size */}
+      {/* Size */}
       <div className="form-grid">
         <div className="input-group">
           <label>Age</label>
           <input name="age" />
         </div>
         <div className="input-group">
-          <label>Dress Size</label>
-          <input name="dressSize" />
+          <label>T-Shirt / Dress Size</label>
+          <input name="tShirtSize" />
         </div>
       </div>
 
-      {/* Row 6: Stats */}
+      {/* Stats */}
       <div className="form-grid">
         <div className="input-group">
           <label>Race / Ethnicity</label>
@@ -161,67 +164,77 @@ const KidsModelForm = () => {
         </div>
       </div>
 
-      {/* Row 7: Residence */}
+      {/* Experience + State */}
       <div className="form-grid">
         <div className="input-group">
-          <label>Years of Runway Experience</label>
-          <input name="experience" />
+          <label>Runway Experience?</label>
+          <select name="hasExperience" defaultValue="">
+            <option value="" disabled>
+              Select
+            </option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
         </div>
+
         <div className="input-group">
           <label>City / State of Residence</label>
-          <input name="residence" />
+          <input name="locationState" />
         </div>
       </div>
 
-      {/* Checkboxes: Show Selection */}
+      {/* Applying Show (Checkbox Multi-select) */}
       <div className="input-group full-width">
         <label className="section-label">
-          Which of the following shows are you applying? *
+          Which shows are you applying for?
         </label>
+
         <div className="checkbox-stack">
           {showLocations.map((city) => (
             <label key={city} className="check-container">
               {city}
-              <input type="checkbox" name="applyingShow" value={city} />
+              <input type="checkbox" name="interestedCity" value={city} />
               <span className="boxmark"></span>
             </label>
           ))}
         </div>
       </div>
 
-      {/* Radio: Catalog Shoots */}
+      {/* Previously Selected */}
       <div className="input-group full-width">
-        <label className="section-label">
-          Would you like to be included in designers catalog shoots after the
-          show (Optional)
-        </label>
+        <label>Were you selected previously?</label>
+
         <div className="radio-horizontal">
           <label className="radio-container">
-            YES <input type="radio" name="catalogShoot" value="Yes" />
-            <span className="checkmark"></span>
+            Yes
+            <input type="radio" name="previouslySelected" value="Yes" />
           </label>
+
           <label className="radio-container">
-            NO <input type="radio" name="catalogShoot" value="No" />
-            <span className="checkmark"></span>
+            No
+            <input type="radio" name="previouslySelected" value="No" />
           </label>
         </div>
       </div>
 
-      {/* Row 8: Referral */}
+      {/* Referral + Agency */}
       <div className="form-grid">
         <div className="input-group">
           <label>How did you hear about us?</label>
-          <select name="referral" defaultValue="">
-            <option value="" disabled></option>
-            <option value="instagram">Instagram</option>
-            <option value="google">Google</option>
-            <option value="friend">Friend / Family</option>
-            <option value="other">Other</option>
+          <select name="howDidYouHear" defaultValue="">
+            <option value="" disabled>
+              Select
+            </option>
+            <option value="Instagram">Instagram</option>
+            <option value="Google">Google</option>
+            <option value="Friend / Family">Friend / Family</option>
+            <option value="Other">Other</option>
           </select>
         </div>
+
         <div className="input-group">
-          <label>Agency's Name</label>
-          <input name="agencyName" />
+          <label>Agency Name</label>
+          <input name="representation" />
         </div>
       </div>
     </div>

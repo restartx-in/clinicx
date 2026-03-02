@@ -35,13 +35,13 @@ const ModelForm = () => (
     <div className="form-grid">
       <div className="input-group">
         <label>Gender</label>
-        <select name="gender">
-          <option value="" disabled selected>
+        <select name="gender" defaultValue="">
+          <option value="" disabled>
             Select Gender
           </option>
-          <option value="female">Female</option>
-          <option value="male">Male</option>
-          <option value="non-binary">Non-Binary</option>
+          <option value="Female">Female</option>
+          <option value="Male">Male</option>
+          <option value="Non-Binary">Non-Binary</option>
         </select>
       </div>
       <div className="input-group">
@@ -61,28 +61,28 @@ const ModelForm = () => (
     <div className="form-grid">
       <div className="input-group">
         <label>Height</label>
-        <select name="height">
-          <option value="" disabled selected>
+        <select name="height" defaultValue="">
+          <option value="" disabled>
             Select Height
           </option>
-          <option value="5-8">5'8"</option>
-          <option value="5-9">5'9"</option>
-          <option value="5-10">5'10"</option>
-          <option value="5-11">5'11"</option>
-          <option value="6-0">6'0"+</option>
+          <option value={`5'8"`}>5'8"</option>
+          <option value={`5'9"`}>5'9"</option>
+          <option value={`5'10"`}>5'10"</option>
+          <option value={`5'11"`}>5'11"</option>
+          <option value={`6'0"+`}>6'0"+</option>
         </select>
       </div>
       <div className="input-group">
         <label>Select Your Ethnicity</label>
-        <select name="ethnicity">
-          <option value="" disabled selected>
+        <select name="ethnicity" defaultValue="">
+          <option value="" disabled>
             Select Ethnicity
           </option>
-          <option value="asian">Asian</option>
-          <option value="black">Black / African</option>
-          <option value="hispanic">Hispanic / Latino</option>
-          <option value="white">White / Caucasian</option>
-          <option value="other">Other</option>
+          <option value="Asian">Asian</option>
+          <option value="Black / African">Black / African</option>
+          <option value="Hispanic / Latino">Hispanic / Latino</option>
+          <option value="White / Caucasian">White / Caucasian</option>
+          <option value="Other">Other</option>
         </select>
       </div>
     </div>
@@ -102,12 +102,12 @@ const ModelForm = () => (
     {/* Row 6: Previous Selection (Full Width) */}
     <div className="input-group full-width">
       <label>Were you selected to walk for Runway 7 Fashion at NYFW?</label>
-      <select name="previouslySelected">
-        <option value="" disabled selected>
+      <select name="previouslySelected" defaultValue="">
+        <option value="" disabled>
           Select Option
         </option>
-        <option value="yes">Yes</option>
-        <option value="no">No</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
       </select>
     </div>
   </div>

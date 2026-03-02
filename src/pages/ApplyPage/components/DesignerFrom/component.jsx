@@ -102,12 +102,20 @@ const DesignerForm = () => (
       <div className="checkbox-stack">
         <label className="check-container">
           NEW YORK – Sony Hall – Sept 8-13, 2026
-          <input type="checkbox" name="eventInterested" value="Sept 2026" />
+          <input
+            type="checkbox"
+            name="eventInterested"
+            value="Sony Hall - Sept 2026"
+          />
           <span className="boxmark"></span>
         </label>
         <label className="check-container">
           NEW YORK – Sony Hall – February, 2027
-          <input type="checkbox" name="eventInterested" value="Feb 2027" />
+          <input
+            type="checkbox"
+            name="eventInterested"
+            value="Sony Hall - Feb 2027"
+          />{" "}
           <span className="boxmark"></span>
         </label>
       </div>
@@ -121,8 +129,8 @@ const DesignerForm = () => (
           "Athleisure",
           "Accessories",
           "Bridal",
-          "Eveningwear/Gowns",
-          "Kids/Youth",
+          "Eveningwear",
+          "Kids",
           "Lingerie",
           "Streetwear",
           "Suits",
@@ -143,9 +151,9 @@ const DesignerForm = () => (
         <label>Budget Expectations</label>
         <select name="budget">
           <option value="">Select range...</option>
-          <option value="5k-10k">$5,000 to $10,000</option>
-          <option value="10k-20k">$10,000 to $20,000</option>
-          <option value="20k+">$20,000+</option>
+          <option value="$5k-$10k">$5k-$10k</option>
+          <option value="$10k-$20k">$10k-$20k</option>
+          <option value="$20k+">$20k+</option>
         </select>
       </div>
       <div className="input-group">
@@ -162,13 +170,7 @@ const DesignerForm = () => (
     <div className="input-group full-width">
       <label>On Which Platform Did You Find This Form?</label>
       <div className="radio-stack">
-        {[
-          "Runway 7 Website",
-          "FWO Website",
-          "Instagram",
-          "Google",
-          "Other",
-        ].map((p) => (
+        {["Website", "Instagram", "Google", "Other"].map((p) => (
           <label key={p} className="radio-container">
             {p}
             <input type="radio" name="sourcePlatform" value={p} />
