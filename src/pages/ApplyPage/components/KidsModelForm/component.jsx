@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.css";
 
 const KidsModelForm = () => {
+  const [preview, setPreview] = useState(null);
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setPreview(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
   const showLocations = [
     "New York",
     "Boston",
@@ -14,76 +27,6 @@ const KidsModelForm = () => {
 
   return (
     <div className="kids-form-container">
-      <section className="audition-section">
-        {/* MAIN HEADING */}
-        <h1 className="main-heading">The Audition</h1>
-
-        {/* PARAGRAPH */}
-        <p>
-          We believe that every child is unique and has their own special
-          qualities to bring to the runway. Our goal is to showcase a diverse
-          range of children's fashion styles, so we encourage children of all
-          backgrounds and abilities to apply. We look forward to meeting all the
-          talented young models who will be auditioning for New York Kids
-          Runway!
-        </p>
-
-        {/* PARAGRAPH */}
-        <p>
-          NYK Runway is the place for all models, whether you’re experienced or
-          thinking about trying something new. This is your time to shine and
-          get one step closer to hitting the runway on the big day.
-        </p>
-
-        {/* NUMBERED LIST */}
-        <ol className="numbered-list">
-          <li>
-            Age: Children between the ages of 3 and 18 are eligible to apply.
-          </li>
-          <li>Height and Size: No specific height or size requirement.</li>
-          <li>Appearance: Fresh, photogenic look with a bright smile.</li>
-          <li>Attitude: Enthusiastic with a positive mindset.</li>
-          <li>Experience: Not required but welcomed.</li>
-        </ol>
-
-        {/* SUBHEADING */}
-        <h2 className="sub-heading">The casting process</h2>
-
-        {/* PARAGRAPH */}
-        <p>
-          The model casting process offers an amazing opportunity for children
-          to show off their unique talents and style in a thrilling and
-          enjoyable environment, while also gaining valuable experience in the
-          fashion industry.
-        </p>
-
-        {/* BULLET POINTS */}
-        <ul className="bullet-list">
-          <li>
-            During the casting process, each child will impress judges with
-            confidence and individuality.
-          </li>
-          <li>
-            Selected children will receive runway training, fittings, and
-            rehearsal sessions.
-          </li>
-          <li>
-            At the fashion show, children will showcase outfits from various
-            designers.
-          </li>
-        </ul>
-
-        {/* SUBHEADING */}
-        <h2 className="sub-heading">What to expect after registration</h2>
-
-        {/* BULLET POINTS */}
-        <ul className="bullet-list">
-          <li>Submit and complete registration fee ($50).</li>
-          <li>Receive confirmation email.</li>
-          <li>Audition details sent two weeks before event.</li>
-          <li>Details include date, time, location and dress code.</li>
-        </ul>
-      </section>
       {/* Row 1: Name */}
       <div className="form-grid">
         <div className="input-group">
@@ -107,6 +50,31 @@ const KidsModelForm = () => {
           <input name="phone" />
         </div>
       </div>
+      {/* Upload Child Photo */}
+      <div className="input-group full-width">
+        <label>Upload Child Photo (Max 2MB)</label>
+        <input
+          type="file"
+          name="portfolioImage"
+          accept="image/*"
+          onChange={handleImageChange}
+        />
+      </div>
+
+      {preview && (
+        <div className="image-preview">
+          <img
+            src={preview}
+            alt="Preview"
+            style={{
+              maxWidth: "200px",
+              marginTop: "10px",
+              borderRadius: "8px",
+              border: "1px solid #ddd",
+            }}
+          />
+        </div>
+      )}
 
       {/* Gender + Parent */}
       <div className="form-grid">
