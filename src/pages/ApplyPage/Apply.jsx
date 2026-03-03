@@ -19,52 +19,49 @@ export const Apply = () => {
     try {
       const formData = new FormData(formRef.current);
 
-      // 🔹 Select template
       const selectedTemplate =
         activeTab === "DESIGNER"
           ? import.meta.env.VITE_EMAIL_TEMPLATE_DESIGNER
           : import.meta.env.VITE_EMAIL_TEMPLATE_MODELS;
 
-      // 🔹 Handle image upload (Cloudinary)
-      const file = formData.get("portfolioImage");
-      let imageUrl = "";
+      const files = formData.getAll("portfolioImages");
+      let imageUrls = [];
 
-      if (file && file.size > 0) {
-        if (file.size > 2 * 1024 * 1024) {
-          alert("Image must be under 2MB.");
-          setFormStatus("idle");
-          return;
+      for (const file of files) {
+        if (file && file.size > 0) {
+          if (file.size > 2 * 1024 * 1024) {
+            alert("Each image must be under 2MB.");
+            setFormStatus("idle");
+            return;
+          }
+
+          const cloudData = new FormData();
+          cloudData.append("file", file);
+          cloudData.append(
+            "upload_preset",
+            import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET,
+          );
+
+          const response = await fetch(
+            `https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUDINARY_CLOUD_NAME}/image/upload`,
+            {
+              method: "POST",
+              body: cloudData,
+            },
+          );
+
+          const result = await response.json();
+
+          if (result.secure_url) {
+            imageUrls.push(result.secure_url);
+          }
         }
-
-        const cloudData = new FormData();
-        cloudData.append("file", file);
-        cloudData.append(
-          "upload_preset",
-          import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET,
-        );
-
-        const cloudResponse = await fetch(
-          `https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUDINARY_CLOUD_NAME}/image/upload`,
-          {
-            method: "POST",
-            body: cloudData,
-          },
-        );
-
-        const cloudResult = await cloudResponse.json();
-
-        if (!cloudResult.secure_url) {
-          throw new Error("Cloudinary upload failed.");
-        }
-
-        imageUrl = cloudResult.secure_url;
       }
 
-      // 🔹 Convert form data (supports multi-select)
       const dataObject = {};
 
       for (let [key, value] of formData.entries()) {
-        if (key === "portfolioImage") continue;
+        if (key === "portfolioImages") continue;
 
         if (dataObject[key]) {
           if (Array.isArray(dataObject[key])) {
@@ -120,8 +117,15 @@ export const Apply = () => {
 
       dataObject.form_type = activeTab;
 
-      if (imageUrl) {
-        dataObject.portfolioImage = imageUrl;
+      if (imageUrls.length > 0) {
+        dataObject.portfolioImages = imageUrls
+          .map(
+            (url) =>
+              `<div style="margin-bottom:15px;">
+         <img src="${url}" width="300" style="border-radius:8px;border:1px solid #ddd;" />
+       </div>`,
+          )
+          .join("");
       }
 
       await emailjs.send(

@@ -2,18 +2,24 @@ import React, { useState } from "react";
 import "./style.css";
 
 const KidsModelForm = () => {
-  const [preview, setPreview] = useState(null);
+  const [preview, setPreview] = useState([]);
 
   const handleImageChange = (e) => {
-    const file = e.target.files[0];
+    const files = Array.from(e.target.files);
 
-    if (file) {
+    const previews = [];
+
+    files.forEach((file) => {
       const reader = new FileReader();
       reader.onloadend = () => {
-        setPreview(reader.result);
+        previews.push(reader.result);
+
+        if (previews.length === files.length) {
+          setPreview(previews);
+        }
       };
       reader.readAsDataURL(file);
-    }
+    });
   };
   const showLocations = [
     "New York",
@@ -55,24 +61,28 @@ const KidsModelForm = () => {
         <label>Upload Child Photo (Max 2MB)</label>
         <input
           type="file"
-          name="portfolioImage"
+          name="portfolioImages"
           accept="image/*"
+          multiple
           onChange={handleImageChange}
         />
       </div>
 
-      {preview && (
+      {preview.length > 0 && (
         <div className="image-preview">
-          <img
-            src={preview}
-            alt="Preview"
-            style={{
-              maxWidth: "200px",
-              marginTop: "10px",
-              borderRadius: "8px",
-              border: "1px solid #ddd",
-            }}
-          />
+          {preview.map((img, index) => (
+            <img
+              key={index}
+              src={img}
+              alt="Preview"
+              style={{
+                maxWidth: "150px",
+                margin: "10px",
+                borderRadius: "8px",
+                border: "1px solid #ddd",
+              }}
+            />
+          ))}
         </div>
       )}
 
