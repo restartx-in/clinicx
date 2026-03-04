@@ -101,7 +101,7 @@ export const Apply = () => {
         delete dataObject.designCount;
       }
 
-      if (activeTab === "KIDS_MODEL") {
+      if (activeTab === "KIDS_MODEL" || activeTab === "KIDS MODEL") {
         delete dataObject.firstName;
         delete dataObject.lastName;
         delete dataObject.fullName;
@@ -163,7 +163,7 @@ export const Apply = () => {
           <div className="interest-label">I am interested in</div>
 
           <div className="application-tabs">
-            {["DESIGNER", "MODEL", "KIDS_MODEL"].map((tab) => (
+            {["DESIGNER", "MODEL", "KIDS MODEL"].map((tab) => (
               <button
                 key={tab}
                 className={`tab-btn ${activeTab === tab ? "active" : ""}`}
@@ -194,7 +194,7 @@ export const Apply = () => {
               onSubmit={handleSubmit}
               className="contact-form"
             >
-              {activeTab === "KIDS_MODEL" && <KidsAuditionSection />}
+              {activeTab === "KIDS MODEL" && <KidsAuditionSection />}
 
               <div className="selection-group">
                 <div className="radio-options">
@@ -239,7 +239,7 @@ export const Apply = () => {
               {/* Dynamic Forms */}
               {activeTab === "DESIGNER" && <DesignerFrom />}
               {activeTab === "MODEL" && <ModelForm />}
-              {activeTab === "KIDS_MODEL" && <KidsModelForm />}
+              {activeTab === "KIDS MODEL" && <KidsModelForm />}
 
               {/* Submit */}
               <button

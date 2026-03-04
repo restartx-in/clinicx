@@ -283,6 +283,7 @@ $transition-speed: 0.3s;
       flex-direction: row; // force horizontal
       align-items: center;
       gap: 1rem;
+      padding-left: 50px;
 
       label {
         display: inline-block; // ✅ override block

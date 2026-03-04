@@ -2,8 +2,7 @@ import React from "react";
 import "./style.css";
 
 const DesignerForm = () => (
-  <div className="designer-form-container">
-    {/* --- SECTION: PERSONAL INFO --- */}
+  <div className="form-container">
     <div className="form-grid">
       <div className="input-group">
         <label>First Name</label>

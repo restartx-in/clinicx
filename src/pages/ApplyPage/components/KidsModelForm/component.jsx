@@ -32,7 +32,7 @@ const KidsModelForm = () => {
   // ];
 
   return (
-    <div className="kids-form-container">
+    <div className="form-container">
       {/* Row 1: Name */}
       <div className="form-grid">
         <div className="input-group">
