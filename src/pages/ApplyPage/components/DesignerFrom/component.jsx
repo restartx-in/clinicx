@@ -96,7 +96,7 @@ const DesignerForm = () => (
       </div>
     </div>
 
-    {/* --- NEW SECTION: EVENTS (From Image 2) --- */}
+    {/* --- NEW SECTION: EVENTS (From Image 2) ---
     <div className="input-group full-width">
       <label>Event Interested In</label>
       <div className="checkbox-stack">
@@ -119,7 +119,7 @@ const DesignerForm = () => (
           <span className="boxmark"></span>
         </label>
       </div>
-    </div>
+    </div> */}
 
     {/* --- SECTION: CATEGORIES --- */}
     <div className="input-group full-width">

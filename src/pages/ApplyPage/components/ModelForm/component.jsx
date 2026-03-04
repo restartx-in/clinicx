@@ -95,14 +95,11 @@ const ModelForm = () => {
         </div>
         <div className="input-group">
           <label>Location (State)</label>
-          <select name="locationState">
-            <option value="" disabled selected>
-              Select State
-            </option>
-            <option value="NY">New York</option>
-            <option value="CA">California</option>
-            {/* Add other states as needed */}
-          </select>
+          <input
+            name="locationState"
+            placeholder="Enter your state (e.g. New York)"
+            required
+          />
         </div>
       </div>
 

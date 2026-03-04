@@ -13,7 +13,7 @@ const KidsAuditionSection = () => {
       </p>
 
       <p>
-        NYK Runway is the place for all models, whether you’re experienced or
+        Runway is the place for all models, whether you’re experienced or
         thinking about trying something new.
       </p>
 

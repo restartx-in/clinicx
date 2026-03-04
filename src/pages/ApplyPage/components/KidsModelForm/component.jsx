@@ -21,15 +21,15 @@ const KidsModelForm = () => {
       reader.readAsDataURL(file);
     });
   };
-  const showLocations = [
-    "New York",
-    "Boston",
-    "Los Angeles (L.A)",
-    "San Francisco",
-    "Atlanta",
-    "Dallas",
-    "Austin",
-  ];
+  // const showLocations = [
+  //   "New York",
+  //   "Boston",
+  //   "Los Angeles (L.A)",
+  //   "San Francisco",
+  //   "Atlanta",
+  //   "Dallas",
+  //   "Austin",
+  // ];
 
   return (
     <div className="kids-form-container">
@@ -162,7 +162,7 @@ const KidsModelForm = () => {
       </div>
 
       {/* Applying Show (Checkbox Multi-select) */}
-      <div className="input-group full-width">
+      {/* <div className="input-group full-width">
         <label className="section-label">
           Which shows are you applying for?
         </label>
@@ -176,7 +176,7 @@ const KidsModelForm = () => {
             </label>
           ))}
         </div>
-      </div>
+      </div> */}
 
       {/* Previously Selected */}
       <div className="input-group full-width">
