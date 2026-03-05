@@ -179,7 +179,7 @@ const KidsModelForm = () => {
       </div> */}
 
       {/* Previously Selected */}
-      <div className="input-group full-width">
+      {/* <div className="input-group full-width">
         <label>Were you selected previously?</label>
 
         <div className="radio-horizontal">
@@ -193,7 +193,7 @@ const KidsModelForm = () => {
             <input type="radio" name="previouslySelected" value="No" />
           </label>
         </div>
-      </div>
+      </div> */}
 
       {/* Referral + Agency */}
       <div className="form-grid">

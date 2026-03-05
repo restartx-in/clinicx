@@ -19,65 +19,65 @@ export const RunwayAcademy = () => {
     {
       day: "Day 1",
       title: "Introduction & Grooming",
-      items: [
-        "Model industry basics",
-        "Posture, body alignment",
-        "Skin care, hair care",
-        "Etiquette & self-presentation",
-        "Confidence & mindset training",
-      ],
+      // items: [
+      //   "Model industry basics",
+      //   "Posture, body alignment",
+      //   "Skin care, hair care",
+      //   "Etiquette & self-presentation",
+      //   "Confidence & mindset training",
+      // ],
     },
     {
       day: "Day 2",
       title: "Runway Techniques",
-      items: [
-        "Catwalk fundamentals",
-        "Signature walk creation",
-        "Turns, poses, stage presence",
-        "Heel walking practice",
-        "Group formation walk training",
-      ],
+      // items: [
+      //   "Catwalk fundamentals",
+      //   "Signature walk creation",
+      //   "Turns, poses, stage presence",
+      //   "Heel walking practice",
+      //   "Group formation walk training",
+      // ],
     },
     {
       day: "Day 3",
       title: "Grooming & Runway",
-      items: [
-        "Ramp Walk fundamentals",
-        "Grooming",
-        "Walking practice, choreography",
-        "Group formation walk training",
-      ],
+      // items: [
+      //   "Ramp Walk fundamentals",
+      //   "Grooming",
+      //   "Walking practice, choreography",
+      //   "Group formation walk training",
+      // ],
     },
     {
       day: "Day 4",
       title: "Camera Training",
-      items: [
-        "Facial expressions (soft, fierce, editorial)",
-        "Posing for photos/videos",
-        "Reels practice & transitions",
-        "Outfit styling guidance",
-      ],
+      // items: [
+      //   "Facial expressions (soft, fierce, editorial)",
+      //   "Posing for photos/videos",
+      //   "Reels practice & transitions",
+      //   "Outfit styling guidance",
+      // ],
     },
     {
       day: "Day 5",
       title: "Pageant & Interview Skills",
-      items: [
-        "Q&A practice",
-        "Communication skills",
-        "Mock interviews",
-        "Stage introduction practice",
-      ],
+      // items: [
+      //   "Q&A practice",
+      //   "Communication skills",
+      //   "Mock interviews",
+      //   "Stage introduction practice",
+      // ],
     },
     {
       day: "Day 6",
       title: "Professional Photoshoot",
-      items: [
-        "2 outfit photoshoot",
-        "Individual walk video",
-        "Portfolio starter kit (6–10 edited pics)",
-        "Certificate distribution",
-        "Feedback & mentorship session",
-      ],
+      // items: [
+      //   "2 outfit photoshoot",
+      //   "Individual walk video",
+      //   "Portfolio starter kit (6–10 edited pics)",
+      //   "Certificate distribution",
+      //   "Feedback & mentorship session",
+      // ],
     },
   ];
 
@@ -241,9 +241,9 @@ export const RunwayAcademy = () => {
                 <div className="description">
                   <h3>{item.title}</h3>
                   <ul className="curriculum-list">
-                    {item.items.map((point, i) => (
+                    {/* {item.items.map((point, i) => (
                       <li key={i}>{point}</li>
-                    ))}
+                    ))} */}
                   </ul>
                 </div>
               </div>

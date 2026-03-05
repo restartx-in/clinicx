@@ -145,7 +145,7 @@ const ModelForm = () => {
         </div>
       </div>
 
-      {/* Row 6: Previous Selection (Full Width) */}
+      {/* Row 6: Previous Selection (Full Width)
       <div className="input-group full-width">
         <label>Were you selected to walk for Runway 7 Fashion at NYFW?</label>
         <select name="previouslySelected" defaultValue="">
@@ -155,7 +155,7 @@ const ModelForm = () => {
           <option value="Yes">Yes</option>
           <option value="No">No</option>
         </select>
-      </div>
+      </div> */}
     </div>
   );
 };
